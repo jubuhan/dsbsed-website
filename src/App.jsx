@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
@@ -11,7 +11,7 @@ import './App.css'
 
 function App() {
   return (
-    <Router basename="/dsbsed-website">
+    <Router>
       <ScrollToTop />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
         <Navbar />
