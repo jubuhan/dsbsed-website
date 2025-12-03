@@ -10,25 +10,25 @@ const AboutPage = () => {
       name: 'Jubuhan',
       role: 'Co-Founder',
       image: jubuhan,
-      bio: '[Brief bio or expertise]'
+      bio: 'full-stack flutter and web developer'
     },
     {
-      name: 'Alan',
+      name: 'Alan j babu',
       role: 'Co-Founder',
       image: alan,
-      bio: '[Brief bio or expertise]'
+      bio: 'flutter developer'
     },
     {
-      name: 'Kali',
+      name: 'Kali das',
       role: 'Co-Founder',
       image: kali,
-      bio: '[Brief bio or expertise]'
+      bio: 'java full stack developer'
     },
     {
       name: 'Adhil',
       role: 'Co-Founder',
       image: adhil,
-      bio: '[Brief bio or expertise]'
+      bio: 'java full stack developer'
     }
   ]
 
