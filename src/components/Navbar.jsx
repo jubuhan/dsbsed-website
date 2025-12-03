@@ -7,7 +7,7 @@ const Navbar = () => {
   const location = useLocation()
 
   const navItems = [
-    { name: 'Home', path: '/dsbsed-website' },
+    { name: 'Home', path: '/' },
     { name: 'Services', path: '/services' },
     { name: 'Projects', path: '/projects' },
     { name: 'About', path: '/about' },
