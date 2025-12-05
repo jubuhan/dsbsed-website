@@ -3,9 +3,16 @@ import jubuhan from '../assets/founders/jubuhan.png'
 import alan from '../assets/founders/alan.png'
 import kali from '../assets/founders/kali.png'
 import adhil from '../assets/founders/adhil.png'
+import amjed from '../assets/team/amjed.png'
+import anjali from '../assets/team/anjali.png'
+import darshana from '../assets/team/darshana.png'
+import joyal from '../assets/team/joyal.png'
+import mehrin from '../assets/team/mehrin.png'
+import ramees from '../assets/team/ramees.png'
+import aina from '../assets/team/aina.png'
 
 const AboutPage = () => {
-  const team = [
+  const founders = [
     {
       name: 'Jubuhan',
       role: 'Co-Founder',
@@ -19,7 +26,7 @@ const AboutPage = () => {
       bio: 'flutter developer'
     },
     {
-      name: 'Kali das',
+      name: 'Kali Das',
       role: 'Co-Founder',
       image: kali,
       bio: 'java full stack developer'
@@ -30,6 +37,53 @@ const AboutPage = () => {
       image: adhil,
       bio: 'java full stack developer'
     }
+  ]
+
+  const team = [
+    {
+      name: 'Ain Aina',
+      role: 'Marketing',
+      image: aina,
+      bio: 'social media manager'
+    },
+    {
+      name: 'Amjed Usman',
+      role: 'Developer',
+      image: amjed,
+      bio: 'django developer'
+    },
+    {
+      name: 'Anjali',
+      role: 'Developer',
+      image: anjali,
+      bio: 'ML developer'
+    },
+    {
+      name: 'Darshana Davies',
+      role: 'Developer',
+      image: darshana,
+      bio: 'python full stack '
+    },
+    {
+      name: 'Joyal Fracis',
+      role: 'Developer',
+      image: joyal,
+      bio: 'React developer'
+    },
+    {
+      name: 'Mehrin Firos',
+      role: 'Developer',
+      image: mehrin,
+      bio: 'python developer'
+    },
+    {
+      name: 'Ramees',
+      role: 'Developer',
+      image: ramees,
+      bio: '.net and angular developer'
+    },
+    
+   
   ]
 
   const timeline = [
@@ -158,9 +212,42 @@ const AboutPage = () => {
       {/* Team Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Founders */}
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              Meet Our Team
+              Our Founders
+            </h2>
+            <p className="text-xl text-slate-600">
+              The visionaries behind our company
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+            {founders.map((member, index) => (
+              <div
+                key={index}
+                className="text-center group"
+              >
+                <div className="mb-4 relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-100 to-purple-100">
+                  <img 
+                    src={member.image} 
+                    alt={member.name}
+                    className="w-full h-64 object-contain group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold text-slate-900 mb-1">
+                  {member.name}
+                </h3>
+                <p className="text-blue-600 font-medium mb-2">{member.role}</p>
+                <p className="text-slate-600 text-sm">{member.bio}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Team Members */}
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              Our Team
             </h2>
             <p className="text-xl text-slate-600">
               The talented people behind our success
@@ -174,11 +261,17 @@ const AboutPage = () => {
                 className="text-center group"
               >
                 <div className="mb-4 relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-100 to-purple-100">
-                  <img 
-                    src={member.image} 
-                    alt={member.name}
-                    className="w-full h-64 object-contain group-hover:scale-110 transition-transform duration-300"
-                  />
+                  {member.image ? (
+                    <img 
+                      src={member.image} 
+                      alt={member.name}
+                      className="w-full h-64 object-contain group-hover:scale-110 transition-transform duration-300"
+                    />
+                  ) : (
+                    <div className="w-full h-64 flex items-center justify-center">
+                      <span className="text-slate-400">[Photo Coming Soon]</span>
+                    </div>
+                  )}
                 </div>
                 <h3 className="text-xl font-semibold text-slate-900 mb-1">
                   {member.name}
