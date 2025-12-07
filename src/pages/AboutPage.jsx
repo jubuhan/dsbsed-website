@@ -1,4 +1,4 @@
-import { Target, Heart, Zap, Users } from 'lucide-react'
+import { Target, Heart, Zap, Users, Sparkles, Code2, Rocket, Coffee } from 'lucide-react'
 import jubuhan from '../assets/founders/jubuhan.png'
 import alan from '../assets/founders/alan.png'
 import kali from '../assets/founders/kali.png'
@@ -17,25 +17,29 @@ const AboutPage = () => {
       name: 'Jubuhan',
       role: 'Co-Founder',
       image: jubuhan,
-      bio: 'full-stack flutter and web developer'
+      bio: 'full-stack app and web developer',
+      color: 'from-blue-500 to-cyan-500'
     },
     {
       name: 'Alan j babu',
       role: 'Co-Founder',
       image: alan,
-      bio: 'flutter developer'
+      bio: 'flutter developer',
+      color: 'from-purple-500 to-pink-500'
     },
     {
       name: 'Kali Das',
       role: 'Co-Founder',
       image: kali,
-      bio: 'java full stack developer'
+      bio: 'java full stack developer',
+      color: 'from-orange-500 to-red-500'
     },
     {
       name: 'Adhil',
       role: 'Co-Founder',
       image: adhil,
-      bio: 'java full stack developer'
+      bio: 'java full stack developer',
+      color: 'from-green-500 to-teal-500'
     }
   ]
 
@@ -82,242 +86,246 @@ const AboutPage = () => {
       image: ramees,
       bio: '.net and angular developer'
     },
-    
-   
-  ]
-
-  const timeline = [
-    {
-      year: '[YEAR 1]',
-      title: 'The Beginning',
-      description: 'Started as a small team with a big dream to build innovative digital products'
-    },
-    {
-      year: '[YEAR 2]',
-      title: 'First Major Client',
-      description: 'Delivered our first enterprise-level project and expanded the team'
-    },
-    {
-      year: '[YEAR 3]',
-      title: 'Product Launch',
-      description: 'Launched our first internal product that reached [X]K+ users'
-    },
-    {
-      year: '[YEAR 4]',
-      title: 'Studio Expansion',
-      description: 'Grew to a team of [X]+ talented developers and designers'
-    },
-    {
-      year: '[CURRENT YEAR]',
-      title: 'Innovation Hub',
-      description: 'Established as a leading tech studio building both client and internal products'
-    }
   ]
 
   const values = [
     {
-      icon: <Target className="w-8 h-8" />,
+      icon: <Target className="w-7 h-7" />,
       title: 'Mission-Driven',
-      description: 'Every project we take on aligns with our mission to create meaningful impact'
+      description: 'Every project aligns with our mission to create meaningful impact',
+      color: 'from-blue-500 to-blue-600'
     },
     {
-      icon: <Heart className="w-8 h-8" />,
+      icon: <Heart className="w-7 h-7" />,
       title: 'User-Centric',
-      description: 'We put users first in every design and development decision'
+      description: 'Users first in every design and development decision',
+      color: 'from-pink-500 to-rose-600'
     },
     {
-      icon: <Zap className="w-8 h-8" />,
+      icon: <Zap className="w-7 h-7" />,
       title: 'Innovation First',
-      description: 'We constantly explore new technologies and methodologies'
+      description: 'Constantly exploring new technologies and methodologies',
+      color: 'from-yellow-500 to-orange-600'
     },
     {
-      icon: <Users className="w-8 h-8" />,
+      icon: <Users className="w-7 h-7" />,
       title: 'Collaborative',
-      description: 'We work closely with clients as partners, not just vendors'
+      description: 'Working closely with clients as partners, not vendors',
+      color: 'from-green-500 to-emerald-600'
     }
   ]
 
-  return (
-    <div className="animate-fade-in">
-      {/* Hero Section */}
-      <section className="py-20 lg:py-32 bg-gradient-to-br from-blue-600 to-purple-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-            About Us
-          </h1>
-          <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
-            We're a team of passionate builders creating digital products that matter
-          </p>
-        </div>
-      </section>
+  const stats = [
+    { number: '50+', label: 'Projects Delivered', icon: <Rocket className="w-6 h-6" /> },
+    { number: '30+', label: 'Happy Clients', icon: <Heart className="w-6 h-6" /> },
+    { number: '5+', label: 'Products Built', icon: <Code2 className="w-6 h-6" /> },
+    { number: '11', label: 'Team Members', icon: <Coffee className="w-6 h-6" /> },
+  ]
 
-      {/* Story Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-              Our Story
-            </h2>
-            <div className="prose prose-lg mx-auto text-slate-600">
-              <p className="mb-4">
-                [YOUR STARTUP NAME] was born from a simple idea: <strong>what if a tech studio could 
-                build amazing products for clients while also creating its own innovative solutions?</strong>
-              </p>
-              <p className="mb-4">
-                Founded in [YEAR], we started as a small team of developers and designers who were 
-                passionate about building digital products that solve real problems. We weren't satisfied 
-                with just doing client work — we wanted to innovate, experiment, and build our own products too.
-              </p>
-              <p>
-                Today, we're proud to work with amazing clients while also developing our own suite of 
-                products. This dual approach keeps us sharp, innovative, and always learning.
-              </p>
+  return (
+    <div className="animate-fade-in overflow-hidden">
+      {/* Hero Section - Modern Glassmorphism */}
+      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+          <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float"></div>
+          <div className="absolute top-40 right-20 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float" style={{ animationDelay: '2s' }}></div>
+        </div>
+        
+        {/* Grid Pattern Overlay */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-8">
+            <Sparkles className="w-4 h-4 text-yellow-400 mr-2" />
+            <span className="text-white/80 text-sm">Building the future, one product at a time</span>
+          </div>
+          
+          <h1 className="text-6xl md:text-8xl font-bold text-white mb-6 tracking-tight">
+            We Are <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Creators</span>
+          </h1>
+          
+          <p className="text-xl md:text-2xl text-white/70 max-w-3xl mx-auto leading-relaxed">
+            A passionate team of developers, designers, and dreamers building digital products that matter
+          </p>
+
+          {/* Scroll Indicator */}
+          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+            <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+              <div className="w-1.5 h-3 bg-white/50 rounded-full mt-2 animate-bounce"></div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Mission Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+      {/* Story Section - Split Design */}
+      <section className="py-24 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-              Our Mission
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Left - Visual */}
+            <div className="relative">
+              <div className="aspect-square rounded-3xl bg-gradient-to-br from-blue-100 to-purple-100 p-8 relative overflow-hidden">
+                <div className="absolute top-4 right-4 w-20 h-20 bg-yellow-400 rounded-full opacity-80"></div>
+                <div className="absolute bottom-8 left-8 w-32 h-32 bg-blue-500 rounded-3xl opacity-60 rotate-12"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-purple-500 rounded-full opacity-40"></div>
+                
+                <div className="relative z-10 h-full flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="text-8xl font-bold text-slate-800 mb-2">2024</div>
+                    <div className="text-slate-600">Year Founded</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right - Content */}
+            <div>
+              <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Our Story</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-4 mb-6">
+                Born from a <span className="gradient-text">simple idea</span>
+              </h2>
+              <div className="space-y-4 text-slate-600 text-lg leading-relaxed">
+                <p>
+                  What if a tech studio could build amazing products for clients while also creating its own innovative solutions?
+                </p>
+                <p>
+                  We started as a small team of developers and designers passionate about building digital products that solve real problems. We weren't satisfied with just doing client work — we wanted to innovate, experiment, and build our own products too.
+                </p>
+                <p>
+                  Today, we're proud to work with amazing clients while also developing our own suite of products. This dual approach keeps us sharp, innovative, and always learning.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Values Section - Bento Grid */}
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">What Drives Us</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-4">
+              Our Core Values
             </h2>
-            <p className="text-2xl text-slate-700 font-semibold max-w-4xl mx-auto leading-relaxed">
-              "To build simple, powerful digital products that solve real problems — 
-              for our clients and for the world."
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {values.map((value, index) => (
               <div
                 key={index}
-                className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300"
+                className="group relative bg-white rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 overflow-hidden border border-slate-100"
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 text-white rounded-xl flex items-center justify-center mb-4">
-                  {value.icon}
+                {/* Gradient Background on Hover */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${value.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
+                
+                <div className="relative z-10">
+                  <div className={`w-14 h-14 bg-gradient-to-br ${value.color} text-white rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                    {value.icon}
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                    {value.title}
+                  </h3>
+                  <p className="text-slate-600 text-lg">{value.description}</p>
                 </div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-2">
-                  {value.title}
-                </h3>
-                <p className="text-slate-600">{value.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-20 bg-white">
+      {/* Founders Section - Premium Cards */}
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Founders */}
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              Our Founders
+            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Leadership</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-4 mb-4">
+              Meet Our Founders
             </h2>
-            <p className="text-xl text-slate-600">
-              The visionaries behind our company
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-            {founders.map((member, index) => (
-              <div
-                key={index}
-                className="text-center group"
-              >
-                <div className="mb-4 relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-100 to-purple-100">
-                  <img 
-                    src={member.image} 
-                    alt={member.name}
-                    className="w-full h-64 object-contain group-hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-1">
-                  {member.name}
-                </h3>
-                <p className="text-blue-600 font-medium mb-2">{member.role}</p>
-                <p className="text-slate-600 text-sm">{member.bio}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Team Members */}
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              Our Team
-            </h2>
-            <p className="text-xl text-slate-600">
-              The talented people behind our success
-            </p>
+            <p className="text-xl text-slate-600">The visionaries who started it all</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member, index) => (
+            {founders.map((member, index) => (
               <div
                 key={index}
-                className="text-center group"
+                className="group relative"
               >
-                <div className="mb-4 relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-100 to-purple-100">
-                  {member.image ? (
+                {/* Card */}
+                <div className="relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                  {/* Image Container */}
+                  <div className={`relative h-72 bg-gradient-to-br ${member.color} overflow-hidden`}>
+                    <div className="absolute inset-0 bg-black/10"></div>
                     <img 
                       src={member.image} 
                       alt={member.name}
-                      className="w-full h-64 object-contain group-hover:scale-110 transition-transform duration-300"
+                      className="w-full h-full object-contain relative z-10 group-hover:scale-105 transition-transform duration-500"
                     />
-                  ) : (
-                    <div className="w-full h-64 flex items-center justify-center">
-                      <span className="text-slate-400">[Photo Coming Soon]</span>
-                    </div>
-                  )}
+                    
+                    {/* Decorative Elements */}
+                    <div className="absolute top-4 right-4 w-12 h-12 border-2 border-white/30 rounded-full"></div>
+                    <div className="absolute bottom-4 left-4 w-8 h-8 bg-white/20 rounded-lg rotate-45"></div>
+                  </div>
+
+                  {/* Info */}
+                  <div className="p-6 text-center">
+                    <h3 className="text-xl font-bold text-slate-900 mb-1">{member.name}</h3>
+                    <p className={`text-transparent bg-gradient-to-r ${member.color} bg-clip-text font-semibold mb-2`}>{member.role}</p>
+                    <p className="text-slate-500 text-sm">{member.bio}</p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-1">
-                  {member.name}
-                </h3>
-                <p className="text-blue-600 font-medium mb-2">{member.role}</p>
-                <p className="text-slate-600 text-sm">{member.bio}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Timeline Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Team Section - Modern Grid */}
+      <section className="py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              Our Journey
+            <span className="text-blue-400 font-semibold text-sm uppercase tracking-wider">The Squad</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-4">
+              Our Amazing Team
             </h2>
-            <p className="text-xl text-slate-600">
-              Key milestones in our story
-            </p>
+            <p className="text-xl text-slate-400">The talented people making it happen</p>
           </div>
 
-          <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-blue-200 hidden md:block"></div>
-
-            {timeline.map((item, index) => (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {team.map((member, index) => (
               <div
                 key={index}
-                className={`relative mb-12 md:mb-16 ${
-                  index % 2 === 0 ? 'md:pr-1/2 md:text-right' : 'md:pl-1/2 md:ml-auto'
-                }`}
+                className="group"
               >
-                <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 md:max-w-md">
-                  {/* Timeline Dot */}
-                  <div className="hidden md:block absolute top-6 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow-lg"></div>
-                  
-                  <div className="text-3xl font-bold text-blue-600 mb-2">
-                    {item.year}
+                <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 hover:border-white/30 transition-all duration-300 hover:bg-white/10">
+                  {/* Image */}
+                  <div className="relative h-52 overflow-hidden">
+                    {member.image ? (
+                      <img 
+                        src={member.image} 
+                        alt={member.name}
+                        className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center bg-slate-800">
+                        <span className="text-slate-500 text-sm">Coming Soon</span>
+                      </div>
+                    )}
+                    
+                    {/* Overlay on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60"></div>
                   </div>
-                  <h3 className="text-xl font-semibold text-slate-900 mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-slate-600">{item.description}</p>
+
+                  {/* Info */}
+                  <div className="p-4">
+                    <h3 className="text-white font-semibold text-lg">{member.name}</h3>
+                    <p className="text-blue-400 text-sm font-medium">{member.role}</p>
+                    <p className="text-slate-400 text-xs mt-1">{member.bio}</p>
+                  </div>
                 </div>
               </div>
             ))}
@@ -325,27 +333,47 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 to-purple-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-5xl font-bold text-white mb-2">[XX]+</div>
-              <p className="text-blue-100">Projects Delivered</p>
-            </div>
-            <div>
-              <div className="text-5xl font-bold text-white mb-2">[XX]+</div>
-              <p className="text-blue-100">Happy Clients</p>
-            </div>
-            <div>
-              <div className="text-5xl font-bold text-white mb-2">[X]+</div>
-              <p className="text-blue-100">Internal Products</p>
-            </div>
-            <div>
-              <div className="text-5xl font-bold text-white mb-2">[X]+</div>
-              <p className="text-blue-100">Team Members</p>
-            </div>
+      {/* Stats Section - Glassmorphism */}
+      <section className="py-20 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 relative overflow-hidden">
+        {/* Animated Shapes */}
+        <div className="absolute top-0 left-0 w-full h-full">
+          <div className="absolute top-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
+          <div className="absolute bottom-10 right-10 w-60 h-60 bg-white/10 rounded-full blur-2xl"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center group">
+                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+                  <div className="flex justify-center mb-4 text-white/80">
+                    {stat.icon}
+                  </div>
+                  <div className="text-4xl md:text-5xl font-bold text-white mb-2">{stat.number}</div>
+                  <p className="text-white/70 text-sm">{stat.label}</p>
+                </div>
+              </div>
+            ))}
           </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+            Want to join our team?
+          </h2>
+          <p className="text-xl text-slate-600 mb-8">
+            We're always looking for talented people who share our passion for building great products.
+          </p>
+          <a
+            href="/contact"
+            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300"
+          >
+            <span>Get In Touch</span>
+            <Rocket className="ml-2 w-5 h-5" />
+          </a>
         </div>
       </section>
     </div>

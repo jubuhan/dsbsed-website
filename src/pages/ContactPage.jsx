@@ -1,251 +1,309 @@
 import { useState } from 'react'
-import { Mail, MessageSquare, MapPin, Clock, Send, Linkedin, Instagram, Github } from 'lucide-react'
+import { Mail, Phone, MapPin, Send, MessageSquare, Clock, CheckCircle, ArrowRight, Sparkles, Linkedin, Twitter, Instagram, Github, ChevronDown } from 'lucide-react'
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    projectType: '',
+    subject: '',
+    budget: '',
     message: ''
   })
-
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+  const [openFaq, setOpenFaq] = useState(null)
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
+    setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setIsSubmitting(true)
-    
-    // [TODO: Add your form submission logic here]
-    // For now, this is just a placeholder
     console.log('Form submitted:', formData)
-    
-    setTimeout(() => {
-      alert('Thank you! We will get back to you soon.')
-      setIsSubmitting(false)
-      setFormData({ name: '', email: '', projectType: '', message: '' })
-    }, 1000)
+    setSubmitted(true)
+    setTimeout(() => setSubmitted(false), 5000)
   }
 
   const contactInfo = [
     {
       icon: <Mail className="w-6 h-6" />,
-      title: 'Email',
-      value: '[YOUR_EMAIL@example.com]',
-      link: 'mailto:[YOUR_EMAIL@example.com]'
+      title: 'Email Us',
+      value: 'hello@dsbsed.studio',
+      link: 'mailto:hello@dsbsed.studio',
+      color: 'from-blue-500 to-cyan-500'
     },
     {
-      icon: <MessageSquare className="w-6 h-6" />,
-      title: 'WhatsApp',
-      value: '[+XX XXX XXX XXXX]',
-      link: '[WHATSAPP_LINK]'
+      icon: <Phone className="w-6 h-6" />,
+      title: 'Call Us',
+      value: '+91 XXXXX XXXXX',
+      link: 'tel:+91XXXXXXXXXX',
+      color: 'from-purple-500 to-pink-500'
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: 'Location',
-      value: '[City, Country]',
-      link: '#'
+      value: 'India (Remote-First)',
+      link: '#',
+      color: 'from-orange-500 to-red-500'
     },
     {
       icon: <Clock className="w-6 h-6" />,
       title: 'Response Time',
-      value: 'Within a few hours',
-      link: '#'
+      value: 'Within 24 hours',
+      link: '#',
+      color: 'from-green-500 to-teal-500'
     }
   ]
 
-  const socialLinks = [
+  const socials = [
+    { icon: <Twitter className="w-5 h-5" />, link: '#', label: 'Twitter' },
+    { icon: <Linkedin className="w-5 h-5" />, link: '#', label: 'LinkedIn' },
+    { icon: <Instagram className="w-5 h-5" />, link: '#', label: 'Instagram' },
+    { icon: <Github className="w-5 h-5" />, link: '#', label: 'GitHub' }
+  ]
+
+  const faqs = [
     {
-      icon: <Linkedin className="w-6 h-6" />,
-      name: 'LinkedIn',
-      link: '[LINKEDIN_URL]',
-      color: 'hover:bg-blue-600'
+      question: 'What is your typical project timeline?',
+      answer: 'Project timelines vary based on complexity. A simple website takes 2-4 weeks, while a full mobile app might take 2-4 months. We\'ll provide a detailed timeline after understanding your requirements.'
     },
     {
-      icon: <Instagram className="w-6 h-6" />,
-      name: 'Instagram',
-      link: '[INSTAGRAM_URL]',
-      color: 'hover:bg-pink-600'
+      question: 'Do you offer ongoing support after project completion?',
+      answer: 'Yes! We offer maintenance packages that include bug fixes, updates, and minor feature additions. We believe in building long-term relationships with our clients.'
     },
     {
-      icon: <Github className="w-6 h-6" />,
-      name: 'GitHub',
-      link: '[GITHUB_URL]',
-      color: 'hover:bg-slate-800'
+      question: 'How do you handle project communication?',
+      answer: 'We use Slack/Discord for daily communication, weekly video calls for progress updates, and project management tools like Notion or Trello for task tracking.'
+    },
+    {
+      question: 'What is your pricing model?',
+      answer: 'We offer both fixed-price projects and hourly rates depending on the project scope. For well-defined projects, we prefer fixed pricing for transparency.'
+    },
+    {
+      question: 'Can you work with our existing team?',
+      answer: 'Absolutely! We often collaborate with in-house teams, providing additional expertise or handling specific parts of a project while integrating seamlessly with your workflow.'
     }
+  ]
+
+  const budgetOptions = [
+    'Under $5,000',
+    '$5,000 - $10,000',
+    '$10,000 - $25,000',
+    '$25,000 - $50,000',
+    '$50,000+'
   ]
 
   return (
-    <div className="animate-fade-in">
+    <div className="animate-fade-in overflow-hidden">
       {/* Hero Section */}
-      <section className="py-20 lg:py-32 bg-gradient-to-br from-blue-600 to-purple-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-            Let's Talk
+      <section className="relative min-h-[70vh] flex items-center justify-center bg-slate-900 overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 -left-20 w-80 h-80 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
+          <div className="absolute bottom-20 -right-20 w-80 h-80 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-600 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-float" style={{ animationDelay: '2s' }}></div>
+        </div>
+
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
+
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 mb-8">
+            <Sparkles className="w-4 h-4 text-yellow-400 mr-2" />
+            <span className="text-white/70 text-sm">Let's Connect</span>
+          </div>
+
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+            Get In <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Touch</span>
           </h1>
-          <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
-            Have a project in mind? We'd love to hear about it. Get in touch and let's build something amazing together.
+          <p className="text-xl text-white/60 max-w-2xl mx-auto">
+            Have a project in mind? We'd love to hear from you. Let's discuss how we can help bring your ideas to life.
           </p>
         </div>
       </section>
 
-      {/* Main Contact Section */}
-      <section className="py-20 bg-white">
+      {/* Contact Info Cards */}
+      <section className="py-16 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {contactInfo.map((info, index) => (
+              <a
+                key={index}
+                href={info.link}
+                className="group relative bg-slate-50 rounded-2xl p-6 hover:shadow-xl transition-all duration-500 hover:-translate-y-1 overflow-hidden"
+              >
+                {/* Background Gradient on Hover */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${info.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
+                
+                <div className="relative z-10 flex items-start gap-4">
+                  <div className={`w-12 h-12 bg-gradient-to-br ${info.color} text-white rounded-xl flex items-center justify-center flex-shrink-0`}>
+                    {info.icon}
+                  </div>
+                  <div>
+                    <div className="text-sm text-slate-500 mb-1">{info.title}</div>
+                    <div className="font-semibold text-slate-900">{info.value}</div>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Main Contact Section */}
+      <section className="py-24 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            {/* Left Side - Form */}
             <div>
-              <div className="mb-8">
-                <h2 className="text-3xl font-bold text-slate-900 mb-4">
-                  Send Us a Message
-                </h2>
-                <p className="text-slate-600">
-                  Fill out the form below and we'll get back to you within a few hours.
-                </p>
-              </div>
+              <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Contact Form</span>
+              <h2 className="text-4xl font-bold text-slate-900 mt-4 mb-6">
+                Tell Us About Your Project
+              </h2>
+              <p className="text-slate-600 mb-8">
+                Fill out the form below and we'll get back to you within 24 hours.
+              </p>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-slate-700 mb-2">
-                    Your Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
-                    placeholder="John Doe"
-                  />
+              {submitted ? (
+                <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center">
+                  <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <CheckCircle className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-green-800 mb-2">Message Sent!</h3>
+                  <p className="text-green-700">Thank you for reaching out. We'll get back to you soon.</p>
                 </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-slate-700 mb-2">
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
-                    placeholder="john@example.com"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="projectType" className="block text-sm font-semibold text-slate-700 mb-2">
-                    Project Type
-                  </label>
-                  <select
-                    id="projectType"
-                    name="projectType"
-                    value={formData.projectType}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
-                  >
-                    <option value="">Select a project type</option>
-                    <option value="mobile-app">Mobile App Development</option>
-                    <option value="website">Website Development</option>
-                    <option value="ui-ux">UI/UX Design</option>
-                    <option value="consulting">Consulting</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-semibold text-slate-700 mb-2">
-                    Project Details *
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    required
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows="6"
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-none"
-                    placeholder="Tell us about your project..."
-                  ></textarea>
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-all duration-200 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
-                >
-                  {isSubmitting ? (
-                    'Sending...'
-                  ) : (
-                    <>
-                      Send Message <Send className="ml-2 w-5 h-5" />
-                    </>
-                  )}
-                </button>
-              </form>
-            </div>
-
-            {/* Contact Information */}
-            <div>
-              <div className="mb-8">
-                <h2 className="text-3xl font-bold text-slate-900 mb-4">
-                  Contact Information
-                </h2>
-                <p className="text-slate-600">
-                  Prefer to reach out directly? Use any of the methods below.
-                </p>
-              </div>
-
-              <div className="space-y-6 mb-12">
-                {contactInfo.map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex items-start space-x-4 p-4 bg-gradient-to-br from-slate-50 to-blue-50 rounded-lg"
-                  >
-                    <div className="w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center flex-shrink-0">
-                      {item.icon}
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-medium text-slate-700 mb-2">
+                        Your Name *
+                      </label>
+                      <input
+                        type="text"
+                        name="name"
+                        required
+                        value={formData.name}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all outline-none bg-white"
+                        placeholder="John Doe"
+                      />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-slate-900 mb-1">
-                        {item.title}
-                      </h3>
-                      {item.link !== '#' ? (
-                        <a
-                          href={item.link}
-                          className="text-blue-600 hover:text-blue-700"
-                        >
-                          {item.value}
-                        </a>
-                      ) : (
-                        <p className="text-slate-600">{item.value}</p>
-                      )}
+                      <label className="block text-sm font-medium text-slate-700 mb-2">
+                        Email Address *
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        required
+                        value={formData.email}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all outline-none bg-white"
+                        placeholder="john@example.com"
+                      />
                     </div>
                   </div>
-                ))}
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-medium text-slate-700 mb-2">
+                        Subject *
+                      </label>
+                      <input
+                        type="text"
+                        name="subject"
+                        required
+                        value={formData.subject}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all outline-none bg-white"
+                        placeholder="Mobile App Development"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-slate-700 mb-2">
+                        Budget Range
+                      </label>
+                      <select
+                        name="budget"
+                        value={formData.budget}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all outline-none bg-white appearance-none"
+                      >
+                        <option value="">Select budget</option>
+                        {budgetOptions.map((option, i) => (
+                          <option key={i} value={option}>{option}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">
+                      Project Details *
+                    </label>
+                    <textarea
+                      name="message"
+                      required
+                      rows={6}
+                      value={formData.message}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all outline-none resize-none bg-white"
+                      placeholder="Tell us about your project, goals, and timeline..."
+                    ></textarea>
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
+                  >
+                    <Send className="w-5 h-5" />
+                    Send Message
+                  </button>
+                </form>
+              )}
+            </div>
+
+            {/* Right Side - Visual & Social */}
+            <div className="space-y-8">
+              {/* Visual Card */}
+              <div className="relative bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 rounded-3xl p-8 overflow-hidden">
+                {/* Pattern */}
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:30px_30px]"></div>
+                
+                {/* Decorative Elements */}
+                <div className="absolute top-6 right-6 w-20 h-20 border-2 border-white/20 rounded-full"></div>
+                <div className="absolute bottom-6 left-6 w-16 h-16 bg-white/10 rounded-xl rotate-12"></div>
+
+                <div className="relative z-10">
+                  <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6">
+                    <MessageSquare className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-4">
+                    Let's Start a Conversation
+                  </h3>
+                  <p className="text-white/70 mb-6">
+                    Whether you have a detailed project brief or just a rough idea, we're here to help shape it into reality.
+                  </p>
+                  <div className="flex items-center text-white/80">
+                    <Clock className="w-5 h-5 mr-2" />
+                    <span>Average response time: 2-4 hours</span>
+                  </div>
+                </div>
               </div>
 
               {/* Social Links */}
-              <div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-4">
-                  Follow Us
-                </h3>
-                <div className="flex space-x-4">
-                  {socialLinks.map((social, index) => (
+              <div className="bg-white rounded-2xl p-8 shadow-lg">
+                <h3 className="text-xl font-bold text-slate-900 mb-4">Connect With Us</h3>
+                <p className="text-slate-600 mb-6">
+                  Follow us on social media for updates, insights, and behind-the-scenes content.
+                </p>
+                <div className="flex gap-3">
+                  {socials.map((social, index) => (
                     <a
                       key={index}
                       href={social.link}
-                      className={`w-12 h-12 bg-slate-900 text-white rounded-lg flex items-center justify-center transition-all duration-200 ${social.color} hover:scale-110`}
-                      title={social.name}
+                      aria-label={social.label}
+                      className="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center text-slate-600 hover:bg-gradient-to-br hover:from-blue-600 hover:to-purple-600 hover:text-white transition-all duration-300"
                     >
                       {social.icon}
                     </a>
@@ -253,14 +311,16 @@ const ContactPage = () => {
                 </div>
               </div>
 
-              {/* Response Time Notice */}
-              <div className="mt-12 p-6 bg-green-50 border-l-4 border-green-500 rounded-lg">
-                <p className="text-green-800 font-semibold mb-1">
-                  Quick Response Guaranteed
+              {/* Quick Contact */}
+              <div className="bg-slate-900 rounded-2xl p-8">
+                <h3 className="text-xl font-bold text-white mb-4">Prefer a Quick Chat?</h3>
+                <p className="text-white/60 mb-6">
+                  Schedule a 15-minute call to discuss your project directly with our team.
                 </p>
-                <p className="text-green-700 text-sm">
-                  We usually reply within a few hours during business days. For urgent matters, please use WhatsApp.
-                </p>
+                <button className="w-full px-6 py-3 bg-white text-slate-900 rounded-xl font-semibold hover:bg-white/90 transition-all flex items-center justify-center gap-2">
+                  Schedule a Call
+                  <ArrowRight className="w-5 h-5" />
+                </button>
               </div>
             </div>
           </div>
@@ -268,45 +328,70 @@ const ContactPage = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">
-              Common Questions
+      <section className="py-24 bg-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">FAQ</span>
+            <h2 className="text-4xl font-bold text-slate-900 mt-4">
+              Frequently Asked Questions
             </h2>
-            <p className="text-slate-600">
-              Quick answers to questions you might have
-            </p>
           </div>
 
-          <div className="space-y-6">
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-lg font-semibold text-slate-900 mb-2">
-                How long does a typical project take?
-              </h3>
-              <p className="text-slate-600">
-                [Project timelines vary based on scope. A simple website typically takes 2-4 weeks, while a complex mobile app might take 2-3 months.]
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-lg font-semibold text-slate-900 mb-2">
-                What's your pricing structure?
-              </h3>
-              <p className="text-slate-600">
-                [We offer both fixed-price and hourly arrangements depending on project requirements. Contact us for a detailed quote.]
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-lg font-semibold text-slate-900 mb-2">
-                Do you offer maintenance and support?
-              </h3>
-              <p className="text-slate-600">
-                [Yes! We provide ongoing maintenance, updates, and technical support for all projects we deliver.]
-              </p>
-            </div>
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <div
+                key={index}
+                className="bg-slate-50 rounded-2xl overflow-hidden"
+              >
+                <button
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-slate-100 transition-colors"
+                >
+                  <span className="font-semibold text-slate-900 pr-4">{faq.question}</span>
+                  <ChevronDown 
+                    className={`w-5 h-5 text-slate-400 flex-shrink-0 transition-transform duration-300 ${
+                      openFaq === index ? 'rotate-180' : ''
+                    }`} 
+                  />
+                </button>
+                <div 
+                  className={`px-6 overflow-hidden transition-all duration-300 ${
+                    openFaq === index ? 'pb-5 max-h-40' : 'max-h-0'
+                  }`}
+                >
+                  <p className="text-slate-600">{faq.answer}</p>
+                </div>
+              </div>
+            ))}
           </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="relative py-32 overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600">
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+        </div>
+
+        {/* Floating Elements */}
+        <div className="absolute top-10 left-10 w-32 h-32 border border-white/10 rounded-full"></div>
+        <div className="absolute bottom-10 right-10 w-48 h-48 border border-white/10 rounded-full"></div>
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Ready to Build Something Great?
+          </h2>
+          <p className="text-xl text-white/70 mb-10 max-w-2xl mx-auto">
+            Let's turn your vision into reality. Drop us a message and let's get started.
+          </p>
+          <a
+            href="mailto:hello@dsbsed.studio"
+            className="inline-flex items-center px-10 py-5 bg-white text-slate-900 rounded-full font-bold hover:bg-white/90 transition-all duration-300 hover:shadow-2xl hover:scale-105"
+          >
+            <Mail className="mr-2 w-5 h-5" />
+            hello@dsbsed.studio
+          </a>
         </div>
       </section>
     </div>
