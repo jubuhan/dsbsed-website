@@ -12,38 +12,31 @@ import ramees from '../assets/team/ramees.png'
 import aina from '../assets/team/aina.png'
 
 const AboutPage = () => {
-  const founders = [
+  const team = [
     {
       name: 'Jubuhan',
       role: 'Co-Founder',
       image: jubuhan,
-      bio: 'full-stack app and web developer',
-      color: 'from-blue-500 to-cyan-500'
+      bio: 'full-stack app and web developer'
     },
     {
       name: 'Alan j babu',
       role: 'Co-Founder',
       image: alan,
-      bio: 'flutter developer',
-      color: 'from-purple-500 to-pink-500'
+      bio: 'flutter developer'
     },
     {
       name: 'Kali Das',
       role: 'Co-Founder',
       image: kali,
-      bio: 'java full stack developer',
-      color: 'from-orange-500 to-red-500'
+      bio: 'java full stack developer'
     },
     {
       name: 'Adhil',
       role: 'Co-Founder',
       image: adhil,
-      bio: 'java full stack developer',
-      color: 'from-green-500 to-teal-500'
-    }
-  ]
-
-  const team = [
+      bio: 'java full stack developer'
+    },
     {
       name: 'Ain Aina',
       role: 'Marketing',
@@ -172,7 +165,7 @@ const AboutPage = () => {
                 
                 <div className="relative z-10 h-full flex items-center justify-center">
                   <div className="text-center">
-                    <div className="text-8xl font-bold text-slate-800 mb-2">2024</div>
+                    <div className="text-8xl font-bold text-slate-800 mb-2">2026</div>
                     <div className="text-slate-600">Year Founded</div>
                   </div>
                 </div>
@@ -183,17 +176,17 @@ const AboutPage = () => {
             <div>
               <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Our Story</span>
               <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-4 mb-6">
-                Born from a <span className="gradient-text">simple idea</span>
+                Four Friends, <span className="gradient-text">One Vision</span>
               </h2>
               <div className="space-y-4 text-slate-600 text-lg leading-relaxed">
                 <p>
-                  What if a tech studio could build amazing products for clients while also creating its own innovative solutions?
+                  We are four friends who met in college with one vision — to build something of our own. With no shortcuts and limited resources, we stepped into the digital world to solve real problems.
                 </p>
                 <p>
-                  We started as a small team of developers and designers passionate about building digital products that solve real problems. We weren't satisfied with just doing client work — we wanted to innovate, experiment, and build our own products too.
+                  The journey was tough, but those challenges shaped us into a team that delivers — on time, on budget, and beyond expectations.
                 </p>
                 <p>
-                  Today, we're proud to work with amazing clients while also developing our own suite of products. This dual approach keeps us sharp, innovative, and always learning.
+                  Today, we're proud to work with amazing clients while building our own products. This dual approach keeps us sharp, innovative, and always learning.
                 </p>
               </div>
             </div>
@@ -228,52 +221,6 @@ const AboutPage = () => {
                     {value.title}
                   </h3>
                   <p className="text-slate-600 text-lg">{value.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Founders Section - Premium Cards */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Leadership</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-4 mb-4">
-              Meet Our Founders
-            </h2>
-            <p className="text-xl text-slate-600">The visionaries who started it all</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {founders.map((member, index) => (
-              <div
-                key={index}
-                className="group relative"
-              >
-                {/* Card */}
-                <div className="relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
-                  {/* Image Container */}
-                  <div className={`relative h-72 bg-gradient-to-br ${member.color} overflow-hidden`}>
-                    <div className="absolute inset-0 bg-black/10"></div>
-                    <img 
-                      src={member.image} 
-                      alt={member.name}
-                      className="w-full h-full object-contain relative z-10 group-hover:scale-105 transition-transform duration-500"
-                    />
-                    
-                    {/* Decorative Elements */}
-                    <div className="absolute top-4 right-4 w-12 h-12 border-2 border-white/30 rounded-full"></div>
-                    <div className="absolute bottom-4 left-4 w-8 h-8 bg-white/20 rounded-lg rotate-45"></div>
-                  </div>
-
-                  {/* Info */}
-                  <div className="p-6 text-center">
-                    <h3 className="text-xl font-bold text-slate-900 mb-1">{member.name}</h3>
-                    <p className={`text-transparent bg-gradient-to-r ${member.color} bg-clip-text font-semibold mb-2`}>{member.role}</p>
-                    <p className="text-slate-500 text-sm">{member.bio}</p>
-                  </div>
                 </div>
               </div>
             ))}

@@ -127,45 +127,70 @@ const ServicesPage = () => {
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* Services - Horizontal Scroll */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="group relative bg-white rounded-3xl p-8 shadow-lg shadow-slate-200/50 hover:shadow-2xl hover:shadow-slate-300/50 transition-all duration-500 hover:-translate-y-2 border border-slate-100"
-              >
-                {/* Background Gradient on Hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-[0.03] rounded-3xl transition-opacity duration-500`}></div>
+          <div className="text-center mb-12">
+            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">What We Do</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-4">
+              Our Services
+            </h2>
+          </div>
 
-                <div className="relative z-10">
-                  {/* Icon */}
-                  <div className={`w-16 h-16 bg-gradient-to-br ${service.color} text-white rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                    {service.icon}
+          {/* Horizontal Scrolling Container */}
+          <div className="relative">
+            {/* Gradient Fades */}
+            <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+
+            {/* Scrollable Cards */}
+            <div className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+              {services.map((service, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0 w-80 snap-center first:ml-4 last:mr-4"
+                >
+                  <div className="group relative bg-white rounded-3xl p-8 shadow-lg shadow-slate-200/50 hover:shadow-2xl hover:shadow-slate-300/50 transition-all duration-500 hover:scale-105 border border-slate-100 h-full">
+                    {/* Background Gradient on Hover */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-[0.03] rounded-3xl transition-opacity duration-500`}></div>
+
+                    <div className="relative z-10">
+                      {/* Icon */}
+                      <div className={`w-16 h-16 bg-gradient-to-br ${service.color} text-white rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                        {service.icon}
+                      </div>
+
+                      {/* Content */}
+                      <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text transition-all">
+                        {service.title}
+                      </h3>
+                      <p className="text-slate-600 mb-6">{service.description}</p>
+
+                      {/* Features */}
+                      <ul className="space-y-2">
+                        {service.features.map((feature, i) => (
+                          <li key={i} className="flex items-center text-slate-600">
+                            <Check className={`w-4 h-4 mr-2 text-transparent bg-gradient-to-r ${service.color} bg-clip-text`} style={{ color: service.color.includes('blue') ? '#3B82F6' : service.color.includes('purple') ? '#A855F7' : service.color.includes('orange') ? '#F97316' : service.color.includes('green') ? '#22C55E' : service.color.includes('indigo') ? '#6366F1' : '#EC4899' }} />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Corner Decoration */}
+                    <div className={`absolute -bottom-4 -right-4 w-32 h-32 bg-gradient-to-br ${service.color} opacity-5 rounded-full blur-2xl group-hover:opacity-10 transition-opacity`}></div>
                   </div>
-
-                  {/* Content */}
-                  <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text transition-all">
-                    {service.title}
-                  </h3>
-                  <p className="text-slate-600 mb-6">{service.description}</p>
-
-                  {/* Features */}
-                  <ul className="space-y-2">
-                    {service.features.map((feature, i) => (
-                      <li key={i} className="flex items-center text-slate-600">
-                        <Check className={`w-4 h-4 mr-2 text-transparent bg-gradient-to-r ${service.color} bg-clip-text`} style={{ color: service.color.includes('blue') ? '#3B82F6' : service.color.includes('purple') ? '#A855F7' : service.color.includes('orange') ? '#F97316' : service.color.includes('green') ? '#22C55E' : service.color.includes('indigo') ? '#6366F1' : '#EC4899' }} />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
                 </div>
+              ))}
+            </div>
 
-                {/* Corner Decoration */}
-                <div className={`absolute -bottom-4 -right-4 w-32 h-32 bg-gradient-to-br ${service.color} opacity-5 rounded-full blur-2xl group-hover:opacity-10 transition-opacity`}></div>
-              </div>
-            ))}
+            {/* Scroll hint */}
+            <div className="flex justify-center mt-6 text-slate-400 text-sm">
+              <span className="flex items-center gap-2">
+                <ArrowRight className="w-4 h-4 animate-pulse" />
+                Swipe to explore
+              </span>
+            </div>
           </div>
         </div>
       </section>
@@ -186,30 +211,55 @@ const ServicesPage = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {process.map((step, index) => (
-              <div key={index} className="relative group">
-                {/* Connector Line */}
-                {index < process.length - 1 && (
-                  <div className="hidden lg:block absolute top-12 left-1/2 w-full h-0.5 bg-gradient-to-r from-blue-500/50 to-purple-500/50"></div>
-                )}
+          {/* Horizontal Scrolling Container */}
+          <div className="relative">
+            {/* Gradient Fades */}
+            <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-slate-900 to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-slate-900 to-transparent z-10 pointer-events-none"></div>
+            
+            {/* Scrollable Cards */}
+            <div className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+              {process.map((step, index) => (
+                <div 
+                  key={index} 
+                  className="flex-shrink-0 w-80 snap-center first:ml-4 last:mr-4"
+                  style={{ transform: `rotate(${index % 2 === 0 ? '-2' : '2'}deg)` }}
+                >
+                  <div className="relative bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10 hover:border-white/30 transition-all duration-500 hover:scale-105 hover:rotate-0 h-full">
+                    {/* Step Number */}
+                    <div className="text-7xl font-bold text-white/5 absolute top-4 right-4">
+                      {step.step}
+                    </div>
 
-                <div className="relative bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10 hover:border-white/20 transition-all duration-500 hover:-translate-y-2">
-                  {/* Step Number */}
-                  <div className="text-6xl font-bold text-white/5 absolute top-4 right-4">
-                    {step.step}
+                    {/* Icon */}
+                    <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-500 text-white rounded-2xl flex items-center justify-center mb-6 relative z-10">
+                      {step.icon}
+                    </div>
+
+                    <h3 className="text-xl font-bold text-white mb-2 relative z-10">{step.title}</h3>
+                    <p className="text-white/60 relative z-10">{step.description}</p>
+                    
+                    {/* Progress indicator */}
+                    <div className="mt-6 flex items-center gap-2">
+                      {process.map((_, i) => (
+                        <div 
+                          key={i} 
+                          className={`h-1.5 rounded-full transition-all ${i === index ? 'w-8 bg-gradient-to-r from-blue-500 to-purple-500' : 'w-2 bg-white/20'}`}
+                        ></div>
+                      ))}
+                    </div>
                   </div>
-
-                  {/* Icon */}
-                  <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-500 text-white rounded-2xl flex items-center justify-center mb-6 relative z-10">
-                    {step.icon}
-                  </div>
-
-                  <h3 className="text-xl font-bold text-white mb-2 relative z-10">{step.title}</h3>
-                  <p className="text-white/60 relative z-10">{step.description}</p>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+
+            {/* Scroll hint */}
+            <div className="flex justify-center mt-6 text-white/40 text-sm">
+              <span className="flex items-center gap-2">
+                <ArrowRight className="w-4 h-4 animate-pulse" />
+                Swipe to explore
+              </span>
+            </div>
           </div>
         </div>
       </section>
