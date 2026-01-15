@@ -1,7 +1,11 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Smartphone, Globe, Palette, Lightbulb, ArrowRight, Zap, Users, Code2, Sparkles, MousePointer, Rocket, Star } from 'lucide-react'
+import { AnimatePresence, motion } from 'motion/react'
+import { CanvasRevealEffect } from '../components/ui/CanvasRevealEffect'
 
 const HomePage = () => {
+  const [heroHovered, setHeroHovered] = useState(false)
   const services = [
     {
       icon: <Smartphone className="w-7 h-7" />,
@@ -26,27 +30,6 @@ const HomePage = () => {
       title: 'Product Building',
       description: 'End-to-end digital product development',
       color: 'from-green-500 to-teal-500'
-    }
-  ]
-
-  const featuredProjects = [
-    {
-      title: 'E-Commerce Platform',
-      description: 'E-commerce platform with real-time inventory',
-      tags: ['Live', 'Client Work'],
-      color: 'from-blue-500 to-purple-600'
-    },
-    {
-      title: 'AI Task Manager',
-      description: 'AI-powered task management tool',
-      tags: ['Beta', 'Our Product'],
-      color: 'from-pink-500 to-rose-600'
-    },
-    {
-      title: 'Healthcare App',
-      description: 'Healthcare appointment booking app',
-      tags: ['Live', 'Client Work'],
-      color: 'from-green-500 to-emerald-600'
     }
   ]
 
@@ -75,23 +58,55 @@ const HomePage = () => {
 
   return (
     <div className="animate-fade-in overflow-hidden">
-      {/* Hero Section - Immersive Dark */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-900">
+      {/* Hero Section - Immersive Dark with Canvas Reveal */}
+      <section 
+        className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-900"
+        onMouseEnter={() => setHeroHovered(true)}
+        onMouseLeave={() => setHeroHovered(false)}
+      >
+        {/* Canvas Reveal Effect */}
+        <AnimatePresence>
+          {heroHovered && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="h-full w-full absolute inset-0 z-0"
+            >
+              <CanvasRevealEffect
+                animationSpeed={5}
+                containerClassName="bg-transparent"
+                colors={[
+                  [59, 130, 246],
+                  [139, 92, 246],
+                  [236, 72, 153],
+                ]}
+                opacities={[0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.4, 0.4, 0.4, 1]}
+                dotSize={2}
+                showGradient={false}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Radial gradient fade */}
+        <div className="absolute inset-0 [mask-image:radial-gradient(600px_at_center,white,transparent)] bg-slate-900/50 z-[1]" />
+
         {/* Animated Gradient Background */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 z-[2] pointer-events-none">
           <div className="absolute top-0 -left-40 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
           <div className="absolute top-20 -right-40 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style={{ animationDelay: '1s' }}></div>
           <div className="absolute -bottom-40 left-1/2 w-96 h-96 bg-pink-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style={{ animationDelay: '2s' }}></div>
         </div>
 
         {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px] z-[3]"></div>
 
         {/* Floating Elements */}
-        <div className="absolute top-32 left-20 w-20 h-20 border border-white/10 rounded-2xl rotate-12 hidden lg:block"></div>
-        <div className="absolute bottom-32 right-20 w-16 h-16 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl -rotate-12 hidden lg:block"></div>
-        <div className="absolute top-1/2 left-10 w-2 h-2 bg-blue-400 rounded-full hidden lg:block"></div>
-        <div className="absolute top-1/3 right-32 w-3 h-3 bg-purple-400 rounded-full hidden lg:block"></div>
+        <div className="absolute top-32 left-20 w-20 h-20 border border-white/10 rounded-2xl rotate-12 hidden lg:block z-[3]"></div>
+        <div className="absolute bottom-32 right-20 w-16 h-16 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl -rotate-12 hidden lg:block z-[3]"></div>
+        <div className="absolute top-1/2 left-10 w-2 h-2 bg-blue-400 rounded-full hidden lg:block z-[3]"></div>
+        <div className="absolute top-1/3 right-32 w-3 h-3 bg-purple-400 rounded-full hidden lg:block z-[3]"></div>
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           {/* Badge */}
@@ -123,10 +138,10 @@ const HomePage = () => {
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
-              to="/projects"
+              to="/how-we-work"
               className="px-8 py-4 bg-white/5 backdrop-blur-sm text-white border border-white/20 rounded-full font-semibold hover:bg-white/10 transition-all duration-300"
             >
-              See Our Projects
+              How We Work
             </Link>
           </div>
 
@@ -195,74 +210,6 @@ const HomePage = () => {
               View All Services 
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Work - Dark Section */}
-      <section className="py-24 bg-slate-900 relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16">
-            <div>
-              <span className="text-blue-400 font-semibold text-sm uppercase tracking-wider">Portfolio</span>
-              <h2 className="text-4xl md:text-5xl font-bold text-white mt-4">
-                Featured Work
-              </h2>
-            </div>
-            <Link
-              to="/projects"
-              className="inline-flex items-center text-white/60 font-semibold hover:text-white group mt-6 md:mt-0"
-            >
-              View All Projects 
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {featuredProjects.map((project, index) => (
-              <div
-                key={index}
-                className="group relative bg-white/5 backdrop-blur-sm rounded-3xl overflow-hidden border border-white/10 hover:border-white/20 transition-all duration-500 hover:-translate-y-2"
-              >
-                {/* Project Image Area */}
-                <div className={`h-56 bg-gradient-to-br ${project.color} relative overflow-hidden`}>
-                  <div className="absolute inset-0 bg-black/20"></div>
-                  
-                  {/* Decorative Elements */}
-                  <div className="absolute top-6 left-6 w-16 h-16 border-2 border-white/20 rounded-xl"></div>
-                  <div className="absolute bottom-6 right-6 w-10 h-10 bg-white/10 rounded-lg rotate-12"></div>
-                  
-                  {/* Tags */}
-                  <div className="absolute top-4 right-4 flex gap-2">
-                    {project.tags.map((tag, i) => (
-                      <span
-                        key={i}
-                        className={`px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm ${
-                          tag === 'Live'
-                            ? 'bg-green-500/80 text-white'
-                            : tag === 'Beta'
-                            ? 'bg-yellow-500/80 text-white'
-                            : 'bg-white/20 text-white'
-                        }`}
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Project Info */}
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-white/60">{project.description}</p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
