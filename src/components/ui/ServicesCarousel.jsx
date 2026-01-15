@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight, Check } from 'lucide-react'
 
 export const ServiceCard = ({ card, index }) => {
   return (
-    <div className="rounded-3xl h-80 w-56 md:h-[28rem] md:w-80 overflow-hidden flex flex-col relative group">
+    <div className="rounded-3xl h-[26rem] w-72 sm:h-[28rem] sm:w-80 md:h-[30rem] md:w-96 overflow-hidden flex flex-col relative group">
       {/* Background Gradient */}
       <div className={`absolute inset-0 bg-gradient-to-br ${card.color} opacity-90`} />
       
@@ -12,7 +12,7 @@ export const ServiceCard = ({ card, index }) => {
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:20px_20px] opacity-30" />
 
       {/* Content - Starting from top */}
-      <div className="relative z-10 p-6 md:p-8 flex flex-col h-full">
+      <div className="relative z-10 p-6 sm:p-7 md:p-8 flex flex-col h-full">
         {/* Icon & Category Row */}
         <div className="flex items-center justify-between mb-4">
           <p className="text-white/70 text-sm font-medium uppercase tracking-wider">
@@ -24,18 +24,18 @@ export const ServiceCard = ({ card, index }) => {
         </div>
 
         {/* Title */}
-        <h3 className="text-white font-bold text-xl md:text-2xl mb-3">
+        <h3 className="text-white font-bold text-xl sm:text-2xl md:text-2xl mb-3">
           {card.title}
         </h3>
         
         {/* Description */}
-        <p className="text-white/70 text-sm mb-5 leading-relaxed">
+        <p className="text-white/70 text-sm md:text-base mb-5 leading-relaxed line-clamp-4 sm:line-clamp-none">
           {card.description}
         </p>
 
         {/* Features */}
         <div className="space-y-2 mt-auto">
-          {card.features.slice(0, 4).map((feature, i) => (
+          {card.features.slice(0, 5).map((feature, i) => (
             <div key={i} className="flex items-center text-sm">
               <Check className="w-4 h-4 text-white/80 mr-2 flex-shrink-0" />
               <span className="text-white/80">{feature}</span>

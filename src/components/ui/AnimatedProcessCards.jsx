@@ -26,13 +26,13 @@ export const AnimatedProcessCards = ({ steps }) => {
 
   return (
     <div 
-      className="max-w-sm md:max-w-5xl mx-auto px-4 md:px-8 lg:px-12 py-12"
+      className="max-w-sm md:max-w-5xl mx-auto px-4 md:px-8 lg:px-12 py-8 md:py-12"
       onMouseEnter={() => setAutoplay(false)}
       onMouseLeave={() => setAutoplay(true)}
     >
-      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
+      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-20">
         {/* Left side - Stacked Cards */}
-        <div className="relative h-80 w-full">
+        <div className="relative h-52 sm:h-64 md:h-80 w-full">
           <AnimatePresence>
             {steps.map((step, index) => (
               <motion.div
@@ -63,18 +63,18 @@ export const AnimatedProcessCards = ({ steps }) => {
                 }}
                 className="absolute inset-0 origin-bottom"
               >
-                <div className={`w-full h-full rounded-3xl bg-gradient-to-br ${step.color} p-8 flex flex-col justify-between shadow-2xl`}>
+                <div className={`w-full h-full rounded-2xl md:rounded-3xl bg-gradient-to-br ${step.color} p-5 sm:p-6 md:p-8 flex flex-col justify-between shadow-2xl`}>
                   {/* Step number */}
                   <div className="flex justify-between items-start">
-                    <span className="text-white/30 text-8xl font-bold leading-none">{step.step}</span>
-                    <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center text-white">
+                    <span className="text-white/30 text-5xl sm:text-6xl md:text-8xl font-bold leading-none">{step.step}</span>
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-white/20 backdrop-blur-sm rounded-xl md:rounded-2xl flex items-center justify-center text-white [&>svg]:w-5 [&>svg]:h-5 sm:[&>svg]:w-6 sm:[&>svg]:h-6 md:[&>svg]:w-8 md:[&>svg]:h-8">
                       {step.icon}
                     </div>
                   </div>
                   
                   {/* Title */}
                   <div>
-                    <h3 className="text-3xl md:text-4xl font-bold text-white">{step.title}</h3>
+                    <h3 className="text-xl sm:text-2xl md:text-4xl font-bold text-white">{step.title}</h3>
                   </div>
                 </div>
               </motion.div>
@@ -91,13 +91,13 @@ export const AnimatedProcessCards = ({ steps }) => {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
-            <span className={`inline-block px-4 py-2 rounded-full text-sm font-semibold mb-4 bg-gradient-to-r ${steps[active].color} text-white`}>
+            <span className={`inline-block px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-semibold mb-3 md:mb-4 bg-gradient-to-r ${steps[active].color} text-white`}>
               Step {steps[active].step}
             </span>
-            <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 mb-3 md:mb-4">
               {steps[active].title}
             </h3>
-            <motion.p className="text-lg text-slate-600 leading-relaxed mb-6">
+            <motion.p className="text-sm sm:text-base md:text-lg text-slate-600 leading-relaxed mb-4 md:mb-6">
               {steps[active].description.split(" ").map((word, index) => (
                 <motion.span
                   key={index}
@@ -116,14 +116,14 @@ export const AnimatedProcessCards = ({ steps }) => {
             </motion.p>
             
             {/* Details tags */}
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5 md:gap-2">
               {steps[active].details.map((detail, idx) => (
                 <motion.span
                   key={idx}
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.3, delay: 0.1 * idx }}
-                  className="px-4 py-2 bg-slate-100 rounded-full text-sm text-slate-600 font-medium"
+                  className="px-2.5 py-1.5 md:px-4 md:py-2 bg-slate-100 rounded-full text-xs md:text-sm text-slate-600 font-medium"
                 >
                   {detail}
                 </motion.span>
@@ -132,18 +132,18 @@ export const AnimatedProcessCards = ({ steps }) => {
           </motion.div>
 
           {/* Navigation */}
-          <div className="flex items-center gap-4 pt-8 md:pt-0">
+          <div className="flex items-center gap-3 md:gap-4 pt-6 md:pt-0">
             <button
               onClick={handlePrev}
-              className="h-12 w-12 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center group transition-all duration-300"
+              className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center group transition-all duration-300"
             >
-              <ChevronLeft className="h-6 w-6 text-slate-600 group-hover:text-slate-900 transition-colors" />
+              <ChevronLeft className="h-5 w-5 md:h-6 md:w-6 text-slate-600 group-hover:text-slate-900 transition-colors" />
             </button>
             <button
               onClick={handleNext}
-              className="h-12 w-12 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center group transition-all duration-300"
+              className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center group transition-all duration-300"
             >
-              <ChevronRight className="h-6 w-6 text-slate-600 group-hover:text-slate-900 transition-colors" />
+              <ChevronRight className="h-5 w-5 md:h-6 md:w-6 text-slate-600 group-hover:text-slate-900 transition-colors" />
             </button>
             
             {/* Progress dots */}
