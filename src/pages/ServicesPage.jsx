@@ -110,7 +110,7 @@ const ServicesPage = () => {
               Our Services
             </h2>
             <p className="text-slate-600 mt-4 max-w-2xl mx-auto">
-              Click on any card to explore our comprehensive service offerings in detail.
+              Comprehensive digital solutions tailored to your unique needs.
             </p>
           </div>
 

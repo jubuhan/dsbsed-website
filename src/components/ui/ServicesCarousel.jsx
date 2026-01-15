@@ -1,116 +1,52 @@
-import { useState, useRef, useEffect } from 'react'
-import { motion, useMotionValue, useSpring, useTransform } from 'motion/react'
-import { ChevronLeft, ChevronRight, X } from 'lucide-react'
+import { useRef, useEffect, useState } from 'react'
+import { motion } from 'motion/react'
+import { ChevronLeft, ChevronRight, Check } from 'lucide-react'
 
-export const ServiceCard = ({ card, index, layout = false }) => {
-  const [open, setOpen] = useState(false)
-
-  useEffect(() => {
-    if (open) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'auto'
-    }
-    return () => {
-      document.body.style.overflow = 'auto'
-    }
-  }, [open])
-
+export const ServiceCard = ({ card, index }) => {
   return (
-    <>
-      {/* Modal */}
-      {open && (
-        <div className="fixed inset-0 z-50 overflow-auto">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/80 backdrop-blur-lg"
-            onClick={() => setOpen(false)}
-          />
-          <motion.div
-            initial={{ opacity: 0, y: 100 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 100 }}
-            className="relative z-10 max-w-5xl mx-auto my-10 bg-white rounded-3xl overflow-hidden"
-          >
-            {/* Header */}
-            <div className={`relative h-80 bg-gradient-to-br ${card.color}`}>
-              <button
-                onClick={() => setOpen(false)}
-                className="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors"
-              >
-                <X className="w-5 h-5" />
-              </button>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center text-white">
-                  <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    {card.icon}
-                  </div>
-                  <p className="text-sm uppercase tracking-wider text-white/70 mb-2">{card.category}</p>
-                  <h2 className="text-4xl font-bold">{card.title}</h2>
-                </div>
-              </div>
-            </div>
-            
-            {/* Content */}
-            <div className="p-8 md:p-14">
-              <p className="text-slate-600 text-lg leading-relaxed mb-8">
-                {card.description}
-              </p>
-              
-              <h3 className="text-xl font-bold text-slate-900 mb-4">What's Included</h3>
-              <div className="grid md:grid-cols-2 gap-4">
-                {card.features.map((feature, i) => (
-                  <div key={i} className="flex items-center p-4 bg-slate-50 rounded-xl">
-                    <div className={`w-8 h-8 bg-gradient-to-br ${card.color} rounded-lg flex items-center justify-center mr-3`}>
-                      <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <span className="text-slate-700 font-medium">{feature}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      )}
+    <div className="rounded-3xl h-80 w-56 md:h-[28rem] md:w-80 overflow-hidden flex flex-col relative group">
+      {/* Background Gradient */}
+      <div className={`absolute inset-0 bg-gradient-to-br ${card.color} opacity-90`} />
+      
+      {/* Pattern overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:20px_20px] opacity-30" />
 
-      {/* Card */}
-      <motion.div
-        layoutId={layout ? `card-${card.title}` : undefined}
-        onClick={() => setOpen(true)}
-        className="rounded-3xl bg-slate-100 h-80 w-56 md:h-[28rem] md:w-80 overflow-hidden flex flex-col items-start justify-end relative cursor-pointer group"
-      >
-        {/* Background Gradient */}
-        <div className={`absolute inset-0 bg-gradient-to-br ${card.color} opacity-90`} />
-        
-        {/* Pattern overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:20px_20px] opacity-30" />
-        
-        {/* Icon */}
-        <div className="absolute top-6 right-6 w-14 h-14 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
-          {card.icon}
-        </div>
-
-        {/* Content */}
-        <div className="relative z-10 p-6 md:p-8">
-          <p className="text-white/70 text-sm font-medium uppercase tracking-wider mb-2">
+      {/* Content - Starting from top */}
+      <div className="relative z-10 p-6 md:p-8 flex flex-col h-full">
+        {/* Icon & Category Row */}
+        <div className="flex items-center justify-between mb-4">
+          <p className="text-white/70 text-sm font-medium uppercase tracking-wider">
             {card.category}
           </p>
-          <h3 className="text-white font-bold text-xl md:text-2xl max-w-xs">
-            {card.title}
-          </h3>
-          <p className="text-white/60 text-sm mt-2 line-clamp-2 max-w-xs">
-            {card.description}
-          </p>
+          <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
+            {card.icon}
+          </div>
         </div>
 
-        {/* Hover overlay */}
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
-      </motion.div>
-    </>
+        {/* Title */}
+        <h3 className="text-white font-bold text-xl md:text-2xl mb-3">
+          {card.title}
+        </h3>
+        
+        {/* Description */}
+        <p className="text-white/70 text-sm mb-5 leading-relaxed">
+          {card.description}
+        </p>
+
+        {/* Features */}
+        <div className="space-y-2 mt-auto">
+          {card.features.slice(0, 4).map((feature, i) => (
+            <div key={i} className="flex items-center text-sm">
+              <Check className="w-4 h-4 text-white/80 mr-2 flex-shrink-0" />
+              <span className="text-white/80">{feature}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Hover overlay */}
+      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-3xl" />
+    </div>
   )
 }
 
