@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Smartphone, Globe, Palette, Lightbulb, ArrowRight, Zap, Users, Code2, Sparkles, MousePointer, Rocket, Star } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
 import { CanvasRevealEffect } from '../components/ui/CanvasRevealEffect'
+import { Button as MovingBorderButton } from '../components/ui/MovingBorder'
 
 const HomePage = () => {
   const [heroHovered, setHeroHovered] = useState(false)
@@ -130,19 +131,27 @@ const HomePage = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <Link
+            <MovingBorderButton
+              as={Link}
               to="/contact"
-              className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 hover:scale-105 flex items-center justify-center"
+              borderRadius="2rem"
+              containerClassName="h-14"
+              className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 border-none font-semibold group"
+              borderClassName="bg-[radial-gradient(var(--blue-500)_40%,transparent_60%)]"
             >
               Work With Us
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
+            </MovingBorderButton>
+            <MovingBorderButton
+              as={Link}
               to="/how-we-work"
-              className="px-8 py-4 bg-white/5 backdrop-blur-sm text-white border border-white/20 rounded-full font-semibold hover:bg-white/10 transition-all duration-300"
+              borderRadius="2rem"
+              containerClassName="h-14"
+              className="px-8 py-4 bg-slate-900/80 border-white/20 font-semibold hover:bg-slate-800/80 transition-colors"
+              borderClassName="bg-[radial-gradient(var(--purple-500)_40%,transparent_60%)]"
             >
               How We Work
-            </Link>
+            </MovingBorderButton>
           </div>
 
           {/* Tech Stack Pills */}
@@ -292,13 +301,17 @@ const HomePage = () => {
           <p className="text-xl text-white/70 mb-10 max-w-2xl mx-auto">
             Ready to turn your idea into reality? We'd love to hear from you and start creating something amazing.
           </p>
-          <Link
+          <MovingBorderButton
+            as={Link}
             to="/contact"
-            className="inline-flex items-center px-10 py-5 bg-white text-slate-900 rounded-full font-bold hover:bg-white/90 transition-all duration-300 hover:shadow-2xl hover:scale-105"
+            borderRadius="2rem"
+            containerClassName="h-16 mx-auto"
+            className="px-10 py-5 bg-white text-slate-900 border-none font-bold"
+            borderClassName="bg-[radial-gradient(var(--cyan-500)_40%,transparent_60%)]"
           >
             Start Your Project
             <ArrowRight className="ml-2 w-5 h-5" />
-          </Link>
+          </MovingBorderButton>
         </div>
       </section>
     </div>

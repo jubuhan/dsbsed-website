@@ -1,6 +1,7 @@
 import { MessageSquare, Palette, Code, Rocket, ArrowRight, Sparkles, Users, Zap, Clock, Shield, Target, Lightbulb, Layers } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { AnimatedProcessCards } from '../components/ui/AnimatedProcessCards'
+import { Button as MovingBorderButton } from '../components/ui/MovingBorder'
 
 const HowWeWorkPage = () => {
   const process = [
@@ -200,19 +201,27 @@ const HowWeWorkPage = () => {
             Let's discuss your ideas and create something amazing together.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
+            <MovingBorderButton
+              as={Link}
               to="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 rounded-full font-semibold hover:bg-slate-100 transition-all duration-300 group"
+              borderRadius="2rem"
+              containerClassName="h-14"
+              className="px-8 py-4 bg-white text-blue-600 border-none font-semibold group"
+              borderClassName="bg-[radial-gradient(var(--cyan-500)_40%,transparent_60%)]"
             >
               Get in Touch
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
+            </MovingBorderButton>
+            <MovingBorderButton
+              as={Link}
               to="/services"
-              className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white rounded-full font-semibold hover:bg-white/10 transition-all duration-300"
+              borderRadius="2rem"
+              containerClassName="h-14"
+              className="px-8 py-4 bg-transparent text-white border-white/50 font-semibold hover:bg-white/10 transition-colors"
+              borderClassName="bg-[radial-gradient(var(--pink-500)_40%,transparent_60%)]"
             >
               View Our Services
-            </Link>
+            </MovingBorderButton>
           </div>
         </div>
       </section>

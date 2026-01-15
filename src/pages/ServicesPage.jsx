@@ -1,6 +1,7 @@
 import { Smartphone, Globe, Palette, Lightbulb, Database, Cloud, Cpu, ArrowRight, Sparkles, Zap, Clock, Shield, Code } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { ServicesCarousel } from '../components/ui/ServicesCarousel'
+import { Button as MovingBorderButton } from '../components/ui/MovingBorder'
 
 const ServicesPage = () => {
   const services = [
@@ -197,13 +198,17 @@ const ServicesPage = () => {
           <p className="text-xl text-white/70 mb-10 max-w-2xl mx-auto">
             Let's discuss your requirements and create something amazing together.
           </p>
-          <Link
+          <MovingBorderButton
+            as={Link}
             to="/contact"
-            className="inline-flex items-center px-10 py-5 bg-white text-slate-900 rounded-full font-bold hover:bg-white/90 transition-all duration-300 hover:shadow-2xl hover:scale-105"
+            borderRadius="2rem"
+            containerClassName="h-16 mx-auto"
+            className="px-10 py-5 bg-white text-slate-900 border-none font-bold"
+            borderClassName="bg-[radial-gradient(var(--cyan-500)_40%,transparent_60%)]"
           >
             Get a Free Quote
             <ArrowRight className="ml-2 w-5 h-5" />
-          </Link>
+          </MovingBorderButton>
         </div>
       </section>
     </div>
