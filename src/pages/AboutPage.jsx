@@ -1,4 +1,4 @@
-import { Target, Heart, Zap, Users, Sparkles, Code2, Rocket, Coffee } from 'lucide-react'
+import { Target, Heart, Zap, Users, Code2, Rocket, Coffee } from 'lucide-react'
 import jubuhan from '../assets/founders/jubuhan.png'
 import alan from '../assets/founders/alan.png'
 import kali from '../assets/founders/kali.png'
@@ -86,25 +86,25 @@ const AboutPage = () => {
       icon: <Target className="w-7 h-7" />,
       title: 'Mission-Driven',
       description: 'Every project aligns with our mission to create meaningful impact',
-      color: 'from-blue-500 to-blue-600'
+      color: 'from-orange-500 to-orange-600'
     },
     {
       icon: <Heart className="w-7 h-7" />,
       title: 'User-Centric',
       description: 'Users first in every design and development decision',
-      color: 'from-pink-500 to-rose-600'
+      color: 'from-orange-400 to-amber-500'
     },
     {
       icon: <Zap className="w-7 h-7" />,
       title: 'Innovation First',
       description: 'Constantly exploring new technologies and methodologies',
-      color: 'from-yellow-500 to-orange-600'
+      color: 'from-amber-500 to-orange-500'
     },
     {
       icon: <Users className="w-7 h-7" />,
       title: 'Collaborative',
       description: 'Working closely with clients as partners, not vendors',
-      color: 'from-green-500 to-emerald-600'
+      color: 'from-orange-500 to-amber-600'
     }
   ]
 
@@ -117,56 +117,21 @@ const AboutPage = () => {
 
   return (
     <div className="animate-fade-in overflow-hidden">
-      {/* Hero Section - Modern Glassmorphism */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
-        {/* Animated Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-          <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float"></div>
-          <div className="absolute top-40 right-20 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float" style={{ animationDelay: '2s' }}></div>
-        </div>
-        
-        {/* Grid Pattern Overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
-
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-8">
-            <Sparkles className="w-4 h-4 text-yellow-400 mr-2" />
-            <span className="text-white/80 text-sm">Building the future, one product at a time</span>
-          </div>
-          
-          <h1 className="text-6xl md:text-8xl font-bold text-white mb-6 tracking-tight">
-            We Are <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Creators</span>
-          </h1>
-          
-          <p className="text-xl md:text-2xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-            A passionate team of developers, designers, and dreamers building digital products that matter
-          </p>
-
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
-            <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-              <div className="w-1.5 h-3 bg-white/50 rounded-full mt-2 animate-bounce"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Story Section - Split Design */}
-      <section className="py-24 bg-white relative">
+      <section className="py-24 bg-slate-800 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left - Visual */}
             <div className="relative">
-              <div className="aspect-square rounded-3xl bg-gradient-to-br from-blue-100 to-purple-100 p-8 relative overflow-hidden">
-                <div className="absolute top-4 right-4 w-20 h-20 bg-yellow-400 rounded-full opacity-80"></div>
-                <div className="absolute bottom-8 left-8 w-32 h-32 bg-blue-500 rounded-3xl opacity-60 rotate-12"></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-purple-500 rounded-full opacity-40"></div>
+              <div className="aspect-square rounded-3xl bg-gradient-to-br from-slate-700 to-slate-900 p-8 relative overflow-hidden">
+                <div className="absolute top-4 right-4 w-20 h-20 bg-orange-400 rounded-full opacity-80"></div>
+                <div className="absolute bottom-8 left-8 w-32 h-32 bg-orange-500 rounded-3xl opacity-60 rotate-12"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-amber-500 rounded-full opacity-40"></div>
                 
                 <div className="relative z-10 h-full flex items-center justify-center">
                   <div className="text-center">
-                    <div className="text-8xl font-bold text-slate-800 mb-2">2026</div>
-                    <div className="text-slate-600">Year Founded</div>
+                    <div className="text-8xl font-bold text-white mb-2">2026</div>
+                    <div className="text-slate-300">Year Founded</div>
                   </div>
                 </div>
               </div>
@@ -174,11 +139,11 @@ const AboutPage = () => {
 
             {/* Right - Content */}
             <div>
-              <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Our Story</span>
-              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-4 mb-6">
-                Four Friends, <span className="gradient-text">One Vision</span>
+              <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">Our Story</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">
+                Four Friends, <span className="bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">One Vision</span>
               </h2>
-              <div className="space-y-4 text-slate-600 text-lg leading-relaxed">
+              <div className="space-y-4 text-slate-300 text-lg leading-relaxed">
                 <p>
                   We are four friends who met in college with one vision — to build something of our own. With no shortcuts and limited resources, we stepped into the digital world to solve real problems.
                 </p>
@@ -195,11 +160,11 @@ const AboutPage = () => {
       </section>
 
       {/* Values Section - Bento Grid */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-24 bg-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">What Drives Us</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-4">
+            <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">What Drives Us</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mt-4">
               Our Core Values
             </h2>
           </div>
@@ -208,19 +173,19 @@ const AboutPage = () => {
             {values.map((value, index) => (
               <div
                 key={index}
-                className="group relative bg-white rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 overflow-hidden border border-slate-100"
+                className="group relative bg-slate-800 rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 overflow-hidden border border-slate-700"
               >
                 {/* Gradient Background on Hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${value.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
+                <div className={`absolute inset-0 bg-gradient-to-br ${value.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
                 
                 <div className="relative z-10">
                   <div className={`w-14 h-14 bg-gradient-to-br ${value.color} text-white rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
                     {value.icon}
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                  <h3 className="text-2xl font-bold text-white mb-3">
                     {value.title}
                   </h3>
-                  <p className="text-slate-600 text-lg">{value.description}</p>
+                  <p className="text-slate-300 text-lg">{value.description}</p>
                 </div>
               </div>
             ))}
@@ -235,7 +200,7 @@ const AboutPage = () => {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <span className="text-blue-400 font-semibold text-sm uppercase tracking-wider">The Squad</span>
+            <span className="text-orange-400 font-semibold text-sm uppercase tracking-wider">The Squad</span>
             <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-4">
               Our Amazing Team
             </h2>
@@ -270,7 +235,7 @@ const AboutPage = () => {
                   {/* Info */}
                   <div className="p-4">
                     <h3 className="text-white font-semibold text-lg">{member.name}</h3>
-                    <p className="text-blue-400 text-sm font-medium">{member.role}</p>
+                    <p className="text-orange-400 text-sm font-medium">{member.role}</p>
                     <p className="text-slate-400 text-xs mt-1">{member.bio}</p>
                   </div>
                 </div>
@@ -281,7 +246,7 @@ const AboutPage = () => {
       </section>
 
       {/* Stats Section - Glassmorphism */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-r from-orange-500 via-orange-600 to-amber-500 relative overflow-hidden">
         {/* Animated Shapes */}
         <div className="absolute top-0 left-0 w-full h-full">
           <div className="absolute top-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
@@ -316,7 +281,7 @@ const AboutPage = () => {
           </p>
           <a
             href="/contact"
-            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300"
+            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-full font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300"
           >
             <span>Get In Touch</span>
             <Rocket className="ml-2 w-5 h-5" />

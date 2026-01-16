@@ -11,25 +11,25 @@ const Footer = () => {
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">[LOGO]</span>
+              <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-xl">D</span>
               </div>
-              <span className="font-bold text-xl text-white">[YOUR STARTUP NAME]</span>
+              <span className="font-bold text-xl text-white">Devople</span>
             </div>
             <p className="text-slate-400 mb-4">
               A creative tech studio building apps, websites, and future-ready products.
             </p>
             <div className="flex space-x-4">
-              <a href="[LINKEDIN_URL]" className="hover:text-blue-400 transition-colors">
+              <a href="[LINKEDIN_URL]" className="hover:text-orange-400 transition-colors">
                 <Linkedin size={20} />
               </a>
-              <a href="[INSTAGRAM_URL]" className="hover:text-pink-400 transition-colors">
+              <a href="[INSTAGRAM_URL]" className="hover:text-orange-400 transition-colors">
                 <Instagram size={20} />
               </a>
               <a href="[GITHUB_URL]" className="hover:text-white transition-colors">
                 <Github size={20} />
               </a>
-              <a href="mailto:[YOUR_EMAIL]" className="hover:text-blue-400 transition-colors">
+              <a href="mailto:[YOUR_EMAIL]" className="hover:text-orange-400 transition-colors">
                 <Mail size={20} />
               </a>
             </div>

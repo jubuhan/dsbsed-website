@@ -1,4 +1,4 @@
-import { MessageSquare, Palette, Code, Rocket, ArrowRight, Sparkles, Users, Zap, Clock, Shield, Target, Lightbulb, Layers } from 'lucide-react'
+import { MessageSquare, Palette, Code, Rocket, ArrowRight, Users, Zap, Clock, Shield, Target, Lightbulb, Layers } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { AnimatedProcessCards } from '../components/ui/AnimatedProcessCards'
 import { Button as MovingBorderButton } from '../components/ui/MovingBorder'
@@ -99,42 +99,15 @@ const HowWeWorkPage = () => {
 
   return (
     <div className="animate-fade-in overflow-hidden">
-      {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center justify-center bg-slate-900 overflow-hidden">
-        {/* Animated Background */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 -left-20 w-80 h-80 bg-green-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
-          <div className="absolute bottom-20 -right-20 w-80 h-80 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-float" style={{ animationDelay: '2s' }}></div>
-        </div>
-
-        {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
-
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 mb-8">
-            <Sparkles className="w-4 h-4 text-yellow-400 mr-2" />
-            <span className="text-white/70 text-sm">Our Process</span>
-          </div>
-
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-            How We <span className="bg-gradient-to-r from-green-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">Work</span>
-          </h1>
-          <p className="text-xl text-white/60 max-w-2xl mx-auto">
-            A transparent, collaborative process designed to bring your vision to life efficiently and effectively.
-          </p>
-        </div>
-      </section>
-
       {/* Process Timeline */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Our Process</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-4">
+            <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">Our Process</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mt-4">
               From Idea to Launch
             </h2>
-            <p className="text-slate-600 mt-4 max-w-2xl mx-auto">
+            <p className="text-slate-300 mt-4 max-w-2xl mx-auto">
               Every successful project follows a proven process. Here's how we turn your ideas into reality.
             </p>
           </div>
@@ -144,23 +117,23 @@ const HowWeWorkPage = () => {
       </section>
 
       {/* Our Principles */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-24 bg-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">What Drives Us</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-4">
+            <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">What Drives Us</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mt-4">
               Our Working Principles
             </h2>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {principles.map((principle, index) => (
-              <div key={index} className="bg-white rounded-2xl p-8 text-center hover:shadow-lg transition-all duration-300 group">
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-blue-100 text-blue-600 mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+              <div key={index} className="bg-slate-800 rounded-2xl p-8 text-center hover:shadow-lg transition-all duration-300 group border border-slate-700">
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-orange-500/20 text-orange-500 mb-6 group-hover:bg-orange-500 group-hover:text-white transition-all duration-300">
                   {principle.icon}
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">{principle.title}</h3>
-                <p className="text-slate-600">{principle.description}</p>
+                <h3 className="text-xl font-bold text-white mb-3">{principle.title}</h3>
+                <p className="text-slate-300">{principle.description}</p>
               </div>
             ))}
           </div>
@@ -168,23 +141,23 @@ const HowWeWorkPage = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-slate-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">FAQ</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-4">
+            <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">FAQ</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mt-4">
               Common Questions
             </h2>
           </div>
 
           <div className="space-y-6">
             {faqs.map((faq, index) => (
-              <div key={index} className="bg-slate-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
-                <h3 className="text-xl font-bold text-slate-900 mb-4 flex items-start">
-                  <MessageSquare className="w-6 h-6 text-blue-600 mr-3 flex-shrink-0 mt-1" />
+              <div key={index} className="bg-slate-700 rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
+                <h3 className="text-xl font-bold text-white mb-4 flex items-start">
+                  <MessageSquare className="w-6 h-6 text-orange-500 mr-3 flex-shrink-0 mt-1" />
                   {faq.question}
                 </h3>
-                <p className="text-slate-600 ml-9">{faq.answer}</p>
+                <p className="text-slate-300 ml-9">{faq.answer}</p>
               </div>
             ))}
           </div>
@@ -192,7 +165,7 @@ const HowWeWorkPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-r from-blue-600 to-purple-600">
+      <section className="py-24 bg-gradient-to-r from-slate-900 via-slate-800 to-black">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Ready to Start Your Project?
@@ -206,8 +179,8 @@ const HowWeWorkPage = () => {
               to="/contact"
               borderRadius="2rem"
               containerClassName="h-14"
-              className="px-8 py-4 bg-white text-blue-600 border-none font-semibold group"
-              borderClassName="bg-[radial-gradient(var(--cyan-500)_40%,transparent_60%)]"
+              className="px-8 py-4 bg-orange-500 text-white border-none font-semibold group hover:bg-orange-600"
+              borderClassName="bg-[radial-gradient(var(--orange-500)_40%,transparent_60%)]"
             >
               Get in Touch
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

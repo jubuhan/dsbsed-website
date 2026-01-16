@@ -55,8 +55,6 @@ const HomePage = () => {
     }
   ]
 
-  const techStack = ['React', 'Flutter', 'Django', 'Next.js', 'Node.js', 'PostgreSQL', 'Firebase', 'AWS']
-
   return (
     <div className="animate-fade-in overflow-hidden">
       {/* Hero Section - Immersive Dark with Canvas Reveal */}
@@ -78,9 +76,9 @@ const HomePage = () => {
                 animationSpeed={5}
                 containerClassName="bg-transparent"
                 colors={[
-                  [59, 130, 246],
-                  [139, 92, 246],
-                  [236, 72, 153],
+                  [249, 115, 22],
+                  [251, 146, 60],
+                  [245, 158, 11],
                 ]}
                 opacities={[0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.4, 0.4, 0.4, 1]}
                 dotSize={2}
@@ -95,9 +93,9 @@ const HomePage = () => {
 
         {/* Animated Gradient Background */}
         <div className="absolute inset-0 z-[2] pointer-events-none">
-          <div className="absolute top-0 -left-40 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
-          <div className="absolute top-20 -right-40 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute -bottom-40 left-1/2 w-96 h-96 bg-pink-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-0 -left-40 w-96 h-96 bg-orange-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
+          <div className="absolute top-20 -right-40 w-96 h-96 bg-orange-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute -bottom-40 left-1/2 w-96 h-96 bg-amber-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style={{ animationDelay: '2s' }}></div>
         </div>
 
         {/* Grid Pattern */}
@@ -105,9 +103,9 @@ const HomePage = () => {
 
         {/* Floating Elements */}
         <div className="absolute top-32 left-20 w-20 h-20 border border-white/10 rounded-2xl rotate-12 hidden lg:block z-[3]"></div>
-        <div className="absolute bottom-32 right-20 w-16 h-16 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl -rotate-12 hidden lg:block z-[3]"></div>
-        <div className="absolute top-1/2 left-10 w-2 h-2 bg-blue-400 rounded-full hidden lg:block z-[3]"></div>
-        <div className="absolute top-1/3 right-32 w-3 h-3 bg-purple-400 rounded-full hidden lg:block z-[3]"></div>
+        <div className="absolute bottom-32 right-20 w-16 h-16 bg-gradient-to-br from-orange-500/20 to-amber-500/20 rounded-xl -rotate-12 hidden lg:block z-[3]"></div>
+        <div className="absolute top-1/2 left-10 w-2 h-2 bg-orange-400 rounded-full hidden lg:block z-[3]"></div>
+        <div className="absolute top-1/3 right-32 w-3 h-3 bg-orange-300 rounded-full hidden lg:block z-[3]"></div>
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           {/* Badge */}
@@ -120,7 +118,7 @@ const HomePage = () => {
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight tracking-tight">
             We Build
             <br />
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-amber-400 bg-clip-text text-transparent">
               Software Products
             </span>
           </h1>
@@ -136,34 +134,12 @@ const HomePage = () => {
               to="/contact"
               borderRadius="2rem"
               containerClassName="h-14"
-              className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 border-none font-semibold group"
-              borderClassName="bg-[radial-gradient(var(--blue-500)_40%,transparent_60%)]"
+              className="px-8 py-4 bg-orange-500 border-orange-400/20 font-semibold hover:bg-orange-600 transition-colors group"
+              borderClassName="bg-[radial-gradient(var(--orange-500)_40%,transparent_60%)]"
             >
               Work With Us
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </MovingBorderButton>
-            <MovingBorderButton
-              as={Link}
-              to="/how-we-work"
-              borderRadius="2rem"
-              containerClassName="h-14"
-              className="px-8 py-4 bg-slate-900/80 border-white/20 font-semibold hover:bg-slate-800/80 transition-colors"
-              borderClassName="bg-[radial-gradient(var(--purple-500)_40%,transparent_60%)]"
-            >
-              How We Work
-            </MovingBorderButton>
-          </div>
-
-          {/* Tech Stack Pills */}
-          <div className="flex flex-wrap justify-center gap-3">
-            {techStack.map((tech, index) => (
-              <span
-                key={index}
-                className="px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-white/50 text-sm hover:border-white/30 hover:text-white/80 transition-all cursor-default"
-              >
-                {tech}
-              </span>
-            ))}
           </div>
         </div>
 
@@ -176,12 +152,36 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* Message from Team */}
+      <section className="py-24 bg-slate-800">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">A Message From Us</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-8">
+            When You Grow, We Grow
+          </h2>
+          <div className="space-y-6 text-lg md:text-xl text-slate-300 leading-relaxed">
+            <p>
+              <span className="text-white font-semibold">We're growing, just like you.</span>
+              <br />
+              That's why we take every project seriously and never cut corners.
+            </p>
+            <p>
+              Your success drives our success, so we handle your product with care, responsibility, and extra effort.
+            </p>
+          </div>
+          <div className="mt-10 inline-flex items-center px-6 py-3 rounded-full bg-orange-500/20 border border-orange-500/30">
+            <Users className="w-5 h-5 text-orange-400 mr-3" />
+            <span className="text-white font-medium">— Team Devople</span>
+          </div>
+        </div>
+      </section>
+
       {/* Services Section - Bento Grid */}
-      <section className="py-24 bg-white relative">
+      <section className="py-24 bg-slate-900 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">What We Do</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-4">
+            <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">What We Do</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mt-4">
               Our Services
             </h2>
           </div>
@@ -190,19 +190,19 @@ const HomePage = () => {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="group relative bg-slate-50 rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden"
+                className="group relative bg-slate-800 rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden border border-slate-700"
               >
                 {/* Background Gradient on Hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
+                <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
                 
                 <div className="relative z-10">
                   <div className={`w-14 h-14 bg-gradient-to-br ${service.color} text-white rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
                     {service.icon}
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">
+                  <h3 className="text-xl font-bold text-white mb-2">
                     {service.title}
                   </h3>
-                  <p className="text-slate-600">{service.description}</p>
+                  <p className="text-slate-300">{service.description}</p>
                 </div>
 
                 {/* Corner Decoration */}
@@ -214,7 +214,7 @@ const HomePage = () => {
           <div className="text-center mt-12">
             <Link
               to="/services"
-              className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 group"
+              className="inline-flex items-center text-orange-400 font-semibold hover:text-orange-300 group"
             >
               View All Services 
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -224,11 +224,11 @@ const HomePage = () => {
       </section>
 
       {/* Why Choose Us - Stats Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Why Us</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-4">
+            <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">Why Us</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mt-4">
               We Bring Startup Energy
             </h2>
           </div>
@@ -237,18 +237,18 @@ const HomePage = () => {
             {whyChooseUs.map((item, index) => (
               <div
                 key={index}
-                className="group text-center p-8 rounded-3xl bg-slate-50 hover:bg-gradient-to-br hover:from-blue-600 hover:to-purple-600 transition-all duration-500"
+                className="group text-center p-8 rounded-3xl bg-slate-700 hover:bg-gradient-to-br hover:from-orange-500 hover:to-amber-500 transition-all duration-500"
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 group-hover:bg-white text-white group-hover:text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 transition-all duration-500">
+                <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-amber-500 group-hover:bg-white text-white group-hover:text-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-6 transition-all duration-500">
                   {item.icon}
                 </div>
-                <div className="text-5xl font-bold text-slate-900 group-hover:text-white mb-2 transition-colors">
+                <div className="text-5xl font-bold text-white group-hover:text-white mb-2 transition-colors">
                   {item.stat}
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 group-hover:text-white mb-2 transition-colors">
+                <h3 className="text-xl font-bold text-white group-hover:text-white mb-2 transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-slate-600 group-hover:text-white/80 transition-colors">{item.description}</p>
+                <p className="text-slate-300 group-hover:text-white/80 transition-colors">{item.description}</p>
               </div>
             ))}
           </div>
@@ -256,21 +256,21 @@ const HomePage = () => {
       </section>
 
       {/* Testimonial / Social Proof */}
-      <section className="py-24 bg-gradient-to-br from-slate-50 to-blue-50">
+      <section className="py-24 bg-slate-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex justify-center mb-6">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-6 h-6 text-yellow-400 fill-yellow-400" />
+              <Star key={i} className="w-6 h-6 text-orange-400 fill-orange-400" />
             ))}
           </div>
-          <blockquote className="text-2xl md:text-3xl font-medium text-slate-800 mb-8 leading-relaxed">
+          <blockquote className="text-2xl md:text-3xl font-medium text-white mb-8 leading-relaxed">
             "Working with this team was an absolute pleasure. They delivered beyond our expectations and the communication was excellent throughout."
           </blockquote>
           <div className="flex items-center justify-center">
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full mr-4"></div>
+            <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-amber-500 rounded-full mr-4"></div>
             <div className="text-left">
-              <div className="font-semibold text-slate-900">[Client Name]</div>
-              <div className="text-slate-500 text-sm">[Company Name]</div>
+              <div className="font-semibold text-white">[Client Name]</div>
+              <div className="text-slate-400 text-sm">[Company Name]</div>
             </div>
           </div>
         </div>
@@ -279,15 +279,15 @@ const HomePage = () => {
       {/* Final CTA - Immersive */}
       <section className="relative py-32 overflow-hidden">
         {/* Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-black">
           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
         </div>
 
         {/* Floating Elements */}
-        <div className="absolute top-10 left-10 w-32 h-32 border border-white/10 rounded-full"></div>
-        <div className="absolute bottom-10 right-10 w-48 h-48 border border-white/10 rounded-full"></div>
-        <div className="absolute top-1/2 left-1/4 w-4 h-4 bg-white/20 rounded-full"></div>
-        <div className="absolute top-1/3 right-1/4 w-6 h-6 bg-white/20 rounded-full"></div>
+        <div className="absolute top-10 left-10 w-32 h-32 border border-orange-500/20 rounded-full"></div>
+        <div className="absolute bottom-10 right-10 w-48 h-48 border border-orange-500/20 rounded-full"></div>
+        <div className="absolute top-1/2 left-1/4 w-4 h-4 bg-orange-500/20 rounded-full"></div>
+        <div className="absolute top-1/3 right-1/4 w-6 h-6 bg-orange-500/20 rounded-full"></div>
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-8">
@@ -306,8 +306,8 @@ const HomePage = () => {
             to="/contact"
             borderRadius="2rem"
             containerClassName="h-16 mx-auto"
-            className="px-10 py-5 bg-white text-slate-900 border-none font-bold"
-            borderClassName="bg-[radial-gradient(var(--cyan-500)_40%,transparent_60%)]"
+            className="px-10 py-5 bg-orange-500 text-white border-none font-bold hover:bg-orange-600"
+            borderClassName="bg-[radial-gradient(var(--orange-500)_40%,transparent_60%)]"
           >
             Start Your Project
             <ArrowRight className="ml-2 w-5 h-5" />

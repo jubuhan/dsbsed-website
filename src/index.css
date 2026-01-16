@@ -3,10 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --blue-500: #3b82f6;
-  --purple-500: #8b5cf6;
-  --pink-500: #ec4899;
-  --cyan-500: #06b6d4;
+  --orange-500: #f97316;
+  --amber-500: #f59e0b;
+  --orange-600: #ea580c;
 }
 
 @layer base {
@@ -45,7 +44,7 @@
   }
   
   .gradient-text {
-    @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent;
   }
 }
 
