@@ -76,7 +76,7 @@ const ServicesPage = () => {
   return (
     <div className="animate-fade-in overflow-hidden">
       {/* Services - Apple-style Carousel */}
-      <section className="py-24 bg-slate-800">
+      <section className="pt-8 pb-24 bg-slate-800">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8 px-4 sm:px-6 lg:px-8">
             <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">What We Do</span>

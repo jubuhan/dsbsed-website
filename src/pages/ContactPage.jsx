@@ -95,7 +95,7 @@ const ContactPage = () => {
   return (
     <div className="animate-fade-in overflow-hidden">
       {/* Main Contact Section */}
-      <section className="py-24 bg-slate-900">
+      <section className="pt-8 pb-24 bg-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Left Side - Form */}
