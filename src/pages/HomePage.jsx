@@ -141,23 +141,16 @@ const HomePage = () => {
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
-          <div className="flex flex-col items-center text-white/40">
-            <span className="text-xs mb-2">Scroll</span>
-            <MousePointer className="w-4 h-4 animate-bounce" />
-          </div>
-        </div>
       </section>
 
       {/* Message from Team */}
-      <section className="py-24 bg-slate-800">
+      <section className="py-16 md:py-24 bg-slate-800">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-24">
             {/* Flip Card */}
-            <div className="flex-shrink-0">
+            <div className="flex-shrink-0 lg:ml-8">
               <div 
-                className="w-64 h-80 perspective-1000 cursor-pointer group"
+                className="w-48 h-64 md:w-72 md:h-96 perspective-1000 cursor-pointer group transform -rotate-3"
                 style={{ perspective: '1000px' }}
               >
                 <div 
@@ -169,20 +162,20 @@ const HomePage = () => {
                     className="absolute w-full h-full rounded-2xl flex flex-col items-center justify-center bg-gradient-to-br from-slate-700 to-slate-800 border border-slate-600 shadow-xl"
                     style={{ backfaceVisibility: 'hidden' }}
                   >
-                    <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-amber-500 rounded-full flex items-center justify-center mb-4">
-                      <Users className="w-10 h-10 text-white" />
+                    <div className="w-16 h-16 md:w-24 md:h-24 bg-gradient-to-br from-orange-500 to-amber-500 rounded-full flex items-center justify-center mb-3 md:mb-4">
+                      <Users className="w-8 h-8 md:w-12 md:h-12 text-white" />
                     </div>
-                    <span className="text-white font-bold text-xl">Team Devople</span>
-                    <span className="text-slate-400 text-sm mt-2">Hover to reveal</span>
+                    <span className="text-white font-bold text-lg md:text-2xl">Team Devople</span>
+                    <span className="text-slate-400 text-xs md:text-sm mt-1 md:mt-2">Tap to reveal</span>
                   </div>
                   {/* Back */}
                   <div 
-                    className="absolute w-full h-full rounded-2xl flex flex-col items-center justify-center bg-gradient-to-br from-orange-500 to-amber-500 text-white p-6 text-center [transform:rotateY(180deg)]"
+                    className="absolute w-full h-full rounded-2xl flex flex-col items-center justify-center bg-gradient-to-br from-orange-500 to-amber-500 text-white p-4 md:p-8 text-center [transform:rotateY(180deg)]"
                     style={{ backfaceVisibility: 'hidden' }}
                   >
-                    <Sparkles className="w-8 h-8 mb-4" />
-                    <p className="font-semibold text-lg mb-2">Our Promise</p>
-                    <p className="text-white/90 text-sm leading-relaxed">
+                    <Sparkles className="w-6 h-6 md:w-10 md:h-10 mb-2 md:mb-4" />
+                    <p className="font-semibold text-base md:text-xl mb-2 md:mb-3">Our Promise</p>
+                    <p className="text-white/90 text-xs md:text-base leading-relaxed">
                       We treat every project like our own. Your vision becomes our mission.
                     </p>
                   </div>
@@ -191,27 +184,40 @@ const HomePage = () => {
             </div>
 
             {/* Text Content */}
-            <div className="text-center lg:text-left flex-1">
-              <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">A Message From Us</span>
-              <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-8">
-                When You Grow, We Grow
+            <div className="text-center lg:text-left flex-1 relative">
+              {/* Decorative Elements */}
+              <div className="absolute -top-8 -left-8 w-24 h-24 bg-orange-500/10 rounded-full blur-2xl hidden lg:block"></div>
+              <div className="absolute bottom-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-3xl hidden lg:block"></div>
+              
+              <div className="inline-flex items-center px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-orange-500/10 border border-orange-500/20 mb-4 md:mb-6">
+                <Sparkles className="w-3 h-3 md:w-4 md:h-4 text-orange-400 mr-1.5 md:mr-2" />
+                <span className="text-orange-400 font-semibold text-xs md:text-sm uppercase tracking-wider">A Message From Us</span>
+              </div>
+              
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-4 md:mb-8 leading-tight">
+                When You Grow,
+                <span className="block bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">We Grow</span>
               </h2>
-              <div className="space-y-6 text-lg md:text-xl text-slate-300 leading-relaxed">
-                <p>
+              
+              <div className="space-y-4 md:space-y-6 text-sm md:text-xl text-slate-300 leading-relaxed">
+                <p className="relative pl-4 md:pl-6 border-l-2 border-orange-500/50">
                   <span className="text-white font-semibold">We're growing, just like you.</span>
                   <br />
                   That's why we take every project seriously and never cut corners.
                 </p>
-                <p>
+                <p className="relative pl-4 md:pl-6 border-l-2 border-orange-500/30">
                   Your success drives our success, so we handle your product with care, responsibility, and extra effort.
                 </p>
-                <p>
+                <p className="relative pl-4 md:pl-6 border-l-2 border-orange-500/20">
                   We believe in building relationships, not just products. Trust us with your idea, and we'll give it everything we've got.
                 </p>
               </div>
-              <div className="mt-10 inline-flex items-center px-6 py-3 rounded-full bg-orange-500/20 border border-orange-500/30">
-                <Users className="w-5 h-5 text-orange-400 mr-3" />
-                <span className="text-white font-medium">— Team Devople</span>
+              
+              <div className="mt-6 md:mt-10 inline-flex items-center px-4 py-2 md:px-6 md:py-3 rounded-full bg-gradient-to-r from-orange-500/20 to-amber-500/20 border border-orange-500/30 backdrop-blur-sm shadow-lg shadow-orange-500/10">
+                <div className="w-6 h-6 md:w-8 md:h-8 bg-gradient-to-br from-orange-500 to-amber-500 rounded-full flex items-center justify-center mr-2 md:mr-3">
+                  <Users className="w-3 h-3 md:w-4 md:h-4 text-white" />
+                </div>
+                <span className="text-white font-medium text-sm md:text-base">— Team Devople</span>
               </div>
             </div>
           </div>
@@ -262,31 +268,31 @@ const HomePage = () => {
       </section>
 
       {/* Why Choose Us - Stats Section */}
-      <section className="py-24 bg-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+      <section className="py-20 bg-slate-800">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
             <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">Why Us</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mt-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mt-3">
               We Bring Startup Energy
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {whyChooseUs.map((item, index) => (
               <div
                 key={index}
-                className="group text-center p-8 rounded-3xl bg-slate-700 hover:bg-gradient-to-br hover:from-orange-500 hover:to-amber-500 transition-all duration-500"
+                className="group text-center p-6 rounded-2xl bg-slate-700 hover:bg-gradient-to-br hover:from-orange-500 hover:to-amber-500 transition-all duration-500"
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-amber-500 group-hover:bg-white text-white group-hover:text-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-6 transition-all duration-500">
+                <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-amber-500 group-hover:bg-white text-white group-hover:text-orange-500 rounded-xl flex items-center justify-center mx-auto mb-4 transition-all duration-500">
                   {item.icon}
                 </div>
-                <div className="text-5xl font-bold text-white group-hover:text-white mb-2 transition-colors">
+                <div className="text-3xl font-bold text-white group-hover:text-white mb-1 transition-colors">
                   {item.stat}
                 </div>
-                <h3 className="text-xl font-bold text-white group-hover:text-white mb-2 transition-colors">
+                <h3 className="text-base font-bold text-white group-hover:text-white mb-1 transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-slate-300 group-hover:text-white/80 transition-colors">{item.description}</p>
+                <p className="text-slate-300 text-sm group-hover:text-white/80 transition-colors">{item.description}</p>
               </div>
             ))}
           </div>
