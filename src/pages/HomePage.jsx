@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Smartphone, Globe, Palette, Lightbulb, ArrowRight, Zap, Users, Code2, Sparkles, MousePointer, Rocket, Star } from 'lucide-react'
+import { Smartphone, Globe, Palette, Lightbulb, ArrowRight, Zap, Users, Code2, Sparkles, MousePointer, Rocket, Star, Database, Cloud } from 'lucide-react'
 import { motion } from 'motion/react'
 import { CanvasRevealEffect } from '../components/ui/CanvasRevealEffect'
 import { Button as MovingBorderButton } from '../components/ui/MovingBorder'
@@ -8,27 +8,33 @@ const HomePage = () => {
   const services = [
     {
       icon: <Smartphone className="w-7 h-7" />,
-      title: 'App Development',
-      description: 'Native and cross-platform mobile apps',
+      title: 'Mobile App Development',
       color: 'from-blue-500 to-cyan-500'
     },
     {
       icon: <Globe className="w-7 h-7" />,
       title: 'Web Development',
-      description: 'Modern websites and web applications',
       color: 'from-purple-500 to-pink-500'
     },
     {
       icon: <Palette className="w-7 h-7" />,
       title: 'UI/UX Design',
-      description: 'Beautiful and intuitive user experiences',
       color: 'from-orange-500 to-red-500'
     },
     {
       icon: <Lightbulb className="w-7 h-7" />,
       title: 'Product Building',
-      description: 'End-to-end digital product development',
       color: 'from-green-500 to-teal-500'
+    },
+    {
+      icon: <Database className="w-7 h-7" />,
+      title: 'Backend Development',
+      color: 'from-indigo-500 to-blue-500'
+    },
+    {
+      icon: <Cloud className="w-7 h-7" />,
+      title: 'Cloud & DevOps',
+      color: 'from-pink-500 to-rose-500'
     }
   ]
 
@@ -217,32 +223,28 @@ const HomePage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">What We Do</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mt-4">
-              Our Services
-            </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {services.map((service, index) => (
               <div
                 key={index}
-                className="group relative bg-slate-800 rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden border border-slate-700"
+                className="group relative bg-slate-800 rounded-2xl p-6 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden border border-slate-700"
               >
                 {/* Background Gradient on Hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
                 
-                <div className="relative z-10">
-                  <div className={`w-14 h-14 bg-gradient-to-br ${service.color} text-white rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                <div className="relative z-10 flex flex-col items-center text-center">
+                  <div className={`w-12 h-12 bg-gradient-to-br ${service.color} text-white rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
                     {service.icon}
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2">
+                  <h3 className="text-sm font-bold text-white">
                     {service.title}
                   </h3>
-                  <p className="text-slate-300">{service.description}</p>
                 </div>
 
                 {/* Corner Decoration */}
-                <div className={`absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-br ${service.color} opacity-10 rounded-full blur-2xl group-hover:opacity-20 transition-opacity`}></div>
+                <div className={`absolute -bottom-4 -right-4 w-20 h-20 bg-gradient-to-br ${service.color} opacity-10 rounded-full blur-2xl group-hover:opacity-20 transition-opacity`}></div>
               </div>
             ))}
           </div>
