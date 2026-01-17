@@ -1,12 +1,10 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Smartphone, Globe, Palette, Lightbulb, ArrowRight, Zap, Users, Code2, Sparkles, MousePointer, Rocket, Star } from 'lucide-react'
-import { AnimatePresence, motion } from 'motion/react'
+import { motion } from 'motion/react'
 import { CanvasRevealEffect } from '../components/ui/CanvasRevealEffect'
 import { Button as MovingBorderButton } from '../components/ui/MovingBorder'
 
 const HomePage = () => {
-  const [heroHovered, setHeroHovered] = useState(false)
   const services = [
     {
       icon: <Smartphone className="w-7 h-7" />,
@@ -60,33 +58,27 @@ const HomePage = () => {
       {/* Hero Section - Immersive Dark with Canvas Reveal */}
       <section 
         className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-900"
-        onMouseEnter={() => setHeroHovered(true)}
-        onMouseLeave={() => setHeroHovered(false)}
       >
         {/* Canvas Reveal Effect */}
-        <AnimatePresence>
-          {heroHovered && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="h-full w-full absolute inset-0 z-0"
-            >
-              <CanvasRevealEffect
-                animationSpeed={5}
-                containerClassName="bg-transparent"
-                colors={[
-                  [249, 115, 22],
-                  [251, 146, 60],
-                  [245, 158, 11],
-                ]}
-                opacities={[0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.4, 0.4, 0.4, 1]}
-                dotSize={2}
-                showGradient={false}
-              />
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="h-full w-full absolute inset-0 z-0"
+        >
+          <CanvasRevealEffect
+            animationSpeed={5}
+            containerClassName="bg-transparent"
+            colors={[
+              [249, 115, 22],
+              [251, 146, 60],
+              [245, 158, 11],
+            ]}
+            opacities={[0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.4, 0.4, 0.4, 1]}
+            dotSize={2}
+            showGradient={false}
+          />
+        </motion.div>
 
         {/* Radial gradient fade */}
         <div className="absolute inset-0 [mask-image:radial-gradient(600px_at_center,white,transparent)] bg-slate-900/50 z-[1]" />
@@ -154,24 +146,68 @@ const HomePage = () => {
 
       {/* Message from Team */}
       <section className="py-24 bg-slate-800">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">A Message From Us</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-8">
-            When You Grow, We Grow
-          </h2>
-          <div className="space-y-6 text-lg md:text-xl text-slate-300 leading-relaxed">
-            <p>
-              <span className="text-white font-semibold">We're growing, just like you.</span>
-              <br />
-              That's why we take every project seriously and never cut corners.
-            </p>
-            <p>
-              Your success drives our success, so we handle your product with care, responsibility, and extra effort.
-            </p>
-          </div>
-          <div className="mt-10 inline-flex items-center px-6 py-3 rounded-full bg-orange-500/20 border border-orange-500/30">
-            <Users className="w-5 h-5 text-orange-400 mr-3" />
-            <span className="text-white font-medium">— Team Devople</span>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+            {/* Flip Card */}
+            <div className="flex-shrink-0">
+              <div 
+                className="w-64 h-80 perspective-1000 cursor-pointer group"
+                style={{ perspective: '1000px' }}
+              >
+                <div 
+                  className="relative w-full h-full transition-transform duration-700 group-hover:[transform:rotateY(180deg)]"
+                  style={{ transformStyle: 'preserve-3d' }}
+                >
+                  {/* Front */}
+                  <div 
+                    className="absolute w-full h-full rounded-2xl flex flex-col items-center justify-center bg-gradient-to-br from-slate-700 to-slate-800 border border-slate-600 shadow-xl"
+                    style={{ backfaceVisibility: 'hidden' }}
+                  >
+                    <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-amber-500 rounded-full flex items-center justify-center mb-4">
+                      <Users className="w-10 h-10 text-white" />
+                    </div>
+                    <span className="text-white font-bold text-xl">Team Devople</span>
+                    <span className="text-slate-400 text-sm mt-2">Hover to reveal</span>
+                  </div>
+                  {/* Back */}
+                  <div 
+                    className="absolute w-full h-full rounded-2xl flex flex-col items-center justify-center bg-gradient-to-br from-orange-500 to-amber-500 text-white p-6 text-center [transform:rotateY(180deg)]"
+                    style={{ backfaceVisibility: 'hidden' }}
+                  >
+                    <Sparkles className="w-8 h-8 mb-4" />
+                    <p className="font-semibold text-lg mb-2">Our Promise</p>
+                    <p className="text-white/90 text-sm leading-relaxed">
+                      We treat every project like our own. Your vision becomes our mission.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Text Content */}
+            <div className="text-center lg:text-left flex-1">
+              <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">A Message From Us</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-8">
+                When You Grow, We Grow
+              </h2>
+              <div className="space-y-6 text-lg md:text-xl text-slate-300 leading-relaxed">
+                <p>
+                  <span className="text-white font-semibold">We're growing, just like you.</span>
+                  <br />
+                  That's why we take every project seriously and never cut corners.
+                </p>
+                <p>
+                  Your success drives our success, so we handle your product with care, responsibility, and extra effort.
+                </p>
+                <p>
+                  We believe in building relationships, not just products. Trust us with your idea, and we'll give it everything we've got.
+                </p>
+              </div>
+              <div className="mt-10 inline-flex items-center px-6 py-3 rounded-full bg-orange-500/20 border border-orange-500/30">
+                <Users className="w-5 h-5 text-orange-400 mr-3" />
+                <span className="text-white font-medium">— Team Devople</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>

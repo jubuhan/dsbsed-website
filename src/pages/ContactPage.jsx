@@ -94,34 +94,6 @@ const ContactPage = () => {
 
   return (
     <div className="animate-fade-in overflow-hidden">
-      {/* Contact Info Cards */}
-      <section className="py-16 bg-slate-800 border-b border-slate-700">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {contactInfo.map((info, index) => (
-              <a
-                key={index}
-                href={info.link}
-                className="group relative bg-slate-700 rounded-2xl p-6 hover:shadow-xl transition-all duration-500 hover:-translate-y-1 overflow-hidden"
-              >
-                {/* Background Gradient on Hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${info.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
-                
-                <div className="relative z-10 flex items-start gap-4">
-                  <div className={`w-12 h-12 bg-gradient-to-br ${info.color} text-white rounded-xl flex items-center justify-center flex-shrink-0`}>
-                    {info.icon}
-                  </div>
-                  <div>
-                    <div className="text-sm text-slate-400 mb-1">{info.title}</div>
-                    <div className="font-semibold text-white">{info.value}</div>
-                  </div>
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Main Contact Section */}
       <section className="py-24 bg-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -283,19 +255,35 @@ const ContactPage = () => {
                   ))}
                 </div>
               </div>
-
-              {/* Quick Contact */}
-              <div className="bg-slate-900 rounded-2xl p-8">
-                <h3 className="text-xl font-bold text-white mb-4">Prefer a Quick Chat?</h3>
-                <p className="text-white/60 mb-6">
-                  Schedule a 15-minute call to discuss your project directly with our team.
-                </p>
-                <button className="w-full px-6 py-3 bg-white text-slate-900 rounded-xl font-semibold hover:bg-white/90 transition-all flex items-center justify-center gap-2">
-                  Schedule a Call
-                  <ArrowRight className="w-5 h-5" />
-                </button>
-              </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Info Cards */}
+      <section className="py-16 bg-slate-800 border-b border-slate-700">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {contactInfo.map((info, index) => (
+              <a
+                key={index}
+                href={info.link}
+                className="group relative bg-slate-700 rounded-2xl p-6 hover:shadow-xl transition-all duration-500 hover:-translate-y-1 overflow-hidden"
+              >
+                {/* Background Gradient on Hover */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${info.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
+                
+                <div className="relative z-10 flex items-start gap-4">
+                  <div className={`w-12 h-12 bg-gradient-to-br ${info.color} text-white rounded-xl flex items-center justify-center flex-shrink-0`}>
+                    {info.icon}
+                  </div>
+                  <div>
+                    <div className="text-sm text-slate-400 mb-1">{info.title}</div>
+                    <div className="font-semibold text-white">{info.value}</div>
+                  </div>
+                </div>
+              </a>
+            ))}
           </div>
         </div>
       </section>

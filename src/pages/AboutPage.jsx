@@ -1,4 +1,5 @@
 import { Target, Heart, Zap, Users, Code2, Rocket, Coffee } from 'lucide-react'
+import { HoverEffect } from '../components/ui/card-hover-effect'
 import jubuhan from '../assets/founders/jubuhan.png'
 import alan from '../assets/founders/alan.png'
 import kali from '../assets/founders/kali.png'
@@ -207,41 +208,7 @@ const AboutPage = () => {
             <p className="text-xl text-slate-400">The talented people making it happen</p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {team.map((member, index) => (
-              <div
-                key={index}
-                className="group"
-              >
-                <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 hover:border-white/30 transition-all duration-300 hover:bg-white/10">
-                  {/* Image */}
-                  <div className="relative h-52 overflow-hidden">
-                    {member.image ? (
-                      <img 
-                        src={member.image} 
-                        alt={member.name}
-                        className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
-                      />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center bg-slate-800">
-                        <span className="text-slate-500 text-sm">Coming Soon</span>
-                      </div>
-                    )}
-                    
-                    {/* Overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60"></div>
-                  </div>
-
-                  {/* Info */}
-                  <div className="p-4">
-                    <h3 className="text-white font-semibold text-lg">{member.name}</h3>
-                    <p className="text-orange-400 text-sm font-medium">{member.role}</p>
-                    <p className="text-slate-400 text-xs mt-1">{member.bio}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <HoverEffect items={team} />
         </div>
       </section>
 

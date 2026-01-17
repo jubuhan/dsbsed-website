@@ -1,4 +1,4 @@
-import { MessageSquare, Palette, Code, Rocket, ArrowRight, Users, Zap, Clock, Shield, Target, Lightbulb, Layers } from 'lucide-react'
+import { Palette, Code, Rocket, ArrowRight, Users, Zap, Clock, Shield, Target, Lightbulb, Layers } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { AnimatedProcessCards } from '../components/ui/AnimatedProcessCards'
 import { Button as MovingBorderButton } from '../components/ui/MovingBorder'
@@ -78,25 +78,6 @@ const HowWeWorkPage = () => {
     }
   ]
 
-  const faqs = [
-    {
-      question: 'How long does a typical project take?',
-      answer: 'Project timelines vary based on complexity. A simple website might take 2-4 weeks, while a full mobile app could take 2-4 months. We\'ll provide a detailed timeline during our discovery phase.'
-    },
-    {
-      question: 'What technologies do you use?',
-      answer: 'We use modern, industry-standard technologies including React, React Native, Flutter, Node.js, Python, and cloud services like AWS and Google Cloud. We choose the best tech stack for your specific needs.'
-    },
-    {
-      question: 'How do you handle project communication?',
-      answer: 'We use tools like Slack, Notion, and regular video calls to keep you updated. You\'ll have direct access to our team and receive weekly progress reports.'
-    },
-    {
-      question: 'What happens after the project is launched?',
-      answer: 'We offer ongoing support and maintenance packages. We can also continue working with you on new features and improvements as your product evolves.'
-    }
-  ]
-
   return (
     <div className="animate-fade-in overflow-hidden">
       {/* Process Timeline */}
@@ -134,30 +115,6 @@ const HowWeWorkPage = () => {
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">{principle.title}</h3>
                 <p className="text-slate-300">{principle.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-24 bg-slate-800">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">FAQ</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mt-4">
-              Common Questions
-            </h2>
-          </div>
-
-          <div className="space-y-6">
-            {faqs.map((faq, index) => (
-              <div key={index} className="bg-slate-700 rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
-                <h3 className="text-xl font-bold text-white mb-4 flex items-start">
-                  <MessageSquare className="w-6 h-6 text-orange-500 mr-3 flex-shrink-0 mt-1" />
-                  {faq.question}
-                </h3>
-                <p className="text-slate-300 ml-9">{faq.answer}</p>
               </div>
             ))}
           </div>
