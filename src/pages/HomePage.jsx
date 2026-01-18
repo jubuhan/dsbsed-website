@@ -3,6 +3,7 @@ import { Smartphone, Globe, Palette, Lightbulb, ArrowRight, Zap, Users, Code2, S
 import { motion } from 'motion/react'
 import { CanvasRevealEffect } from '../components/ui/CanvasRevealEffect'
 import { Button as MovingBorderButton } from '../components/ui/MovingBorder'
+import serviceBg from '../assets/home/service.png'
 
 const HomePage = () => {
   const services = [
@@ -144,7 +145,7 @@ const HomePage = () => {
       </section>
 
       {/* Message from Team */}
-      <section className="py-16 md:py-24 bg-white border-t border-[#FF6B35]/30">
+      <section className="py-12 md:py-16 pb-6 bg-white border-t border-[#FF6B35]/30">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-24">
             {/* Flip Card */}
@@ -225,10 +226,21 @@ const HomePage = () => {
       </section>
 
       {/* Services Section - Bento Grid */}
-      <section className="relative -my-16 z-20">
+      <section className="relative py-12 z-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-3xl shadow-2xl py-16 px-6 border border-gray-200">
-            <div className="text-center mb-12">
+          <div className="relative bg-white rounded-3xl shadow-2xl py-10 px-6 border border-gray-200 overflow-hidden transition-all duration-500 hover:shadow-[0_20px_60px_rgba(255,107,53,0.3)] hover:scale-[1.02] group">
+            {/* Background Image */}
+            <div className="absolute inset-0">
+              <img 
+                src={serviceBg} 
+                alt="Services background"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+            </div>
+            
+            {/* Content */}
+            <div className="relative z-10">
+              <div className="text-center mb-8">
               <span className="text-[#FF6B35] font-semibold text-sm uppercase tracking-wider">What We Do</span>
             </div>
 
@@ -236,13 +248,13 @@ const HomePage = () => {
               {services.map((service, index) => (
                 <div
                   key={index}
-                  className="group relative bg-white/90 backdrop-blur-sm rounded-2xl p-6 hover:bg-white hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden border border-white/40"
+                  className="group relative bg-white/90 backdrop-blur-sm rounded-2xl p-4 hover:bg-white hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden border border-white/40"
                 >
                   {/* Background Gradient on Hover */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
                   
                   <div className="relative z-10 flex flex-col items-center text-center">
-                    <div className={`w-12 h-12 bg-gradient-to-br ${service.color} text-white rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                    <div className={`w-12 h-12 bg-gradient-to-br ${service.color} text-white rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300`}>
                       {service.icon}
                     </div>
                     <h3 className="text-sm font-bold text-gray-800">
@@ -256,7 +268,7 @@ const HomePage = () => {
               ))}
             </div>
 
-            <div className="text-center mt-12">
+            <div className="text-center mt-8">
               <Link
                 to="/services"
                 className="inline-flex items-center text-[#FF6B35] font-semibold hover:text-[#FB923C] group"
@@ -265,12 +277,13 @@ const HomePage = () => {
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Why Choose Us - Stats Section */}
-      <section className="py-20 bg-white border-y border-[#FF6B35]/30">
+      <section className="py-12 pt-6 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="text-[#FF6B35] font-semibold text-sm uppercase tracking-wider">Why Us</span>
@@ -302,7 +315,7 @@ const HomePage = () => {
       </section>
 
       {/* Testimonial / Social Proof */}
-      <section className="py-24 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex justify-center mb-6">
             {[...Array(5)].map((_, i) => (
@@ -323,7 +336,7 @@ const HomePage = () => {
       </section>
 
       {/* Final CTA - Immersive */}
-      <section className="relative py-32 overflow-hidden bg-white">
+      <section className="relative py-16 overflow-hidden bg-white">
         {/* Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-white">
           <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.05)_1px,transparent_1px)] bg-[size:40px_40px]"></div>

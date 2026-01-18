@@ -3,6 +3,14 @@ import { Link } from 'react-router-dom'
 import { AnimatedProcessCards } from '../components/ui/AnimatedProcessCards'
 import { Button as MovingBorderButton } from '../components/ui/MovingBorder'
 
+// Process images
+import discoveryImg from '../assets/process/discovery.jpg'
+import designImg from '../assets/process/design.jpg'
+import developmentImg from '../assets/process/development.jpg'
+import testingImg from '../assets/process/testing.jpg'
+import launchImg from '../assets/process/launch.jpg'
+import supportImg from '../assets/process/support.jpg'
+
 const HowWeWorkPage = () => {
   const process = [
     {
@@ -11,7 +19,8 @@ const HowWeWorkPage = () => {
       description: 'We start by understanding your vision, goals, and target audience. Through in-depth discussions and research, we define the project scope and create a strategic roadmap.',
       icon: <Lightbulb className="w-8 h-8" />,
       details: ['Requirement Analysis', 'Market Research', 'Project Roadmap', 'Timeline Planning'],
-      color: 'from-[#FF6B35] to-[#FF8C42]'
+      color: 'from-[#FF6B35] to-[#FF8C42]',
+      image: discoveryImg
     },
     {
       step: '02',
@@ -19,7 +28,8 @@ const HowWeWorkPage = () => {
       description: 'Our designers create wireframes and high-fidelity prototypes that bring your vision to life. We iterate based on your feedback until the design is perfect.',
       icon: <Palette className="w-8 h-8" />,
       details: ['Wireframing', 'UI/UX Design', 'Interactive Prototypes', 'Design Review'],
-      color: 'from-[#FB923C] to-[#FF6B35]'
+      color: 'from-[#FB923C] to-[#FF6B35]',
+      image: designImg
     },
     {
       step: '03',
@@ -27,7 +37,8 @@ const HowWeWorkPage = () => {
       description: 'Using agile methodology, we build your product in sprints with regular demos and feedback sessions. Transparency and communication are our priorities.',
       icon: <Code className="w-8 h-8" />,
       details: ['Agile Sprints', 'Code Reviews', 'Regular Updates', 'Quality Assurance'],
-      color: 'from-[#FF8C42] to-[#FB923C]'
+      color: 'from-[#FF8C42] to-[#FB923C]',
+      image: developmentImg
     },
     {
       step: '04',
@@ -35,7 +46,8 @@ const HowWeWorkPage = () => {
       description: 'Rigorous testing ensures your product works flawlessly across all devices and scenarios. We catch bugs before your users do.',
       icon: <Shield className="w-8 h-8" />,
       details: ['Automated Testing', 'Manual QA', 'Performance Testing', 'Security Audits'],
-      color: 'from-[#FF6B35] to-[#FB923C]'
+      color: 'from-[#FF6B35] to-[#FB923C]',
+      image: testingImg
     },
     {
       step: '05',
@@ -43,7 +55,8 @@ const HowWeWorkPage = () => {
       description: 'We handle the deployment process, ensuring a smooth launch. From app store submissions to server configuration, we\'ve got you covered.',
       icon: <Rocket className="w-8 h-8" />,
       details: ['Deployment Setup', 'Store Submissions', 'DNS Configuration', 'Launch Support'],
-      color: 'from-[#FB923C] to-[#FF8C42]'
+      color: 'from-[#FB923C] to-[#FF8C42]',
+      image: launchImg
     },
     {
       step: '06',
@@ -51,7 +64,8 @@ const HowWeWorkPage = () => {
       description: 'Our relationship doesn\'t end at launch. We provide ongoing support, maintenance, and help you scale as your business grows.',
       icon: <Target className="w-8 h-8" />,
       details: ['24/7 Support', 'Bug Fixes', 'Feature Updates', 'Performance Optimization'],
-      color: 'from-[#FF8C42] to-[#FF6B35]'
+      color: 'from-[#FF8C42] to-[#FF6B35]',
+      image: supportImg
     }
   ]
 
@@ -81,14 +95,14 @@ const HowWeWorkPage = () => {
   return (
     <div className="animate-fade-in overflow-hidden">
       {/* Process Timeline */}
-      <section className="pt-8 pb-24 bg-gray-50 border-b border-[#FF6B35]/30">
+      <section className="pt-4 pb-12 bg-gray-50 border-b border-[#FF6B35]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-4">
+          <div className="text-center mb-2">
             <span className="text-[#FF6B35] font-semibold text-sm uppercase tracking-wider">Our Process</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-black mt-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mt-2">
               From Idea to Launch
             </h2>
-            <p className="text-black/80 mt-4 max-w-2xl mx-auto">
+            <p className="text-black/80 mt-2 max-w-2xl mx-auto text-sm md:text-base">
               Every successful project follows a proven process. Here's how we turn your ideas into reality.
             </p>
           </div>
@@ -98,11 +112,11 @@ const HowWeWorkPage = () => {
       </section>
 
       {/* Our Principles */}
-      <section className="py-24 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <span className="text-[#FF6B35] font-semibold text-sm uppercase tracking-wider">What Drives Us</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-black mt-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mt-3">
               Our Working Principles
             </h2>
           </div>
@@ -122,12 +136,12 @@ const HowWeWorkPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-r from-gray-50 via-white to-gray-50">
+      <section className="py-12 bg-gradient-to-r from-gray-50 via-white to-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
             Ready to Start Your Project?
           </h2>
-          <p className="text-xl text-black/80 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-black/80 mb-6 max-w-2xl mx-auto">
             Let's discuss your ideas and create something amazing together.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

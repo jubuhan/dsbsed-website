@@ -119,7 +119,7 @@ const AboutPage = () => {
   return (
     <div className="animate-fade-in overflow-hidden">
       {/* Story Section - Split Design */}
-      <section className="pt-8 pb-24 bg-gray-50 border-b border-[#FF6B35]/30 relative">
+      <section className="pt-6 pb-12 bg-gray-50 border-b border-[#FF6B35]/30 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left - Visual */}
@@ -161,7 +161,7 @@ const AboutPage = () => {
       </section>
 
       {/* Values Section - Bento Grid */}
-      <section className="py-24 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-[#FF6B35] font-semibold text-sm uppercase tracking-wider">What Drives Us</span>
@@ -195,7 +195,7 @@ const AboutPage = () => {
       </section>
 
       {/* Team Section - Modern Grid */}
-      <section className="py-24 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
+      <section className="py-12 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
         
@@ -213,7 +213,7 @@ const AboutPage = () => {
       </section>
 
       {/* Stats Section - Glassmorphism */}
-      <section className="py-24 bg-gradient-to-br from-[#FF6B35] via-[#FB923C] to-[#FF6B35] relative overflow-hidden">
+      <section className="py-12 bg-gradient-to-br from-[#FF6B35] via-[#FB923C] to-[#FF6B35] relative overflow-hidden">
         {/* Animated Shapes */}
         <div className="absolute top-0 left-0 w-full h-full">
           <div className="absolute top-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>

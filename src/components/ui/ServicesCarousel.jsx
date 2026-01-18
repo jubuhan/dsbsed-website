@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight, Check } from 'lucide-react'
 
 export const ServiceCard = ({ card, index }) => {
   return (
-    <div className="rounded-3xl h-[26rem] w-72 sm:h-[28rem] sm:w-80 md:h-[30rem] md:w-96 overflow-hidden flex flex-col relative group">
+    <div className="rounded-3xl h-[26rem] w-72 sm:h-[28rem] sm:w-80 md:h-[30rem] md:w-96 overflow-hidden flex flex-col relative group border-2 border-transparent hover:border-[#FF6B35] transition-colors duration-300">
       {/* Background Image */}
       {card.image && (
         <div className="absolute inset-0">
@@ -13,32 +13,34 @@ export const ServiceCard = ({ card, index }) => {
             alt={card.title}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
-          <div className={`absolute inset-0 bg-gradient-to-br ${card.color} opacity-80`} />
         </div>
       )}
       
       {/* Fallback gradient if no image */}
       {!card.image && (
-        <div className={`absolute inset-0 bg-gradient-to-br ${card.color} opacity-90`} />
+        <div className={`absolute inset-0 bg-gradient-to-br ${card.color} opacity-60`} />
       )}
       
       {/* Pattern overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:20px_20px] opacity-30" />
 
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/60 to-black/30" />
+
       {/* Content - Starting from top */}
       <div className="relative z-10 p-6 sm:p-7 md:p-8 flex flex-col h-full">
         {/* Icon & Category Row */}
         <div className="flex items-center justify-between mb-4">
-          <p className="text-white/70 text-sm font-medium uppercase tracking-wider">
+          <p className="text-[#FF6B35] text-sm font-medium uppercase tracking-wider">
             {card.category}
           </p>
-          <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
+          <div className="w-12 h-12 bg-[#FF6B35]/20 backdrop-blur-sm rounded-xl flex items-center justify-center text-[#FF6B35] group-hover:scale-110 transition-transform duration-300">
             {card.icon}
           </div>
         </div>
 
         {/* Title */}
-        <h3 className="text-white font-bold text-xl sm:text-2xl md:text-2xl mb-3">
+        <h3 className="text-[#FF6B35] font-bold text-xl sm:text-2xl md:text-2xl mb-3">
           {card.title}
         </h3>
         
@@ -51,7 +53,7 @@ export const ServiceCard = ({ card, index }) => {
         <div className="space-y-2 mt-auto">
           {card.features.slice(0, 5).map((feature, i) => (
             <div key={i} className="flex items-center text-sm">
-              <Check className="w-4 h-4 text-white/80 mr-2 flex-shrink-0" />
+              <Check className="w-4 h-4 text-[#FF6B35] mr-2 flex-shrink-0" />
               <span className="text-white/80">{feature}</span>
             </div>
           ))}
@@ -107,8 +109,8 @@ export const ServicesCarousel = ({ items }) => {
           disabled={!canScrollLeft}
           className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
             canScrollLeft 
-              ? 'bg-white/10 hover:bg-[#A480F2] text-white border border-[#A480F2]/30' 
-              : 'bg-[#1D1340] text-white/30 cursor-not-allowed border border-white/10'
+              ? 'bg-[#FF6B35]/10 hover:bg-[#FF6B35] text-[#FF6B35] hover:text-white border border-[#FF6B35]/30' 
+              : 'bg-gray-200 text-gray-400 cursor-not-allowed border border-gray-300'
           }`}
         >
           <ChevronLeft className="w-6 h-6" />
@@ -118,8 +120,8 @@ export const ServicesCarousel = ({ items }) => {
           disabled={!canScrollRight}
           className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
             canScrollRight 
-              ? 'bg-white/10 hover:bg-[#A480F2] text-white border border-[#A480F2]/30' 
-              : 'bg-[#1D1340] text-white/30 cursor-not-allowed border border-white/10'
+              ? 'bg-[#FF6B35]/10 hover:bg-[#FF6B35] text-[#FF6B35] hover:text-white border border-[#FF6B35]/30' 
+              : 'bg-gray-200 text-gray-400 cursor-not-allowed border border-gray-300'
           }`}
         >
           <ChevronRight className="w-6 h-6" />
