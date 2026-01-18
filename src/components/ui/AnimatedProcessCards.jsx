@@ -94,10 +94,10 @@ export const AnimatedProcessCards = ({ steps }) => {
             <span className={`inline-block px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-semibold mb-3 md:mb-4 bg-gradient-to-r ${steps[active].color} text-white`}>
               Step {steps[active].step}
             </span>
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 mb-3 md:mb-4">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-3 md:mb-4">
               {steps[active].title}
             </h3>
-            <motion.p className="text-sm sm:text-base md:text-lg text-slate-600 leading-relaxed mb-4 md:mb-6">
+            <motion.p className="text-sm sm:text-base md:text-lg text-black/80 leading-relaxed mb-4 md:mb-6">
               {steps[active].description.split(" ").map((word, index) => (
                 <motion.span
                   key={index}
@@ -123,7 +123,7 @@ export const AnimatedProcessCards = ({ steps }) => {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.3, delay: 0.1 * idx }}
-                  className="px-2.5 py-1.5 md:px-4 md:py-2 bg-slate-100 rounded-full text-xs md:text-sm text-slate-600 font-medium"
+                  className="px-2.5 py-1.5 md:px-4 md:py-2 bg-gray-100 border border-[#FF6B35]/30 rounded-full text-xs md:text-sm text-black/90 font-medium"
                 >
                   {detail}
                 </motion.span>
@@ -135,15 +135,15 @@ export const AnimatedProcessCards = ({ steps }) => {
           <div className="flex items-center gap-3 md:gap-4 pt-6 md:pt-0">
             <button
               onClick={handlePrev}
-              className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center group transition-all duration-300"
+              className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-gray-100 border border-[#FF6B35]/30 hover:bg-[#FF6B35] flex items-center justify-center group transition-all duration-300"
             >
-              <ChevronLeft className="h-5 w-5 md:h-6 md:w-6 text-slate-600 group-hover:text-slate-900 transition-colors" />
+              <ChevronLeft className="h-5 w-5 md:h-6 md:w-6 text-black/80 group-hover:text-white transition-colors" />
             </button>
             <button
               onClick={handleNext}
-              className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center group transition-all duration-300"
+              className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-gray-100 border border-[#FF6B35]/30 hover:bg-[#FF6B35] flex items-center justify-center group transition-all duration-300"
             >
-              <ChevronRight className="h-5 w-5 md:h-6 md:w-6 text-slate-600 group-hover:text-slate-900 transition-colors" />
+              <ChevronRight className="h-5 w-5 md:h-6 md:w-6 text-black/80 group-hover:text-white transition-colors" />
             </button>
             
             {/* Progress dots */}
@@ -154,8 +154,8 @@ export const AnimatedProcessCards = ({ steps }) => {
                   onClick={() => setActive(index)}
                   className={`h-2 rounded-full transition-all duration-300 ${
                     index === active 
-                      ? 'w-8 bg-gradient-to-r from-blue-500 to-purple-500' 
-                      : 'w-2 bg-slate-300 hover:bg-slate-400'
+                      ? 'w-8 bg-gradient-to-r from-[#FF6B35] to-[#FB923C]' 
+                      : 'w-2 bg-black/20 hover:bg-black/40'
                   }`}
                 />
               ))}

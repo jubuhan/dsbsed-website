@@ -29,28 +29,28 @@ const ContactPage = () => {
       title: 'Email Us',
       value: 'hello@devople.studio',
       link: 'mailto:hello@devople.studio',
-      color: 'from-orange-500 to-orange-600'
+      color: 'from-[#FF6B35] to-[#FF8C42]'
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: 'Call Us',
       value: '+91 XXXXX XXXXX',
       link: 'tel:+91XXXXXXXXXX',
-      color: 'from-orange-400 to-amber-500'
+      color: 'from-[#FB923C] to-[#FF6B35]'
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: 'Location',
       value: 'India (Remote-First)',
       link: '#',
-      color: 'from-amber-500 to-orange-500'
+      color: 'from-[#FF8C42] to-[#FB923C]'
     },
     {
       icon: <Clock className="w-6 h-6" />,
       title: 'Response Time',
       value: 'Within 24 hours',
       link: '#',
-      color: 'from-orange-500 to-amber-600'
+      color: 'from-[#FF6B35] to-[#FB923C]'
     }
   ]
 
@@ -95,16 +95,16 @@ const ContactPage = () => {
   return (
     <div className="animate-fade-in overflow-hidden">
       {/* Main Contact Section */}
-      <section className="pt-8 pb-24 bg-slate-900">
+      <section className="pt-8 pb-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Left Side - Form */}
             <div>
-              <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">Contact Form</span>
-              <h2 className="text-4xl font-bold text-white mt-4 mb-6">
+              <span className="text-[#FF6B35] font-semibold text-sm uppercase tracking-wider">Contact Form</span>
+              <h2 className="text-4xl font-bold text-black mt-4 mb-6">
                 Tell Us About Your Project
               </h2>
-              <p className="text-slate-300 mb-8">
+              <p className="text-black/80 mb-8">
                 Fill out the form below and we'll get back to you within 24 hours.
               </p>
 
@@ -120,7 +120,7 @@ const ContactPage = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-medium text-slate-300 mb-2">
+                      <label className="block text-sm font-medium text-black/90 mb-2">
                         Your Name *
                       </label>
                       <input
@@ -129,12 +129,12 @@ const ContactPage = () => {
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-600 focus:border-orange-500 focus:ring-4 focus:ring-orange-500/10 transition-all outline-none bg-slate-800 text-white placeholder-slate-400"
+                        className="w-full px-4 py-3 rounded-xl border border-[#FF6B35]/30 focus:border-[#FF6B35] focus:ring-4 focus:ring-[#FF6B35]/10 transition-all outline-none bg-white text-black placeholder-black/40"
                         placeholder="John Doe"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-slate-300 mb-2">
+                      <label className="block text-sm font-medium text-black/90 mb-2">
                         Email Address *
                       </label>
                       <input
@@ -143,7 +143,7 @@ const ContactPage = () => {
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-600 focus:border-orange-500 focus:ring-4 focus:ring-orange-500/10 transition-all outline-none bg-slate-800 text-white placeholder-slate-400"
+                        className="w-full px-4 py-3 rounded-xl border border-[#FF6B35]/30 focus:border-[#FF6B35] focus:ring-4 focus:ring-[#FF6B35]/10 transition-all outline-none bg-white text-black placeholder-black/40"
                         placeholder="john@example.com"
                       />
                     </div>
@@ -151,7 +151,7 @@ const ContactPage = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-medium text-slate-300 mb-2">
+                      <label className="block text-sm font-medium text-black/90 mb-2">
                         Subject *
                       </label>
                       <input
@@ -160,19 +160,19 @@ const ContactPage = () => {
                         required
                         value={formData.subject}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-600 focus:border-orange-500 focus:ring-4 focus:ring-orange-500/10 transition-all outline-none bg-slate-800 text-white placeholder-slate-400"
+                        className="w-full px-4 py-3 rounded-xl border border-[#FF6B35]/30 focus:border-[#FF6B35] focus:ring-4 focus:ring-[#FF6B35]/10 transition-all outline-none bg-white text-black placeholder-black/40"
                         placeholder="Mobile App Development"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-slate-300 mb-2">
+                      <label className="block text-sm font-medium text-black/90 mb-2">
                         Budget Range
                       </label>
                       <select
                         name="budget"
                         value={formData.budget}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-600 focus:border-orange-500 focus:ring-4 focus:ring-orange-500/10 transition-all outline-none bg-slate-800 text-white appearance-none"
+                        className="w-full px-4 py-3 rounded-xl border border-[#FF6B35]/30 focus:border-[#FF6B35] focus:ring-4 focus:ring-[#FF6B35]/10 transition-all outline-none bg-white text-black appearance-none"
                       >
                         <option value="">Select budget</option>
                         {budgetOptions.map((option, i) => (
@@ -183,7 +183,7 @@ const ContactPage = () => {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-2">
+                    <label className="block text-sm font-medium text-black/90 mb-2">
                       Project Details *
                     </label>
                     <textarea
@@ -192,14 +192,14 @@ const ContactPage = () => {
                       rows={6}
                       value={formData.message}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-600 focus:border-orange-500 focus:ring-4 focus:ring-orange-500/10 transition-all outline-none resize-none bg-slate-800 text-white placeholder-slate-400"
+                      className="w-full px-4 py-3 rounded-xl border border-[#FF6B35]/30 focus:border-[#FF6B35] focus:ring-4 focus:ring-[#FF6B35]/10 transition-all outline-none resize-none bg-white text-black placeholder-black/40"
                       placeholder="Tell us about your project, goals, and timeline..."
                     ></textarea>
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-xl font-semibold hover:shadow-xl hover:shadow-orange-500/25 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
+                    className="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-[#FF6B35] to-[#FB923C] text-white rounded-xl font-semibold hover:shadow-xl hover:shadow-[#FF6B35]/25 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
                   >
                     <Send className="w-5 h-5" />
                     Send Message
@@ -211,25 +211,25 @@ const ContactPage = () => {
             {/* Right Side - Visual & Social */}
             <div className="space-y-8">
               {/* Visual Card */}
-              <div className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-black rounded-3xl p-8 overflow-hidden">
+              <div className="relative bg-gradient-to-br from-white via-gray-50 to-white rounded-3xl p-8 overflow-hidden">
                 {/* Pattern */}
-                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:30px_30px]"></div>
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.05)_1px,transparent_1px)] bg-[size:30px_30px]"></div>
                 
                 {/* Decorative Elements */}
-                <div className="absolute top-6 right-6 w-20 h-20 border-2 border-white/20 rounded-full"></div>
-                <div className="absolute bottom-6 left-6 w-16 h-16 bg-white/10 rounded-xl rotate-12"></div>
+                <div className="absolute top-6 right-6 w-20 h-20 border-2 border-black/20 rounded-full"></div>
+                <div className="absolute bottom-6 left-6 w-16 h-16 bg-black/10 rounded-xl rotate-12"></div>
 
                 <div className="relative z-10">
-                  <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6">
-                    <MessageSquare className="w-8 h-8 text-white" />
+                  <div className="w-16 h-16 bg-black/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6">
+                    <MessageSquare className="w-8 h-8 text-black" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-4">
+                  <h3 className="text-2xl font-bold text-black mb-4">
                     Let's Start a Conversation
                   </h3>
-                  <p className="text-white/70 mb-6">
+                  <p className="text-black/70 mb-6">
                     Whether you have a detailed project brief or just a rough idea, we're here to help shape it into reality.
                   </p>
-                  <div className="flex items-center text-white/80">
+                  <div className="flex items-center text-black/80">
                     <Clock className="w-5 h-5 mr-2" />
                     <span>Average response time: 2-4 hours</span>
                   </div>
@@ -237,9 +237,9 @@ const ContactPage = () => {
               </div>
 
               {/* Social Links */}
-              <div className="bg-slate-800 rounded-2xl p-8 border border-slate-700">
-                <h3 className="text-xl font-bold text-white mb-4">Connect With Us</h3>
-                <p className="text-slate-300 mb-6">
+              <div className="bg-white rounded-2xl p-8 border border-[#FF6B35]/30">
+                <h3 className="text-xl font-bold text-black mb-4">Connect With Us</h3>
+                <p className="text-black/80 mb-6">
                   Follow us on social media for updates, insights, and behind-the-scenes content.
                 </p>
                 <div className="flex gap-3">
@@ -248,7 +248,7 @@ const ContactPage = () => {
                       key={index}
                       href={social.link}
                       aria-label={social.label}
-                      className="w-12 h-12 bg-slate-700 rounded-xl flex items-center justify-center text-slate-300 hover:bg-gradient-to-br hover:from-orange-500 hover:to-amber-500 hover:text-white transition-all duration-300"
+                      className="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center text-black/80 border border-[#FF6B35]/30 hover:bg-gradient-to-br hover:from-[#FF6B35] hover:to-[#FB923C] hover:text-white transition-all duration-300"
                     >
                       {social.icon}
                     </a>
@@ -261,14 +261,14 @@ const ContactPage = () => {
       </section>
 
       {/* Contact Info Cards */}
-      <section className="py-16 bg-slate-800 border-b border-slate-700">
+      <section className="py-16 bg-white border-y border-[#FF6B35]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {contactInfo.map((info, index) => (
               <a
                 key={index}
                 href={info.link}
-                className="group relative bg-slate-700 rounded-2xl p-6 hover:shadow-xl transition-all duration-500 hover:-translate-y-1 overflow-hidden"
+                className="group relative bg-gray-50 rounded-2xl p-6 hover:shadow-xl transition-all duration-500 hover:-translate-y-1 overflow-hidden border border-[#FF6B35]/30"
               >
                 {/* Background Gradient on Hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${info.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
@@ -278,8 +278,8 @@ const ContactPage = () => {
                     {info.icon}
                   </div>
                   <div>
-                    <div className="text-sm text-slate-400 mb-1">{info.title}</div>
-                    <div className="font-semibold text-white">{info.value}</div>
+                    <div className="text-sm text-black/70 mb-1">{info.title}</div>
+                    <div className="font-semibold text-black">{info.value}</div>
                   </div>
                 </div>
               </a>
@@ -289,11 +289,11 @@ const ContactPage = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 bg-slate-800">
+      <section className="py-24 bg-gray-50">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="text-orange-500 font-semibold text-sm uppercase tracking-wider">FAQ</span>
-            <h2 className="text-4xl font-bold text-white mt-4">
+            <span className="text-[#FF6B35] font-semibold text-sm uppercase tracking-wider">FAQ</span>
+            <h2 className="text-4xl font-bold text-black mt-4">
               Frequently Asked Questions
             </h2>
           </div>
@@ -302,15 +302,15 @@ const ContactPage = () => {
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-slate-700 rounded-2xl overflow-hidden"
+                className="bg-white rounded-2xl overflow-hidden border border-[#FF6B35]/30"
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                  className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-slate-600 transition-colors"
+                  className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
                 >
-                  <span className="font-semibold text-white pr-4">{faq.question}</span>
+                  <span className="font-semibold text-black pr-4">{faq.question}</span>
                   <ChevronDown 
-                    className={`w-5 h-5 text-slate-400 flex-shrink-0 transition-transform duration-300 ${
+                    className={`w-5 h-5 text-[#FF6B35] flex-shrink-0 transition-transform duration-300 ${
                       openFaq === index ? 'rotate-180' : ''
                     }`} 
                   />
@@ -320,7 +320,7 @@ const ContactPage = () => {
                     openFaq === index ? 'pb-5 max-h-40' : 'max-h-0'
                   }`}
                 >
-                  <p className="text-slate-300">{faq.answer}</p>
+                  <p className="text-black/80">{faq.answer}</p>
                 </div>
               </div>
             ))}
@@ -331,24 +331,24 @@ const ContactPage = () => {
       {/* CTA Section */}
       <section className="relative py-32 overflow-hidden">
         {/* Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-black">
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50">
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.05)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
         </div>
 
         {/* Floating Elements */}
-        <div className="absolute top-10 left-10 w-32 h-32 border border-orange-500/20 rounded-full"></div>
-        <div className="absolute bottom-10 right-10 w-48 h-48 border border-orange-500/20 rounded-full"></div>
+        <div className="absolute top-10 left-10 w-32 h-32 border border-[#FF6B35]/20 rounded-full"></div>
+        <div className="absolute bottom-10 right-10 w-48 h-48 border border-[#FF6B35]/20 rounded-full"></div>
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
             Ready to Build Something Great?
           </h2>
-          <p className="text-xl text-white/70 mb-10 max-w-2xl mx-auto">
+          <p className="text-xl text-black/70 mb-10 max-w-2xl mx-auto">
             Let's turn your vision into reality. Drop us a message and let's get started.
           </p>
           <a
             href="mailto:hello@devople.studio"
-            className="inline-flex items-center px-10 py-5 bg-orange-500 text-white rounded-full font-bold hover:bg-orange-600 transition-all duration-300 hover:shadow-2xl hover:scale-105"
+            className="inline-flex items-center px-10 py-5 bg-[#FF6B35] text-white rounded-full font-bold hover:bg-[#FF8C42] transition-all duration-300 hover:shadow-2xl hover:scale-105"
           >
             <Mail className="mr-2 w-5 h-5" />
             hello@devople.studio

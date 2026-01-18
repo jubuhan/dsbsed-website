@@ -5,8 +5,22 @@ import { ChevronLeft, ChevronRight, Check } from 'lucide-react'
 export const ServiceCard = ({ card, index }) => {
   return (
     <div className="rounded-3xl h-[26rem] w-72 sm:h-[28rem] sm:w-80 md:h-[30rem] md:w-96 overflow-hidden flex flex-col relative group">
-      {/* Background Gradient */}
-      <div className={`absolute inset-0 bg-gradient-to-br ${card.color} opacity-90`} />
+      {/* Background Image */}
+      {card.image && (
+        <div className="absolute inset-0">
+          <img 
+            src={card.image} 
+            alt={card.title}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+          <div className={`absolute inset-0 bg-gradient-to-br ${card.color} opacity-80`} />
+        </div>
+      )}
+      
+      {/* Fallback gradient if no image */}
+      {!card.image && (
+        <div className={`absolute inset-0 bg-gradient-to-br ${card.color} opacity-90`} />
+      )}
       
       {/* Pattern overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:20px_20px] opacity-30" />
@@ -93,8 +107,8 @@ export const ServicesCarousel = ({ items }) => {
           disabled={!canScrollLeft}
           className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
             canScrollLeft 
-              ? 'bg-slate-100 hover:bg-slate-200 text-slate-600' 
-              : 'bg-slate-50 text-slate-300 cursor-not-allowed'
+              ? 'bg-white/10 hover:bg-[#A480F2] text-white border border-[#A480F2]/30' 
+              : 'bg-[#1D1340] text-white/30 cursor-not-allowed border border-white/10'
           }`}
         >
           <ChevronLeft className="w-6 h-6" />
@@ -104,8 +118,8 @@ export const ServicesCarousel = ({ items }) => {
           disabled={!canScrollRight}
           className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
             canScrollRight 
-              ? 'bg-slate-100 hover:bg-slate-200 text-slate-600' 
-              : 'bg-slate-50 text-slate-300 cursor-not-allowed'
+              ? 'bg-white/10 hover:bg-[#A480F2] text-white border border-[#A480F2]/30' 
+              : 'bg-[#1D1340] text-white/30 cursor-not-allowed border border-white/10'
           }`}
         >
           <ChevronRight className="w-6 h-6" />

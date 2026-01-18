@@ -3,14 +3,19 @@
 @tailwind utilities;
 
 :root {
-  --orange-500: #f97316;
-  --amber-500: #f59e0b;
-  --orange-600: #ea580c;
+  --orange-500: #F57C00;
+  --amber-500: #F0DFC8;
+  --orange-600: #E06800;
+  --solo-primary: #F57C00;
+  --solo-secondary: #F0DFC8;
+  --solo-dark: #2D2926;
+  --solo-darker: #1F1C1A;
+  --solo-light: #FDF8F0;
 }
 
 @layer base {
   body {
-    @apply text-slate-800;
+    @apply text-white;
   }
 }
 
@@ -44,7 +49,7 @@
   }
   
   .gradient-text {
-    @apply bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[#F57C00] to-[#F0DFC8] bg-clip-text text-transparent;
   }
 }
 

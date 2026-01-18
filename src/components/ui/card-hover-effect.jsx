@@ -22,7 +22,7 @@ export const HoverEffect = ({ items, className }) => {
           <AnimatePresence>
             {hoveredIndex === idx && (
               <motion.span
-                className="absolute inset-0 h-full w-full bg-gradient-to-br from-orange-500/20 to-amber-500/20 block rounded-2xl"
+                className="absolute inset-0 h-full w-full bg-gradient-to-br from-[#FF6B35]/20 to-[#FB923C]/20 block rounded-2xl"
                 layoutId="hoverBackground"
                 initial={{ opacity: 0 }}
                 animate={{
@@ -54,7 +54,7 @@ export const Card = ({ className, children }) => {
   return (
     <div
       className={cn(
-        "relative bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 group-hover:border-orange-500/50 transition-all duration-300 h-full",
+        "relative bg-gray-50 rounded-2xl overflow-hidden border border-gray-200 group-hover:border-[#FF6B35]/50 transition-all duration-300 h-full",
         className
       )}
     >
@@ -73,11 +73,11 @@ export const CardImage = ({ src, alt, className }) => {
           className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
         />
       ) : (
-        <div className="w-full h-full flex items-center justify-center bg-slate-800">
-          <span className="text-slate-500 text-sm">Coming Soon</span>
+        <div className="w-full h-full flex items-center justify-center bg-gray-100 border border-[#FF6B35]/30">
+          <span className="text-black/50 text-sm">Coming Soon</span>
         </div>
       )}
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
     </div>
   );
 };
@@ -88,7 +88,7 @@ export const CardContent = ({ className, children }) => {
 
 export const CardTitle = ({ className, children }) => {
   return (
-    <h3 className={cn("text-white font-semibold text-lg", className)}>
+    <h3 className={cn("text-black font-semibold text-lg", className)}>
       {children}
     </h3>
   );
@@ -96,7 +96,7 @@ export const CardTitle = ({ className, children }) => {
 
 export const CardRole = ({ className, children }) => {
   return (
-    <p className={cn("text-orange-400 text-sm font-medium", className)}>
+    <p className={cn("text-[#FF6B35] text-sm font-medium", className)}>
       {children}
     </p>
   );
@@ -104,6 +104,6 @@ export const CardRole = ({ className, children }) => {
 
 export const CardDescription = ({ className, children }) => {
   return (
-    <p className={cn("text-slate-400 text-xs mt-1", className)}>{children}</p>
+    <p className={cn("text-black/70 text-xs mt-1", className)}>{children}</p>
   );
 };
