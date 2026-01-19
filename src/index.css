@@ -47,6 +47,10 @@
       transform: translateY(0);
     }
   }
+
+  .duration-600 {
+    transition-duration: 600ms;
+  }
   
   .gradient-text {
     @apply bg-gradient-to-r from-[#F57C00] to-[#F0DFC8] bg-clip-text text-transparent;

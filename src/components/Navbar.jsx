@@ -1,13 +1,11 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X } from 'lucide-react'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const location = useLocation()
 
   const navItems = [
-    { name: 'Home', path: '/' },
     { name: 'Services', path: '/services' },
     { name: 'How We Work', path: '/how-we-work' },
     { name: 'About', path: '/about' },
@@ -16,80 +14,80 @@ const Navbar = () => {
 
   const isActive = (path) => location.pathname === path
 
+  // Close menu when route changes
+  useEffect(() => {
+    setIsOpen(false)
+  }, [location])
+
   return (
-    <nav className="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-[#FF6B35]/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-[#FF6B35] to-[#FB923C] rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">D</span>
-            </div>
-            <span className="font-bold text-xl text-black">Devople</span>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`transition-colors duration-200 ${
-                  isActive(item.path)
-                    ? 'text-[#FF6B35] font-semibold'
-                    : 'text-black hover:text-[#FF6B35]'
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
-            <Link
-              to="/contact"
-              className="px-6 py-2 bg-[#FF6B35] text-white rounded-full hover:bg-[#FF8C42] transition-all duration-200 hover:shadow-lg hover:shadow-[#FF6B35]/25"
-            >
-              Get Started
-            </Link>
-          </div>
-
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-black hover:text-[#FF6B35]"
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Navigation */}
+    <>
+      {/* Logo/Name - Fixed Position Left - Only visible when menu is open */}
       {isOpen && (
-        <div className="md:hidden bg-white border-t border-[#FF6B35]/30">
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            {navItems.map((item) => (
+        <Link to="/" className="fixed top-5 left-5 z-[60] flex items-center space-x-2" onClick={() => setIsOpen(false)}>
+          <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-[#FF6B35] to-[#FB923C] rounded-lg flex items-center justify-center shadow-lg">
+            <span className="text-white font-bold text-xl md:text-2xl">D</span>
+          </div>
+          <span className="font-bold text-xl md:text-2xl text-white">Devople</span>
+        </Link>
+      )}
+
+      {/* Hamburger Menu Button - Fixed Position */}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className={`fixed top-5 right-5 z-[60] w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center transition-colors shadow-lg ${
+          isOpen ? 'bg-white/10 hover:bg-white/20' : 'bg-white hover:bg-gray-50'
+        }`}
+      >
+        <div className="relative w-5 h-5">
+          <span
+            className={`absolute top-1/2 left-1/2 -translate-x-1/2 w-2/5 h-0.5 bg-black transition-all duration-600 ease-in-out ${
+              isOpen ? 'scale-x-0' : 'scale-x-100'
+            }`}
+            style={{ transform: isOpen ? 'translateX(-50%) scaleX(0)' : 'translateX(-50%) translateY(-8px)' }}
+          />
+          <span
+            className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2/5 h-0.5 transition-all duration-600 ease-in-out ${
+              isOpen ? 'bg-white rotate-45' : 'bg-black rotate-0'
+            }`}
+          />
+          <span
+            className={`absolute top-1/2 left-1/2 -translate-x-1/2 w-2/5 h-0.5 transition-all duration-600 ease-in-out ${
+              isOpen ? 'bg-white -rotate-45' : 'bg-black rotate-0'
+            }`}
+            style={{ transform: isOpen ? 'translate(-50%, -50%) rotate(-45deg)' : 'translateX(-50%) translateY(8px)' }}
+          />
+        </div>
+      </button>
+
+      {/* Fullscreen Menu Overlay */}
+      <div
+        className={`fixed top-0 h-full w-full bg-black z-[55] transition-all duration-600 ease-in-out ${
+          isOpen ? 'right-0' : '-right-full'
+        }`}
+      >
+        <ul className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 list-none text-center w-full px-4">
+          {navItems.map((item, index) => (
+            <li key={item.path} className="my-6 md:my-8 h-[50px] md:h-[60px]">
               <Link
-                key={item.path}
                 to={item.path}
                 onClick={() => setIsOpen(false)}
-                className={`block px-3 py-2 rounded-md ${
-                  isActive(item.path)
-                    ? 'bg-[#FF6B35]/20 text-[#FF6B35] font-semibold'
-                    : 'text-black hover:bg-[#FF6B35]/10'
+                className={`relative inline-block text-3xl md:text-4xl lg:text-5xl font-medium px-8 md:px-12 py-3 md:py-4 text-white hover:text-[#FF6B35] transition-colors duration-200 ${
+                  isOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-24'
                 }`}
+                style={{
+                  transitionDelay: isOpen ? `${0.6 + index * 0.1}s` : '0s',
+                  transitionTimingFunction: 'cubic-bezier(0.1, 1.3, 0.3, 1)',
+                  lineHeight: '50px',
+                  transitionProperty: isOpen ? 'opacity, transform' : 'color'
+                }}
               >
                 {item.name}
               </Link>
-            ))}
-            <Link
-              to="/contact"
-              onClick={() => setIsOpen(false)}
-              className="block px-3 py-2 bg-[#FF6B35] text-white rounded-md text-center"
-            >
-              Get Started
-            </Link>
-          </div>
-        </div>
-      )}
-    </nav>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   )
 }
 
