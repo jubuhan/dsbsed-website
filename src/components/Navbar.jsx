@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import devopleLogo from '../assets/logo/Devople.png'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -21,13 +22,10 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Logo/Name - Fixed Position Left - Only visible when menu is open */}
+      {/* Logo - Fixed Position Left - Only visible when menu is open */}
       {isOpen && (
-        <Link to="/" className="fixed top-5 left-5 z-[60] flex items-center space-x-2" onClick={() => setIsOpen(false)}>
-          <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-[#FF6B35] to-[#FB923C] rounded-lg flex items-center justify-center shadow-lg">
-            <span className="text-white font-bold text-xl md:text-2xl">D</span>
-          </div>
-          <span className="font-bold text-xl md:text-2xl text-white">Devople</span>
+        <Link to="/" className="fixed top-5 left-5 z-[60]" onClick={() => setIsOpen(false)}>
+          <img src={devopleLogo} alt="Devople" className="h-10 md:h-12 w-auto" />
         </Link>
       )}
 

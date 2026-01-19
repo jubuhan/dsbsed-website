@@ -4,12 +4,18 @@ import { AnimatedProcessCards } from '../components/ui/AnimatedProcessCards'
 import { Button as MovingBorderButton } from '../components/ui/MovingBorder'
 
 // Process images
-import discoveryImg from '../assets/process/discovery.jpg'
-import designImg from '../assets/process/design.jpg'
-import developmentImg from '../assets/process/development.jpg'
-import testingImg from '../assets/process/testing.jpg'
-import launchImg from '../assets/process/launch.jpg'
-import supportImg from '../assets/process/support.jpg'
+import discoveryImg from '../assets/howwework/discovery.jpg'
+import designImg from '../assets/howwework/design.jpg'
+import developmentImg from '../assets/howwework/development.jpg'
+import testingImg from '../assets/howwework/testing.jpg'
+import launchImg from '../assets/howwework/launch.jpg'
+import supportImg from '../assets/howwework/support.jpg'
+
+// Principle images
+import collaborationImg from '../assets/howwework/collaboration.jpg'
+import agileImg from '../assets/howwework/agile.jpg'
+import communicationImg from '../assets/howwework/communication.jpg'
+import qualityImg from '../assets/howwework/quality.jpg'
 
 const HowWeWorkPage = () => {
   const process = [
@@ -73,29 +79,33 @@ const HowWeWorkPage = () => {
     {
       icon: <Users className="w-6 h-6" />,
       title: 'Collaboration First',
-      description: 'We work as an extension of your team, not just a vendor. Your success is our success.'
+      description: 'We work as an extension of your team, not just a vendor. Your success is our success.',
+      image: collaborationImg
     },
     {
       icon: <Zap className="w-6 h-6" />,
       title: 'Agile & Flexible',
-      description: 'We adapt quickly to changes and new requirements, keeping your project on track.'
+      description: 'We adapt quickly to changes and new requirements, keeping your project on track.',
+      image: agileImg
     },
     {
       icon: <Clock className="w-6 h-6" />,
       title: 'Transparent Communication',
-      description: 'Regular updates, honest timelines, and clear communication at every step.'
+      description: 'Regular updates, honest timelines, and clear communication at every step.',
+      image: communicationImg
     },
     {
       icon: <Layers className="w-6 h-6" />,
       title: 'Quality Over Quantity',
-      description: 'We focus on delivering exceptional work, not just meeting deadlines.'
+      description: 'We focus on delivering exceptional work, not just meeting deadlines.',
+      image: qualityImg
     }
   ]
 
   return (
     <div className="animate-fade-in overflow-hidden">
       {/* Process Timeline */}
-      <section className="pt-4 pb-12 bg-gray-50 border-b border-[#FF6B35]/30">
+      <section className="pt-4 pb-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-2">
             <span className="text-[#FF6B35] font-semibold text-sm uppercase tracking-wider">Our Process</span>
@@ -123,12 +133,23 @@ const HowWeWorkPage = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {principles.map((principle, index) => (
-              <div key={index} className="bg-gray-50 rounded-2xl p-8 text-center hover:shadow-lg transition-all duration-300 group border border-[#FF6B35]/30">
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-[#FF6B35]/20 text-[#FF6B35] mb-6 group-hover:bg-[#FF6B35] group-hover:text-white transition-all duration-300">
-                  {principle.icon}
+              <div key={index} className="relative rounded-2xl p-8 text-center hover:shadow-lg transition-all duration-300 group border border-[#FF6B35]/30 overflow-hidden">
+                {/* Background Image */}
+                <div 
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                  style={{ backgroundImage: `url(${principle.image})` }}
+                />
+                {/* Dark Overlay */}
+                <div className="absolute inset-0 bg-black/70 group-hover:bg-[#FF6B35]/90 transition-all duration-500" />
+                
+                {/* Content */}
+                <div className="relative z-10">
+                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm text-white mb-6 group-hover:bg-white group-hover:text-[#FF6B35] transition-all duration-300">
+                    {principle.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3">{principle.title}</h3>
+                  <p className="text-white/90">{principle.description}</p>
                 </div>
-                <h3 className="text-xl font-bold text-black mb-3">{principle.title}</h3>
-                <p className="text-black/80">{principle.description}</p>
               </div>
             ))}
           </div>

@@ -4,6 +4,10 @@ import { motion } from 'motion/react'
 import { CanvasRevealEffect } from '../components/ui/CanvasRevealEffect'
 import { Button as MovingBorderButton } from '../components/ui/MovingBorder'
 import serviceBg from '../assets/home/service.png'
+import devopleLogo from '../assets/logo/Devople.png'
+import fastCommunicationImg from '../assets/home/fast-communication.jpg'
+import techStackImg from '../assets/home/tech-stack.jpg'
+import startupMindsetImg from '../assets/home/startup-mindset.jpg'
 
 const HomePage = () => {
   const services = [
@@ -44,19 +48,22 @@ const HomePage = () => {
       icon: <Zap className="w-6 h-6" />,
       title: 'Fast Communication',
       description: 'We respond within hours, not days',
-      stat: '< 2hrs'
+      stat: '< 2hrs',
+      image: fastCommunicationImg
     },
     {
       icon: <Code2 className="w-6 h-6" />,
       title: 'Modern Tech Stack',
       description: 'Latest technologies and best practices',
-      stat: '15+'
+      stat: '15+',
+      image: techStackImg
     },
     {
       icon: <Users className="w-6 h-6" />,
       title: 'Startup Mindset',
       description: 'Agile, flexible, and innovation-focused',
-      stat: '100%'
+      stat: '100%',
+      image: startupMindsetImg
     }
   ]
 
@@ -66,11 +73,11 @@ const HomePage = () => {
       <section 
         className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black"
       >
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center -mt-20">
-          {/* Main Heading - Just Devople */}
-          <h1 className="text-8xl md:text-9xl lg:text-[12rem] font-bold text-white leading-none tracking-tight mb-6">
-            Devople
-          </h1>
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center -mt-8">
+          {/* Main Logo */}
+          <div className="flex justify-center mb-2">
+            <img src={devopleLogo} alt="Devople" className="w-72 md:w-[28rem] lg:w-[40rem] h-auto" />
+          </div>
 
           <p className="text-sm md:text-base text-white/60 mb-8 max-w-xl mx-auto">
             A creative studio building apps, websites, and future-ready products.
@@ -241,18 +248,29 @@ const HomePage = () => {
             {whyChooseUs.map((item, index) => (
               <div
                 key={index}
-                className="group text-center p-6 rounded-2xl bg-gray-50 border border-[#FF6B35]/30 hover:bg-gradient-to-br hover:from-[#FF6B35] hover:to-[#FB923C] transition-all duration-500"
+                className="group relative text-center p-6 rounded-2xl overflow-hidden border border-[#FF6B35]/30 transition-all duration-500 hover:scale-105"
               >
-                <div className="w-12 h-12 bg-gradient-to-br from-[#FF6B35] to-[#FB923C] group-hover:bg-white text-white group-hover:text-[#FF6B35] rounded-xl flex items-center justify-center mx-auto mb-4 transition-all duration-500">
-                  {item.icon}
+                {/* Background Image */}
+                <div 
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                  style={{ backgroundImage: `url(${item.image})` }}
+                />
+                {/* Dark Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70 group-hover:from-[#FF6B35]/90 group-hover:to-[#FB923C]/90 transition-all duration-500" />
+                
+                {/* Content */}
+                <div className="relative z-10">
+                  <div className="w-12 h-12 bg-white/20 backdrop-blur-sm group-hover:bg-white text-white group-hover:text-[#FF6B35] rounded-xl flex items-center justify-center mx-auto mb-4 transition-all duration-500">
+                    {item.icon}
+                  </div>
+                  <div className="text-3xl font-bold text-white mb-1 transition-colors">
+                    {item.stat}
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-1 transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-white/80 text-sm transition-colors">{item.description}</p>
                 </div>
-                <div className="text-3xl font-bold text-black group-hover:text-white mb-1 transition-colors">
-                  {item.stat}
-                </div>
-                <h3 className="text-base font-bold text-black group-hover:text-white mb-1 transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-black/70 text-sm group-hover:text-white/80 transition-colors">{item.description}</p>
               </div>
             ))}
           </div>
