@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Mail, Phone, MapPin, Send, MessageSquare, Clock, CheckCircle, ArrowRight, Linkedin, Instagram, ChevronDown } from 'lucide-react'
+import { Mail, Phone, MapPin, Send, MessageSquare, Clock, CheckCircle, ArrowRight, Linkedin, Instagram, ChevronDown, Youtube } from 'lucide-react'
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -47,10 +47,10 @@ const ContactPage = () => {
 
   const contactInfo = [
     {
-      icon: <Mail className="w-6 h-6" />,
-      title: 'Email Us',
-      value: 'hello@devople.com',
-      link: 'mailto:hello@devople.com',
+      icon: <Youtube className="w-6 h-6" />,
+      title: 'YouTube',
+      value: 'Devople Channel',
+      link: 'https://youtube.com/',
       color: 'from-[#FF6B35] to-[#FF8C42]'
     }
   ]
@@ -58,7 +58,7 @@ const ContactPage = () => {
   const socials = [
     { icon: <Linkedin className="w-5 h-5" />, link: '#', label: 'LinkedIn' },
     { icon: <Instagram className="w-5 h-5" />, link: '#', label: 'Instagram' },
-    { icon: <Mail className="w-5 h-5" />, link: 'mailto:hello@devople.com', label: 'Email' }
+    { icon: <Youtube className="w-5 h-5" />, link: 'https://youtube.com/', label: 'YouTube' }
   ]
 
   const faqs = [
@@ -117,9 +117,6 @@ const ContactPage = () => {
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-medium text-black/90 mb-2">
-                        Your Name *
-                      </label>
                       <input
                         type="text"
                         name="name"
@@ -127,13 +124,10 @@ const ContactPage = () => {
                         value={formData.name}
                         onChange={handleChange}
                         className="w-full px-4 py-3 rounded-xl border border-[#FF6B35]/30 focus:border-[#FF6B35] focus:ring-4 focus:ring-[#FF6B35]/10 transition-all outline-none bg-white text-black placeholder-black/40"
-                        placeholder="John Doe"
+                        placeholder="Your Name *"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-black/90 mb-2">
-                        Email Address *
-                      </label>
                       <input
                         type="email"
                         name="email"
@@ -141,15 +135,12 @@ const ContactPage = () => {
                         value={formData.email}
                         onChange={handleChange}
                         className="w-full px-4 py-3 rounded-xl border border-[#FF6B35]/30 focus:border-[#FF6B35] focus:ring-4 focus:ring-[#FF6B35]/10 transition-all outline-none bg-white text-black placeholder-black/40"
-                        placeholder="john@example.com"
+                        placeholder="Email Address *"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-black/90 mb-2">
-                      Subject *
-                    </label>
                     <input
                       type="text"
                       name="subject"
@@ -157,14 +148,11 @@ const ContactPage = () => {
                       value={formData.subject}
                       onChange={handleChange}
                       className="w-full px-4 py-3 rounded-xl border border-[#FF6B35]/30 focus:border-[#FF6B35] focus:ring-4 focus:ring-[#FF6B35]/10 transition-all outline-none bg-white text-black placeholder-black/40"
-                      placeholder="Mobile App Development"
+                      placeholder="Subject *"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-black/90 mb-2">
-                      Project Details *
-                    </label>
                     <textarea
                       name="message"
                       required
@@ -172,7 +160,7 @@ const ContactPage = () => {
                       value={formData.message}
                       onChange={handleChange}
                       className="w-full px-4 py-3 rounded-xl border border-[#FF6B35]/30 focus:border-[#FF6B35] focus:ring-4 focus:ring-[#FF6B35]/10 transition-all outline-none resize-none bg-white text-black placeholder-black/40"
-                      placeholder="Tell us about your project, goals, and timeline..."
+                      placeholder="Project Details *"
                     ></textarea>
                   </div>
 
@@ -191,6 +179,7 @@ const ContactPage = () => {
             <div className="space-y-8">
               {/* Email Us Card */}
               <div>
+                <h3 className="text-2xl font-bold text-black mb-6">Reach Us</h3>
                 {contactInfo.map((info, index) => (
                   <a
                     key={index}

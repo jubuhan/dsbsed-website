@@ -223,24 +223,35 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Stats Section - Glassmorphism */}
-      <section className="py-12 bg-gradient-to-br from-[#FF6B35] via-[#FB923C] to-[#FF6B35] relative overflow-hidden">
-        {/* Animated Shapes */}
-        <div className="absolute top-0 left-0 w-full h-full">
-          <div className="absolute top-10 left-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
-          <div className="absolute bottom-10 right-10 w-60 h-60 bg-white/10 rounded-full blur-2xl"></div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      {/* Stats Section - Modern Centered Design */}
+      <section className="py-16 bg-gray-50 relative overflow-hidden">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center group">
-                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
-                  <div className="flex justify-center mb-4 text-white/80">
-                    {stat.icon}
+              <div key={index} className="group">
+                <div className="relative bg-white rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-2 border-[#FF6B35]/20 hover:border-[#FF6B35] min-w-[280px]">
+                  {/* Background Gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B35]/5 to-[#FB923C]/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  
+                  <div className="relative z-10 text-center">
+                    {/* Icon */}
+                    <div className="flex justify-center mb-6">
+                      <div className="w-16 h-16 bg-gradient-to-br from-[#FF6B35] to-[#FB923C] rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
+                        {stat.icon}
+                      </div>
+                    </div>
+                    
+                    {/* Number */}
+                    <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-[#FF6B35] to-[#FB923C] bg-clip-text text-transparent mb-3">
+                      {stat.number}
+                    </div>
+                    
+                    {/* Label */}
+                    <p className="text-black/70 text-lg font-semibold">{stat.label}</p>
                   </div>
-                  <div className="text-4xl md:text-5xl font-bold text-white mb-2">{stat.number}</div>
-                  <p className="text-white/70 text-sm">{stat.label}</p>
+
+                  {/* Decorative Corner */}
+                  <div className="absolute top-4 right-4 w-20 h-20 bg-gradient-to-br from-[#FF6B35]/10 to-[#FB923C]/10 rounded-full blur-xl group-hover:scale-150 transition-transform duration-500"></div>
                 </div>
               </div>
             ))}
