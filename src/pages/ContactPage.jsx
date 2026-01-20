@@ -1,12 +1,11 @@
 import { useState } from 'react'
-import { Mail, Phone, MapPin, Send, MessageSquare, Clock, CheckCircle, ArrowRight, Linkedin, Twitter, Instagram, Github, ChevronDown } from 'lucide-react'
+import { Mail, Phone, MapPin, Send, MessageSquare, Clock, CheckCircle, ArrowRight, Linkedin, Instagram, ChevronDown } from 'lucide-react'
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
-    budget: '',
     message: ''
   })
   const [submitted, setSubmitted] = useState(false)
@@ -18,47 +17,48 @@ const ContactPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 5000)
+    
+    // Create form data for submission
+    const form = e.target
+    const formData = new FormData(form)
+    
+    // Submit to FormSubmit.co
+    fetch('https://formsubmit.co/jubuhantt5203@gmail.com', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        setSubmitted(true)
+        setFormData({ name: '', email: '', subject: '', message: '' })
+        setTimeout(() => setSubmitted(false), 5000)
+      } else {
+        alert('Something went wrong. Please try again or email us directly.')
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error)
+      alert('Something went wrong. Please try again or email us directly.')
+    })
   }
 
   const contactInfo = [
     {
       icon: <Mail className="w-6 h-6" />,
       title: 'Email Us',
-      value: 'hello@devople.studio',
-      link: 'mailto:hello@devople.studio',
+      value: 'hello@devople.com',
+      link: 'mailto:hello@devople.com',
       color: 'from-[#FF6B35] to-[#FF8C42]'
-    },
-    {
-      icon: <Phone className="w-6 h-6" />,
-      title: 'Call Us',
-      value: '+91 XXXXX XXXXX',
-      link: 'tel:+91XXXXXXXXXX',
-      color: 'from-[#FB923C] to-[#FF6B35]'
-    },
-    {
-      icon: <MapPin className="w-6 h-6" />,
-      title: 'Location',
-      value: 'India (Remote-First)',
-      link: '#',
-      color: 'from-[#FF8C42] to-[#FB923C]'
-    },
-    {
-      icon: <Clock className="w-6 h-6" />,
-      title: 'Response Time',
-      value: 'Within 24 hours',
-      link: '#',
-      color: 'from-[#FF6B35] to-[#FB923C]'
     }
   ]
 
   const socials = [
-    { icon: <Twitter className="w-5 h-5" />, link: '#', label: 'Twitter' },
     { icon: <Linkedin className="w-5 h-5" />, link: '#', label: 'LinkedIn' },
     { icon: <Instagram className="w-5 h-5" />, link: '#', label: 'Instagram' },
-    { icon: <Github className="w-5 h-5" />, link: '#', label: 'GitHub' }
+    { icon: <Mail className="w-5 h-5" />, link: 'mailto:hello@devople.com', label: 'Email' }
   ]
 
   const faqs = [
@@ -82,14 +82,6 @@ const ContactPage = () => {
       question: 'Can you work with our existing team?',
       answer: 'Absolutely! We often collaborate with in-house teams, providing additional expertise or handling specific parts of a project while integrating seamlessly with your workflow.'
     }
-  ]
-
-  const budgetOptions = [
-    'Under $5,000',
-    '$5,000 - $10,000',
-    '$10,000 - $25,000',
-    '$25,000 - $50,000',
-    '$50,000+'
   ]
 
   return (
@@ -118,6 +110,11 @@ const ContactPage = () => {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Hidden fields for FormSubmit configuration */}
+                  <input type="hidden" name="_captcha" value="false" />
+                  <input type="hidden" name="_template" value="box" />
+                  <input type="hidden" name="_subject" value="New Contact Form Submission - Devople" />
+                  
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-medium text-black/90 mb-2">
@@ -149,37 +146,19 @@ const ContactPage = () => {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium text-black/90 mb-2">
-                        Subject *
-                      </label>
-                      <input
-                        type="text"
-                        name="subject"
-                        required
-                        value={formData.subject}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl border border-[#FF6B35]/30 focus:border-[#FF6B35] focus:ring-4 focus:ring-[#FF6B35]/10 transition-all outline-none bg-white text-black placeholder-black/40"
-                        placeholder="Mobile App Development"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-black/90 mb-2">
-                        Budget Range
-                      </label>
-                      <select
-                        name="budget"
-                        value={formData.budget}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl border border-[#FF6B35]/30 focus:border-[#FF6B35] focus:ring-4 focus:ring-[#FF6B35]/10 transition-all outline-none bg-white text-black appearance-none"
-                      >
-                        <option value="">Select budget</option>
-                        {budgetOptions.map((option, i) => (
-                          <option key={i} value={option}>{option}</option>
-                        ))}
-                      </select>
-                    </div>
+                  <div>
+                    <label className="block text-sm font-medium text-black/90 mb-2">
+                      Subject *
+                    </label>
+                    <input
+                      type="text"
+                      name="subject"
+                      required
+                      value={formData.subject}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-xl border border-[#FF6B35]/30 focus:border-[#FF6B35] focus:ring-4 focus:ring-[#FF6B35]/10 transition-all outline-none bg-white text-black placeholder-black/40"
+                      placeholder="Mobile App Development"
+                    />
                   </div>
 
                   <div>
@@ -210,30 +189,28 @@ const ContactPage = () => {
 
             {/* Right Side - Visual & Social */}
             <div className="space-y-8">
-              {/* Visual Card */}
-              <div className="relative bg-gradient-to-br from-white via-gray-50 to-white rounded-3xl p-8 overflow-hidden">
-                {/* Pattern */}
-                <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.05)_1px,transparent_1px)] bg-[size:30px_30px]"></div>
-                
-                {/* Decorative Elements */}
-                <div className="absolute top-6 right-6 w-20 h-20 border-2 border-black/20 rounded-full"></div>
-                <div className="absolute bottom-6 left-6 w-16 h-16 bg-black/10 rounded-xl rotate-12"></div>
-
-                <div className="relative z-10">
-                  <div className="w-16 h-16 bg-black/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6">
-                    <MessageSquare className="w-8 h-8 text-black" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-black mb-4">
-                    Let's Start a Conversation
-                  </h3>
-                  <p className="text-black/70 mb-6">
-                    Whether you have a detailed project brief or just a rough idea, we're here to help shape it into reality.
-                  </p>
-                  <div className="flex items-center text-black/80">
-                    <Clock className="w-5 h-5 mr-2" />
-                    <span>Average response time: 2-4 hours</span>
-                  </div>
-                </div>
+              {/* Email Us Card */}
+              <div>
+                {contactInfo.map((info, index) => (
+                  <a
+                    key={index}
+                    href={info.link}
+                    className="group relative bg-white rounded-2xl p-6 hover:shadow-xl transition-all duration-500 hover:-translate-y-1 overflow-hidden border border-[#FF6B35]/30 block"
+                  >
+                    {/* Background Gradient on Hover */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${info.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
+                    
+                    <div className="relative z-10 flex items-start gap-4">
+                      <div className={`w-12 h-12 bg-gradient-to-br ${info.color} text-white rounded-xl flex items-center justify-center flex-shrink-0`}>
+                        {info.icon}
+                      </div>
+                      <div>
+                        <div className="text-sm text-black/70 mb-1">{info.title}</div>
+                        <div className="font-semibold text-black">{info.value}</div>
+                      </div>
+                    </div>
+                  </a>
+                ))}
               </div>
 
               {/* Social Links */}
@@ -256,34 +233,6 @@ const ContactPage = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Info Cards */}
-      <section className="py-10 bg-white border-y border-[#FF6B35]/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {contactInfo.map((info, index) => (
-              <a
-                key={index}
-                href={info.link}
-                className="group relative bg-gray-50 rounded-2xl p-6 hover:shadow-xl transition-all duration-500 hover:-translate-y-1 overflow-hidden border border-[#FF6B35]/30"
-              >
-                {/* Background Gradient on Hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${info.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
-                
-                <div className="relative z-10 flex items-start gap-4">
-                  <div className={`w-12 h-12 bg-gradient-to-br ${info.color} text-white rounded-xl flex items-center justify-center flex-shrink-0`}>
-                    {info.icon}
-                  </div>
-                  <div>
-                    <div className="text-sm text-black/70 mb-1">{info.title}</div>
-                    <div className="font-semibold text-black">{info.value}</div>
-                  </div>
-                </div>
-              </a>
-            ))}
           </div>
         </div>
       </section>
@@ -325,34 +274,6 @@ const ContactPage = () => {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="relative py-16 overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50">
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.05)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
-        </div>
-
-        {/* Floating Elements */}
-        <div className="absolute top-10 left-10 w-32 h-32 border border-[#FF6B35]/20 rounded-full"></div>
-        <div className="absolute bottom-10 right-10 w-48 h-48 border border-[#FF6B35]/20 rounded-full"></div>
-
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
-            Ready to Build Something Great?
-          </h2>
-          <p className="text-xl text-black/70 mb-10 max-w-2xl mx-auto">
-            Let's turn your vision into reality. Drop us a message and let's get started.
-          </p>
-          <a
-            href="mailto:hello@devople.studio"
-            className="inline-flex items-center px-10 py-5 bg-[#FF6B35] text-white rounded-full font-bold hover:bg-[#FF8C42] transition-all duration-300 hover:shadow-2xl hover:scale-105"
-          >
-            <Mail className="mr-2 w-5 h-5" />
-            hello@devople.studio
-          </a>
         </div>
       </section>
     </div>

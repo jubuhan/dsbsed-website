@@ -159,43 +159,11 @@ const ServicesPage = () => {
 
               {/* Stats Card */}
               <div className="absolute -bottom-6 -left-6 bg-gray-50 rounded-2xl p-6 shadow-2xl border border-[#FF6B35]/30">
-                <div className="text-4xl font-bold text-black mb-1">50+</div>
-                <div className="text-black/70">Projects Delivered</div>
+                <div className="text-4xl font-bold text-black mb-1">10+</div>
+                <div className="text-black/70">Projects Built</div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="relative py-16 overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50">
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.05)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
-        </div>
-
-        {/* Floating Elements */}
-        <div className="absolute top-10 left-10 w-32 h-32 border border-[#FF6B35]/20 rounded-full"></div>
-        <div className="absolute bottom-10 right-10 w-48 h-48 border border-[#FF6B35]/20 rounded-full"></div>
-
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
-            Ready to Start Your Project?
-          </h2>
-          <p className="text-xl text-black/70 mb-10 max-w-2xl mx-auto">
-            Let's discuss your requirements and create something amazing together.
-          </p>
-          <MovingBorderButton
-            as={Link}
-            to="/contact"
-            borderRadius="2rem"
-            containerClassName="h-16 mx-auto"
-            className="px-10 py-5 bg-[#FF6B35] text-white border-none font-bold hover:bg-[#FF8C42]"
-            borderClassName="bg-[radial-gradient(var(--solo-primary)_40%,transparent_60%)]"
-          >
-            Get a Free Quote
-            <ArrowRight className="ml-2 w-5 h-5" />
-          </MovingBorderButton>
         </div>
       </section>
     </div>

@@ -156,38 +156,16 @@ const HowWeWorkPage = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-12 bg-gradient-to-r from-gray-50 via-white to-gray-50">
+      {/* View Services Link */}
+      <section className="py-12 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
-            Ready to Start Your Project?
-          </h2>
-          <p className="text-lg text-black/80 mb-6 max-w-2xl mx-auto">
-            Let's discuss your ideas and create something amazing together.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <MovingBorderButton
-              as={Link}
-              to="/contact"
-              borderRadius="2rem"
-              containerClassName="h-14"
-              className="px-8 py-4 bg-[#FF6B35] text-white border-none font-semibold group hover:bg-[#FF8C42]"
-              borderClassName="bg-[radial-gradient(var(--solo-primary)_40%,transparent_60%)]"
-            >
-              Get in Touch
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </MovingBorderButton>
-            <MovingBorderButton
-              as={Link}
-              to="/services"
-              borderRadius="2rem"
-              containerClassName="h-14"
-              className="px-8 py-4 bg-transparent text-black border-black/50 font-semibold hover:bg-black/10 transition-colors"
-              borderClassName="bg-[radial-gradient(var(--pink-500)_40%,transparent_60%)]"
-            >
-              View Our Services
-            </MovingBorderButton>
-          </div>
+          <Link
+            to="/services"
+            className="inline-flex items-center text-[#FF6B35] font-semibold text-lg hover:text-[#FB923C] group transition-colors"
+          >
+            Explore Our Services
+            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
       </section>
     </div>

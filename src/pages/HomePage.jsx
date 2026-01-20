@@ -152,19 +152,17 @@ const HomePage = () => {
                 <span className="block bg-gradient-to-r from-[#FF6B35] to-[#FB923C] bg-clip-text text-transparent">We Grow</span>
               </h2>
               
-              <div className="space-y-4 md:space-y-6 text-sm md:text-xl text-black/80 leading-relaxed">
-                <p className="relative pl-4 md:pl-6 border-l-2 border-[#FF6B35]/50">
-                  <span className="text-black font-semibold">We're growing, just like you.</span>
-                  <br />
-                  That's why we take every project seriously and never cut corners.
+              <blockquote className="relative pl-4 md:pl-6 border-l-2 border-[#FF6B35]/50 italic text-sm md:text-xl text-black/80 leading-relaxed space-y-4">
+                <p>
+                  "<span className="text-black font-semibold">We're growing, just like you.</span> That's why we take every project seriously and never cut corners."
                 </p>
-                <p className="relative pl-4 md:pl-6 border-l-2 border-[#FF6B35]/30">
-                  Your success drives our success, so we handle your product with care, responsibility, and extra effort.
+                <p>
+                  "Your success drives our success, so we handle your product with care, responsibility, and extra effort."
                 </p>
-                <p className="relative pl-4 md:pl-6 border-l-2 border-[#FF6B35]/20">
-                  We believe in building relationships, not just products. Trust us with your idea, and we'll give it everything we've got.
+                <p>
+                  "We believe in building relationships, not just products. Trust us with your idea, and we'll give it everything we've got."
                 </p>
-              </div>
+              </blockquote>
               
               <div className="mt-6 md:mt-10 inline-flex items-center px-4 py-2 md:px-6 md:py-3 rounded-full bg-gradient-to-r from-[#FF6B35]/20 to-[#FB923C]/20 border border-[#FF6B35]/30 backdrop-blur-sm shadow-lg shadow-[#FF6B35]/10">
                 <div className="w-6 h-6 md:w-8 md:h-8 bg-gradient-to-br from-[#FF6B35] to-[#FB923C] rounded-full flex items-center justify-center mr-2 md:mr-3">
@@ -180,7 +178,7 @@ const HomePage = () => {
       {/* Services Section - Bento Grid */}
       <section className="relative py-12 z-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative bg-white rounded-3xl shadow-2xl py-10 px-6 border border-gray-200 overflow-hidden transition-all duration-500 hover:shadow-[0_20px_60px_rgba(255,107,53,0.3)] hover:scale-[1.02] group">
+          <div className="relative bg-white rounded-3xl shadow-2xl py-10 px-6 border border-gray-200 overflow-hidden transition-all duration-500 hover:shadow-[0_20px_60px_rgba(255,107,53,0.3)] group">
             {/* Background Image */}
             <div className="absolute inset-0">
               <img 
@@ -273,27 +271,6 @@ const HomePage = () => {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonial / Social Proof */}
-      <section className="py-12 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="flex justify-center mb-6">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-6 h-6 text-[#FF6B35] fill-[#FF6B35]" />
-            ))}
-          </div>
-          <blockquote className="text-2xl md:text-3xl font-medium text-black mb-8 leading-relaxed">
-            "Working with this team was an absolute pleasure. They delivered beyond our expectations and the communication was excellent throughout."
-          </blockquote>
-          <div className="flex items-center justify-center">
-            <div className="w-12 h-12 bg-gradient-to-br from-[#FF6B35] to-[#FB923C] rounded-full mr-4"></div>
-            <div className="text-left">
-              <div className="font-semibold text-black">[Client Name]</div>
-              <div className="text-black/70 text-sm">[Company Name]</div>
-            </div>
           </div>
         </div>
       </section>

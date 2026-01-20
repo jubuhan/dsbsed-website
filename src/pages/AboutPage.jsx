@@ -118,9 +118,7 @@ const AboutPage = () => {
   ]
 
   const stats = [
-    { number: '50+', label: 'Projects Delivered', icon: <Rocket className="w-6 h-6" /> },
-    { number: '30+', label: 'Happy Clients', icon: <Heart className="w-6 h-6" /> },
-    { number: '5+', label: 'Products Built', icon: <Code2 className="w-6 h-6" /> },
+    { number: '10+', label: 'Products Built', icon: <Code2 className="w-6 h-6" /> },
     { number: '11', label: 'Team Members', icon: <Coffee className="w-6 h-6" /> },
   ]
 
@@ -247,25 +245,6 @@ const AboutPage = () => {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-24 bg-gray-50 border-t border-[#FF6B35]/30">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
-            Want to join our team?
-          </h2>
-          <p className="text-xl text-black/70 mb-8">
-            We're always looking for talented people who share our passion for building great products.
-          </p>
-          <a
-            href="/contact"
-            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#FF6B35] to-[#FB923C] text-white rounded-full font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300"
-          >
-            <span>Get In Touch</span>
-            <Rocket className="ml-2 w-5 h-5" />
-          </a>
         </div>
       </section>
     </div>
