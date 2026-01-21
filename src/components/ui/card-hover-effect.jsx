@@ -8,14 +8,14 @@ export const HoverEffect = ({ items, className }) => {
   return (
     <div
       className={cn(
-        "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6",
+        "flex flex-wrap justify-center gap-6",
         className
       )}
     >
       {items.map((item, idx) => (
         <div
           key={idx}
-          className="relative group block h-full w-full"
+          className="relative group block h-full w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] lg:w-[calc(25%-18px)]"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
         >

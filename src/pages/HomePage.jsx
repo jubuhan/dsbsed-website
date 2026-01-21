@@ -87,10 +87,16 @@ const HomePage = () => {
           <div className="flex justify-center">
             <Link
               to="/contact"
-              className="inline-flex items-center px-6 py-3 bg-[#FF6B35] text-white rounded-full font-semibold hover:bg-[#FF8C42] transition-colors text-sm"
+              className="group inline-flex items-center px-5 py-2 md:px-8 md:py-3 bg-[#FF6B35] text-white rounded font-semibold transition-all duration-1000 hover:duration-500 shadow-[6px_6px_0_black] hover:shadow-[10px_10px_0_#FBC638] -skew-x-[15deg] text-xs md:text-sm"
             >
-              Work With Us
-              <ArrowRight className="ml-2 w-4 h-4" />
+              <span className="skew-x-[15deg]">Work With Us</span>
+              <span className="skew-x-[15deg] ml-4 transition-all duration-500 group-hover:ml-10">
+                <svg className="w-4 h-4" viewBox="0 0 46 16" xmlns="http://www.w3.org/2000/svg">
+                  <path className="transition-all duration-400 -translate-x-[60%] group-hover:translate-x-0 group-hover:animate-[color_anim_1s_infinite_0.6s]" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)" fill="white"/>
+                  <path className="transition-all duration-500 -translate-x-[30%] group-hover:translate-x-0 group-hover:animate-[color_anim_1s_infinite_0.4s]" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)" fill="white"/>
+                  <path className="group-hover:animate-[color_anim_1s_infinite_0.2s]" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)" fill="white"/>
+                </svg>
+              </span>
             </Link>
           </div>
         </div>
@@ -221,10 +227,16 @@ const HomePage = () => {
             <div className="text-center mt-8">
               <Link
                 to="/services"
-                className="inline-flex items-center text-[#FF6B35] font-semibold hover:text-[#FB923C] group"
+                className="group inline-flex items-center px-5 py-2 md:px-8 md:py-3 bg-[#FF6B35] text-white rounded font-semibold transition-all duration-1000 hover:duration-500 shadow-[6px_6px_0_black] hover:shadow-[10px_10px_0_#FBC638] -skew-x-[15deg] text-xs md:text-base"
               >
-                View All Services 
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <span className="skew-x-[15deg]">View All Services</span>
+                <span className="skew-x-[15deg] ml-4 transition-all duration-500 group-hover:ml-10">
+                  <svg className="w-4 h-4" viewBox="0 0 46 16" xmlns="http://www.w3.org/2000/svg">
+                    <path className="transition-all duration-400 -translate-x-[60%] group-hover:translate-x-0 group-hover:animate-[color_anim_1s_infinite_0.6s]" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)" fill="white"/>
+                    <path className="transition-all duration-500 -translate-x-[30%] group-hover:translate-x-0 group-hover:animate-[color_anim_1s_infinite_0.4s]" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)" fill="white"/>
+                    <path className="group-hover:animate-[color_anim_1s_infinite_0.2s]" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)" fill="white"/>
+                  </svg>
+                </span>
               </Link>
             </div>
             </div>
@@ -300,17 +312,19 @@ const HomePage = () => {
           <p className="text-xl text-black/70 mb-10 max-w-2xl mx-auto">
             Ready to turn your idea into reality? We'd love to hear from you and start creating something amazing.
           </p>
-          <MovingBorderButton
-            as={Link}
+          <Link
             to="/contact"
-            borderRadius="2rem"
-            containerClassName="h-16 mx-auto"
-            className="px-10 py-5 bg-[#FF6B35] text-white border-none font-bold hover:bg-[#FF8C42]"
-            borderClassName="bg-[radial-gradient(var(--solo-primary)_40%,transparent_60%)]"
+            className="group inline-flex items-center px-5 py-2 md:px-8 md:py-3 bg-[#FF6B35] text-white rounded font-bold transition-all duration-1000 hover:duration-500 shadow-[6px_6px_0_black] hover:shadow-[10px_10px_0_#FBC638] -skew-x-[15deg] text-xs md:text-base"
           >
-            Start Your Project
-            <ArrowRight className="ml-2 w-5 h-5" />
-          </MovingBorderButton>
+            <span className="skew-x-[15deg]">Start Your Project</span>
+            <span className="skew-x-[15deg] ml-4 transition-all duration-500 group-hover:ml-12">
+              <svg className="w-5 h-5" viewBox="0 0 46 16" xmlns="http://www.w3.org/2000/svg">
+                <path className="transition-all duration-400 -translate-x-[60%] group-hover:translate-x-0 group-hover:animate-[color_anim_1s_infinite_0.6s]" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)" fill="white"/>
+                <path className="transition-all duration-500 -translate-x-[30%] group-hover:translate-x-0 group-hover:animate-[color_anim_1s_infinite_0.4s]" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)" fill="white"/>
+                <path className="group-hover:animate-[color_anim_1s_infinite_0.2s]" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)" fill="white"/>
+              </svg>
+            </span>
+          </Link>
         </div>
       </section>
     </div>

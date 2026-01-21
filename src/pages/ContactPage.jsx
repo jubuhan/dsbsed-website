@@ -47,18 +47,18 @@ const ContactPage = () => {
 
   const contactInfo = [
     {
-      icon: <Youtube className="w-6 h-6" />,
-      title: 'YouTube',
-      value: 'Devople Channel',
-      link: 'https://youtube.com/',
+      icon: <Mail className="w-6 h-6" />,
+      title: 'Email Us',
+      value: 'hello@devople.com',
+      link: 'mailto:hello@devople.com',
       color: 'from-[#FF6B35] to-[#FF8C42]'
     }
   ]
 
   const socials = [
-    { icon: <Linkedin className="w-5 h-5" />, link: '#', label: 'LinkedIn' },
-    { icon: <Instagram className="w-5 h-5" />, link: '#', label: 'Instagram' },
-    { icon: <Youtube className="w-5 h-5" />, link: 'https://youtube.com/', label: 'YouTube' }
+    { icon: <Linkedin className="w-5 h-5" />, link: '#', label: 'LinkedIn', colors: ['#0077B5', '#00A0DC'] },
+    { icon: <Instagram className="w-5 h-5" />, link: '#', label: 'Instagram', colors: ['#F58529', '#DD2A7B'] },
+    { icon: <Youtube className="w-5 h-5" />, link: 'https://youtube.com/', label: 'YouTube', colors: ['#FF0000', '#CC0000'] }
   ]
 
   const faqs = [
@@ -166,10 +166,16 @@ const ContactPage = () => {
 
                   <button
                     type="submit"
-                    className="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-[#FF6B35] to-[#FB923C] text-white rounded-xl font-semibold hover:shadow-xl hover:shadow-[#FF6B35]/25 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
+                    className="group relative w-full md:w-auto px-10 py-4 bg-[#FF6B35] text-white rounded font-semibold transition-all duration-1000 hover:duration-500 shadow-[6px_6px_0_black] hover:shadow-[10px_10px_0_#FBC638] -skew-x-[15deg] flex items-center justify-center gap-2"
                   >
-                    <Send className="w-5 h-5" />
-                    Send Message
+                    <span className="skew-x-[15deg]">Send Message</span>
+                    <span className="skew-x-[15deg] transition-all duration-500 group-hover:ml-11">
+                      <svg className="w-5 h-5" viewBox="0 0 46 16" xmlns="http://www.w3.org/2000/svg">
+                        <path className="transition-all duration-400 -translate-x-[60%] group-hover:translate-x-0 group-hover:animate-[color_anim_1s_infinite_0.6s]" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)" fill="white"/>
+                        <path className="transition-all duration-500 -translate-x-[30%] group-hover:translate-x-0 group-hover:animate-[color_anim_1s_infinite_0.4s]" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)" fill="white"/>
+                        <path className="group-hover:animate-[color_anim_1s_infinite_0.2s]" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)" fill="white"/>
+                      </svg>
+                    </span>
                   </button>
                 </form>
               )}
@@ -208,18 +214,48 @@ const ContactPage = () => {
                 <p className="text-black/80 mb-6">
                   Follow us on social media for updates, insights, and behind-the-scenes content.
                 </p>
-                <div className="flex gap-3">
+                <ul className="flex gap-6 justify-center">
                   {socials.map((social, index) => (
-                    <a
-                      key={index}
-                      href={social.link}
-                      aria-label={social.label}
-                      className="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center text-black/80 border border-[#FF6B35]/30 hover:bg-gradient-to-br hover:from-[#FF6B35] hover:to-[#FB923C] hover:text-white transition-all duration-300"
+                    <li 
+                      key={index} 
+                      className="group relative w-[60px] h-[60px] bg-white shadow-[0_10px_25px_rgba(0,0,0,0.1)] rounded-full cursor-pointer flex justify-center items-center transition-all duration-500 hover:w-[180px] hover:shadow-none"
+                      style={{
+                        '--i': social.colors[0],
+                        '--j': social.colors[1]
+                      }}
                     >
-                      {social.icon}
-                    </a>
+                      {/* Gradient Border Effect */}
+                      <div 
+                        className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                        style={{
+                          background: `linear-gradient(45deg, ${social.colors[0]}, ${social.colors[1]})`
+                        }}
+                      ></div>
+                      
+                      {/* Glow Effect */}
+                      <div 
+                        className="absolute top-[10px] w-full h-full rounded-full opacity-0 group-hover:opacity-50 transition-opacity duration-500 -z-10 blur-[15px]"
+                        style={{
+                          background: `linear-gradient(45deg, ${social.colors[0]}, ${social.colors[1]})`
+                        }}
+                      ></div>
+                      
+                      {/* Icon */}
+                      <a
+                        href={social.link}
+                        aria-label={social.label}
+                        className="relative z-10 text-[#777] transition-all duration-500 delay-250 group-hover:scale-0 group-hover:delay-0 flex items-center justify-center"
+                      >
+                        <span className="text-[1.75em]">{social.icon}</span>
+                      </a>
+                      
+                      {/* Title Text */}
+                      <span className="absolute text-white text-[1.1em] tracking-[0.1em] uppercase scale-0 transition-all duration-500 delay-0 group-hover:scale-100 group-hover:delay-250">
+                        {social.label}
+                      </span>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             </div>
           </div>

@@ -24,7 +24,14 @@ const Navbar = () => {
     <>
       {/* Logo - Fixed Position Left - Only visible when menu is open */}
       {isOpen && (
-        <Link to="/" className="fixed top-5 left-5 z-[60]" onClick={() => setIsOpen(false)}>
+        <Link 
+          to="/" 
+          className="fixed top-5 left-5 z-[60] opacity-0 animate-fade-in" 
+          onClick={() => setIsOpen(false)}
+          style={{
+            animation: 'fadeIn 0.3s ease-in-out 0.6s forwards'
+          }}
+        >
           <img src={devopleLogo} alt="Devople" className="h-10 md:h-12 w-auto" />
         </Link>
       )}

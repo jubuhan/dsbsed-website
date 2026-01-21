@@ -11,6 +11,8 @@ import joyal from '../assets/team/joyal.png'
 import mehrin from '../assets/team/mehrin.png'
 import ramees from '../assets/team/ramees.png'
 import aina from '../assets/team/aina.png'
+import devadash from '../assets/team/devadash.png'
+import viswajith from '../assets/team/viswajith.png'
 import missionImg from '../assets/about/mission.jpg'
 import userCentricImg from '../assets/about/user-centric.jpg'
 import innovationImg from '../assets/about/innovation.jpg'
@@ -43,10 +45,22 @@ const AboutPage = () => {
       bio: 'java full stack developer'
     },
     {
-      name: 'Ain Aina',
+      name: 'Aina',
       role: 'Marketing',
       image: aina,
       bio: 'social media manager'
+    },
+    {
+      name: 'Devadash',
+      role: 'Developer',
+      image: devadash,
+      bio: 'MERN stack developer'
+    },
+    {
+      name: 'Viswajith',
+      role: 'Developer',
+      image: viswajith,
+      bio: 'MERN stack developer'
     },
     {
       name: 'Amjed Usman',
