@@ -113,16 +113,23 @@ const HomePage = () => {
             <div className="flex-shrink-0 lg:ml-8">
               <div 
                 className="w-48 h-64 md:w-72 md:h-96 perspective-1000 cursor-pointer group transform -rotate-3"
-                style={{ perspective: '1000px' }}
+                style={{ perspective: '1000px', WebkitPerspective: '1000px' }}
               >
                 <div 
                   className="relative w-full h-full transition-transform duration-700 group-hover:[transform:rotateY(180deg)]"
-                  style={{ transformStyle: 'preserve-3d' }}
+                  style={{ 
+                    transformStyle: 'preserve-3d',
+                    WebkitTransformStyle: 'preserve-3d'
+                  }}
                 >
                   {/* Front */}
                   <div 
                     className="absolute w-full h-full rounded-2xl bg-gradient-to-br from-[#FF6B35] to-[#FB923C] shadow-xl overflow-hidden flex flex-col"
-                    style={{ backfaceVisibility: 'hidden' }}
+                    style={{ 
+                      backfaceVisibility: 'hidden',
+                      WebkitBackfaceVisibility: 'hidden',
+                      zIndex: 2
+                    }}
                   >
                     <img 
                       src={teamDevopleImg} 
@@ -139,7 +146,13 @@ const HomePage = () => {
                   {/* Back */}
                   <div 
                     className="absolute w-full h-full rounded-2xl flex flex-col items-center justify-center bg-gradient-to-br from-[#FF6B35] to-[#FB923C] text-white p-4 md:p-8 text-center [transform:rotateY(180deg)]"
-                    style={{ backfaceVisibility: 'hidden' }}
+                    style={{ 
+                      backfaceVisibility: 'hidden',
+                      WebkitBackfaceVisibility: 'hidden',
+                      transform: 'rotateY(180deg)',
+                      WebkitTransform: 'rotateY(180deg)',
+                      zIndex: 1
+                    }}
                   >
                     <Sparkles className="w-6 h-6 md:w-10 md:h-10 mb-2 md:mb-4" />
                     <p className="font-semibold text-base md:text-xl mb-2 md:mb-3">Our Promise</p>
