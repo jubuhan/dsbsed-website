@@ -6,9 +6,11 @@ import HomePage from './pages/HomePage'
 import ServicesPage from './pages/ServicesPage'
 import HowWeWorkPage from './pages/HowWeWorkPage'
 import AboutPage from './pages/AboutPage'
+import CareersPage from './pages/CareersPage'
 import ContactPage from './pages/ContactPage'
 import PrivacyPage from './pages/PrivacyPage'
 import TermsPage from './pages/TermsPage'
+import NotFoundPage from './pages/NotFoundPage'
 import './App.css'
 
 function App() {
@@ -23,10 +25,11 @@ function App() {
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/how-we-work" element={<HowWeWorkPage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/careers" element={<CareersPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/privacy" element={<PrivacyPage />} />
             <Route path="/terms" element={<TermsPage />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </div>
         <Footer />

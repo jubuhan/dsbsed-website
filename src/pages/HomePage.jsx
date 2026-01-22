@@ -121,19 +121,19 @@ const HomePage = () => {
                 >
                   {/* Front */}
                   <div 
-                    className="absolute w-full h-full rounded-2xl overflow-hidden shadow-xl"
+                    className="absolute w-full h-full rounded-2xl bg-gradient-to-br from-[#FF6B35] to-[#FB923C] shadow-xl overflow-hidden"
                     style={{ backfaceVisibility: 'hidden' }}
                   >
                     <img 
                       src={teamDevopleImg} 
                       alt="Team Devople" 
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover absolute inset-0"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-transparent flex flex-col items-center justify-start pt-6 md:pt-8">
-                      <div className="w-12 h-12 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center mb-2 md:mb-3 p-2 md:p-3 -rotate-3">
-                        <img src={dLogo} alt="D" className="w-full h-full object-contain ml-0.5" />
+                    <div className="relative z-10 flex flex-col items-center pt-12">
+                      <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center mb-4 shadow-lg">
+                        <img src={dLogo} alt="D" className="w-11 h-11" />
                       </div>
-                      <span className="text-white font-bold text-lg md:text-2xl">Team Devople</span>
+                      <h3 className="text-white text-2xl font-bold drop-shadow-lg">Team Devople</h3>
                     </div>
                   </div>
                   {/* Back */}
