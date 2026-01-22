@@ -138,8 +138,8 @@ const HomePage = () => {
                   </div>
                   {/* Back */}
                   <div 
-                    className="absolute w-full h-full rounded-2xl flex flex-col items-center justify-center bg-gradient-to-br from-[#FF6B35] to-[#FB923C] text-white p-4 md:p-8 text-center [transform:rotateY(180deg)]"
-                    style={{ backfaceVisibility: 'hidden' }}
+                    className="absolute w-full h-full rounded-2xl flex flex-col items-center justify-center bg-gradient-to-br from-[#FF6B35] to-[#FB923C] text-white p-4 md:p-8 text-center"
+                    style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
                   >
                     <Sparkles className="w-6 h-6 md:w-10 md:h-10 mb-2 md:mb-4" />
                     <p className="font-semibold text-base md:text-xl mb-2 md:mb-3">Our Promise</p>
