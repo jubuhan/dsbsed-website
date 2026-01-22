@@ -129,11 +129,11 @@ const HomePage = () => {
                       alt="Team Devople" 
                       className="w-full h-full object-cover absolute inset-0"
                     />
-                    <div className="relative z-10 flex flex-col items-center pt-12">
-                      <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center mb-4 shadow-lg">
-                        <img src={dLogo} alt="D" className="w-11 h-11" />
+                    <div className="relative z-10 flex flex-col items-center pt-6 md:pt-12">
+                      <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/90 flex items-center justify-center mb-3 md:mb-4 shadow-lg">
+                        <img src={dLogo} alt="D" className="w-8 h-8 md:w-11 md:h-11" />
                       </div>
-                      <h3 className="text-white text-2xl font-bold drop-shadow-lg">Team Devople</h3>
+                      <h3 className="text-white text-lg md:text-2xl font-bold drop-shadow-lg">Team Devople</h3>
                     </div>
                   </div>
                   {/* Back */}
