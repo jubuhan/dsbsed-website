@@ -5,9 +5,11 @@ import { CanvasRevealEffect } from '../components/ui/CanvasRevealEffect'
 import { Button as MovingBorderButton } from '../components/ui/MovingBorder'
 import serviceBg from '../assets/home/service.png'
 import devopleLogo from '../assets/logo/Devople.png'
+import dLogo from '../assets/logo/D.png'
 import fastCommunicationImg from '../assets/home/fast-communication.jpg'
 import techStackImg from '../assets/home/tech-stack.jpg'
 import startupMindsetImg from '../assets/home/startup-mindset.jpg'
+import teamDevopleImg from '../assets/home/teamdevople.png'
 
 const HomePage = () => {
   const services = [
@@ -76,7 +78,7 @@ const HomePage = () => {
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center -mt-8">
           {/* Main Logo */}
           <div className="flex justify-center mb-2">
-            <img src={devopleLogo} alt="Devople" className="w-72 md:w-[28rem] lg:w-[40rem] h-auto" />
+            <img src={devopleLogo} alt="Devople" className="w-72 md:w-[28rem] lg:w-[40rem] h-auto" loading="eager" />
           </div>
 
           <p className="text-sm md:text-base text-white/60 mb-8 max-w-xl mx-auto">
@@ -119,14 +121,20 @@ const HomePage = () => {
                 >
                   {/* Front */}
                   <div 
-                    className="absolute w-full h-full rounded-2xl flex flex-col items-center justify-center bg-gradient-to-br from-white to-gray-50 border border-[#FF6B35]/30 shadow-xl"
+                    className="absolute w-full h-full rounded-2xl overflow-hidden shadow-xl"
                     style={{ backfaceVisibility: 'hidden' }}
                   >
-                    <div className="w-16 h-16 md:w-24 md:h-24 bg-gradient-to-br from-[#FF6B35] to-[#FB923C] rounded-full flex items-center justify-center mb-3 md:mb-4">
-                      <Users className="w-8 h-8 md:w-12 md:h-12 text-white" />
+                    <img 
+                      src={teamDevopleImg} 
+                      alt="Team Devople" 
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-transparent flex flex-col items-center justify-start pt-6 md:pt-8">
+                      <div className="w-12 h-12 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center mb-2 md:mb-3 p-2 md:p-3 -rotate-3">
+                        <img src={dLogo} alt="D" className="w-full h-full object-contain ml-0.5" />
+                      </div>
+                      <span className="text-white font-bold text-lg md:text-2xl">Team Devople</span>
                     </div>
-                    <span className="text-black font-bold text-lg md:text-2xl">Team Devople</span>
-                    <span className="text-black/70 text-xs md:text-sm mt-1 md:mt-2">Tap to reveal</span>
                   </div>
                   {/* Back */}
                   <div 
@@ -254,7 +262,7 @@ const HomePage = () => {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-0">
             {whyChooseUs.map((item, index) => (
               <div
                 key={index}
@@ -266,7 +274,7 @@ const HomePage = () => {
                   style={{ backgroundImage: `url(${item.image})` }}
                 />
                 {/* Dark Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70 group-hover:from-[#FF6B35]/90 group-hover:to-[#FB923C]/90 transition-all duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70 group-hover:from-[#FF6B35]/70 group-hover:to-[#FB923C]/70 transition-all duration-500" />
                 
                 {/* Content */}
                 <div className="relative z-10">
