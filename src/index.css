@@ -16,13 +16,6 @@
 @layer base {
   body {
     @apply text-black;
-    -webkit-overflow-scrolling: touch;
-  }
-  
-  html {
-    overflow-x: hidden;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
   }
 }
 
