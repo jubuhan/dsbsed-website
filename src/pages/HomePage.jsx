@@ -1,8 +1,15 @@
 import { Link } from 'react-router-dom'
-import { Smartphone, Globe, Palette, Lightbulb, ArrowRight, Zap, Users, Code2, Sparkles, MousePointer, Rocket, Star, Database, Cloud } from 'lucide-react'
+import { Smartphone, Globe, Palette, Lightbulb, ArrowRight, Zap, Users, Code2, Sparkles, MousePointer, Rocket, Star, Database, Cloud, Calendar, Clock, ChevronLeft, ChevronRight } from 'lucide-react'
 import { motion } from 'motion/react'
 import { CanvasRevealEffect } from '../components/ui/CanvasRevealEffect'
 import { Button as MovingBorderButton } from '../components/ui/MovingBorder'
+import { blogPosts } from '../data/blogData'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay, Pagination, Navigation } from 'swiper/modules'
+import { useRef } from 'react'
+import 'swiper/css'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
 import serviceBg from '../assets/home/service.png'
 import devopleLogo from '../assets/logo/Devople.png'
 import dLogo from '../assets/logo/D.png'
@@ -12,6 +19,8 @@ import startupMindsetImg from '../assets/home/startup-mindset.jpg'
 import teamDevopleImg from '../assets/home/teamdevople.png'
 
 const HomePage = () => {
+  const blogSwiperRef = useRef(null)
+  
   const services = [
     {
       icon: <Smartphone className="w-7 h-7" />,
@@ -304,6 +313,132 @@ const HomePage = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Latest Blog Posts Section */}
+      <section className="py-16 px-6 bg-gradient-to-b from-white to-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-4">
+            <span className="text-[#FF6B35] font-semibold text-sm uppercase tracking-wider">Our Blog</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-black mt-4 mb-2">
+              Insights & Resources
+            </h2>
+            <p className="text-lg text-black/70 max-w-2xl mx-auto">
+              Explore our latest articles on technology, design, and innovation
+            </p>
+          </div>
+
+          {/* Navigation Buttons */}
+          <div className="flex justify-end gap-2 mb-3 px-2">
+            <button
+              onClick={() => blogSwiperRef.current?.slidePrev()}
+              className="w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 bg-[#FF6B35]/10 hover:bg-[#FF6B35] text-[#FF6B35] hover:text-white border border-[#FF6B35]/30"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            <button
+              onClick={() => blogSwiperRef.current?.slideNext()}
+              className="w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 bg-[#FF6B35]/10 hover:bg-[#FF6B35] text-[#FF6B35] hover:text-white border border-[#FF6B35]/30"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+          </div>
+
+          <div className="px-4 md:px-0">
+            <Swiper
+              onSwiper={(swiper) => (blogSwiperRef.current = swiper)}
+              modules={[Autoplay, Pagination]}
+              spaceBetween={32}
+              slidesPerView={1}
+              loop={true}
+              autoplay={{
+                delay: 3500,
+                disableOnInteraction: false,
+              }}
+              pagination={{
+                clickable: true,
+                dynamicBullets: true,
+              }}
+              breakpoints={{
+                640: {
+                  slidesPerView: 1,
+                  spaceBetween: 20,
+                },
+                768: {
+                  slidesPerView: 2,
+                  spaceBetween: 24,
+                },
+                1024: {
+                  slidesPerView: 3,
+                  spaceBetween: 32,
+                },
+              }}
+              className="blog-swiper"
+            >
+            {blogPosts.map((post) => (
+              <SwiperSlide key={post.id} className="py-2">
+                <Link
+                  to={`/blog/${post.id}`}
+                  className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 block h-full"
+                >
+                  {/* Blog Image */}
+                  <div className="relative h-48 overflow-hidden">
+                    <img 
+                      src={post.image} 
+                      alt={post.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute top-4 left-4">
+                      <span className="px-3 py-1 bg-[#FF6B35] text-white rounded-full text-xs font-semibold">
+                        {post.category}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Blog Content */}
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold mb-2 text-black group-hover:text-[#FF6B35] transition-colors">
+                      {post.title}
+                    </h3>
+                    <p className="text-gray-700 mb-6 line-clamp-2">{post.excerpt}</p>
+
+                    {/* Meta Info */}
+                    <div className="flex items-center justify-between text-sm text-gray-500">
+                      <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-1">
+                          <Calendar size={14} />
+                          <span className="text-xs">{post.date}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Clock size={14} />
+                          <span className="text-xs">{post.readTime}</span>
+                        </div>
+                      </div>
+                      <ArrowRight className="group-hover:translate-x-1 transition-transform text-[#FF6B35]" size={18} />
+                    </div>
+                  </div>
+                </Link>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          </div>
+
+          <div className="text-center mt-4 md:mt-6">
+            <Link
+              to="/blog"
+              className="group inline-flex items-center px-5 py-2 md:px-8 md:py-3 bg-[#FF6B35] text-white rounded font-semibold transition-all duration-1000 hover:duration-500 shadow-[6px_6px_0_black] hover:shadow-[10px_10px_0_#FBC638] -skew-x-[15deg] text-xs md:text-base"
+            >
+              <span className="skew-x-[15deg]">View All Posts</span>
+              <span className="skew-x-[15deg] ml-4 transition-all duration-500 group-hover:ml-12">
+                <svg className="w-5 h-5" viewBox="0 0 46 16" xmlns="http://www.w3.org/2000/svg">
+                  <path className="transition-all duration-400 -translate-x-[60%] group-hover:translate-x-0 group-hover:animate-[color_anim_1s_infinite_0.6s]" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)" fill="white"/>
+                  <path className="transition-all duration-500 -translate-x-[30%] group-hover:translate-x-0 group-hover:animate-[color_anim_1s_infinite_0.4s]" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)" fill="white"/>
+                  <path className="group-hover:animate-[color_anim_1s_infinite_0.2s]" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" transform="translate(30)" fill="white"/>
+                </svg>
+              </span>
+            </Link>
           </div>
         </div>
       </section>

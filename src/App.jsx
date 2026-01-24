@@ -7,6 +7,8 @@ import ServicesPage from './pages/ServicesPage'
 import HowWeWorkPage from './pages/HowWeWorkPage'
 import AboutPage from './pages/AboutPage'
 import CareersPage from './pages/CareersPage'
+import BlogPage from './pages/BlogPage'
+import BlogPostPage from './pages/BlogPostPage'
 import ContactPage from './pages/ContactPage'
 import PrivacyPage from './pages/PrivacyPage'
 import TermsPage from './pages/TermsPage'
@@ -26,6 +28,8 @@ function App() {
             <Route path="/how-we-work" element={<HowWeWorkPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/careers" element={<CareersPage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:id" element={<BlogPostPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/privacy" element={<PrivacyPage />} />
             <Route path="/terms" element={<TermsPage />} />
