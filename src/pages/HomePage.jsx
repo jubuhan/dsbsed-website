@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Smartphone, Globe, Palette, Lightbulb, ArrowRight, Zap, Users, Code2, Sparkles, MousePointer, Rocket, Star, Database, Cloud, Calendar, Clock, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Smartphone, Globe, Palette, Lightbulb, ArrowRight, Zap, Users, Code2, Sparkles, MousePointer, Rocket, Star, Database, Cloud, Calendar, Clock, ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react'
 import { motion } from 'motion/react'
 import { CanvasRevealEffect } from '../components/ui/CanvasRevealEffect'
 import { Button as MovingBorderButton } from '../components/ui/MovingBorder'
@@ -91,7 +91,7 @@ const HomePage = () => {
           </div>
 
           <p className="text-sm md:text-base text-white/60 mb-8 max-w-xl mx-auto">
-            A creative studio building apps, websites, and future-ready products.
+            Transforming ideas into powerful digital experiences that drive growth and innovation.
           </p>
 
           {/* CTA Button */}
@@ -109,6 +109,14 @@ const HomePage = () => {
                 </svg>
               </span>
             </Link>
+          </div>
+        </div>
+
+        {/* Scroll Down Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+          <div className="flex flex-col items-center gap-2 animate-bounce">
+            <span className="text-white/40 text-xs uppercase tracking-wider">Scroll</span>
+            <ChevronDown className="w-6 h-6 text-white/60" />
           </div>
         </div>
 
@@ -240,7 +248,7 @@ const HomePage = () => {
                   <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-2xl`}></div>
                   
                   <div className="relative z-10 flex flex-col items-center text-center">
-                    <div className={`w-12 h-12 bg-gradient-to-br ${service.color} text-white rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300`}>
+                    <div className="w-12 h-12 bg-gray-100 text-black rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
                       {service.icon}
                     </div>
                     <h3 className="text-sm font-bold text-gray-800">
