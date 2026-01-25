@@ -17,7 +17,7 @@ import './App.css'
 
 function App() {
   return (
-    <Router basename="/dsbsed-website/">
+    <Router>
       <ScrollToTop />
       <div className="min-h-screen bg-black relative">
         <Navbar />

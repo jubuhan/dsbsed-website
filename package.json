@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://jubuh.github.io/dsbsed-website",
+  "homepage": "https://devople.com",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
