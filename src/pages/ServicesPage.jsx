@@ -90,7 +90,7 @@ const ServicesPage = () => {
   return (
     <div className="animate-fade-in overflow-hidden">
       {/* Services - Apple-style Carousel */}
-      <section className="pt-6 pb-12 bg-gray-50 border-b border-[#FF6B35]/30">
+      <section className="pt-6 pb-12 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8 px-4 sm:px-6 lg:px-8">
             <span className="text-[#FF6B35] font-semibold text-sm uppercase tracking-wider">What We Do</span>

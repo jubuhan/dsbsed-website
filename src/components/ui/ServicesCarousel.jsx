@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight, Check } from 'lucide-react'
 
 export const ServiceCard = ({ card, index }) => {
   return (
-    <div className="rounded-3xl h-[26rem] w-72 sm:h-[28rem] sm:w-80 md:h-[30rem] md:w-96 overflow-hidden flex flex-col relative group border-2 border-transparent hover:border-[#FF6B35] transition-colors duration-300">
+    <div className="rounded-3xl h-[28rem] w-72 sm:h-[28rem] sm:w-80 md:h-[30rem] md:w-96 overflow-hidden flex flex-col relative group border-2 border-transparent hover:border-[#FF6B35] transition-colors duration-300">
       {/* Background Image */}
       {card.image && (
         <div className="absolute inset-0">
@@ -45,7 +45,7 @@ export const ServiceCard = ({ card, index }) => {
         </h3>
         
         {/* Description */}
-        <p className="text-white/70 text-sm md:text-base mb-5 leading-relaxed line-clamp-4 sm:line-clamp-none">
+        <p className="text-white/70 text-sm md:text-base mb-5 leading-relaxed">
           {card.description}
         </p>
 
